@@ -43,3 +43,19 @@ Competitor test: another meal app has no mint/amber/coral copies and none of thi
 
 Live thing: the day's menu card — switch Breakfast/Lunch/Dinner, order or skip, repeat weekly, and a
 real countdown to the (sample) cutoff.
+
+## Look rounds (Kids)
+1. Hero picture squeezed by the stripe's min-content width; ledger figures overlapping captions; segmented
+   control broken; receipt indent → fixed.
+2. Sticky sheets taller than the screen hid their own text; on phones the parent list was cut → sheets sized
+   to fit under the stacked tabs; not sticky on phones.
+
+## Business
+Same direction, seed dealt into .taste-skill/business. Hero: tabbed folder stack; the front folder opens
+into the live 30-second order (stopwatch + pickup ticket). Proof: printed guest list; stats: total and its
+receipt (0 € fees, rows sum); CTA: sentence with a blank → prefills #contact. Kept the Kids page's
+itinerary, coupon and footer so the two products read as one site (footer redraw reason: consistency, and
+there is no public email or phone to set as the display line).
+Idea: the office lunch pickup ticket. Live thing: order in under 30 seconds, timed.
+Defended WARNs: no footage (no honest clip found); grey-body 4.9:1 is ink on the brand coral; size-count from
+the giant 0 € figure and the app fragments.

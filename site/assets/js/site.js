@@ -183,3 +183,58 @@
     status.textContent = 'Thank you. This preview isn’t connected to email yet, so nothing was sent.';
   });
 })();
+
+// Business: an order in under thirty seconds. The clock starts at the first choice and stops at payment.
+(() => {
+  const root = document.querySelector('[data-order30]');
+  if (!root) return;
+  const form = root.querySelector('[data-order-form]');
+  const pay = root.querySelector('[data-pay]');
+  const watch = root.querySelector('[data-watch]');
+  const note = root.querySelector('[data-watch-note]');
+  const ticket = root.querySelector('[data-ticket]');
+  let start = 0, timer = 0;
+  const fmt = (ms) => { const s = Math.floor(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; }; // taste-skill-ignore: clock time
+  const run = () => { watch.textContent = fmt(Date.now() - start); };
+
+  form.addEventListener('change', () => {
+    pay.disabled = !form.querySelector('input:checked');
+    if (!start) { start = Date.now(); timer = setInterval(run, 250); note.textContent = 'Running. Pay when you are ready.'; }
+  });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const main = form.querySelector('input:checked');
+    if (!main) return;
+    clearInterval(timer);
+    const secs = Math.max(1, Math.round((Date.now() - (start || Date.now())) / 1000));
+    watch.textContent = fmt(secs * 1000);
+    note.textContent = secs <= 30 ? 'Under thirty seconds. Lunch is ordered.' : 'Ordered. It gets quicker with practice.';
+    root.querySelector('[data-ticket-no]').textContent = 'No. ' + String(Math.floor(Math.random() * 900) + 100);
+    root.querySelector('[data-ticket-dish]').textContent = 'Soup + ' + main.value;
+    root.querySelector('[data-ticket-time]').textContent = secs + ' s';
+    ticket.hidden = false;
+    ticket.classList.remove('is-printing'); void ticket.offsetWidth; ticket.classList.add('is-printing');
+    ticket.focus({ preventScroll: true });
+    pay.disabled = true;
+  });
+  root.querySelector('[data-ticket-again]').addEventListener('click', () => {
+    form.reset(); pay.disabled = true; ticket.hidden = true;
+    start = 0; watch.textContent = '0:00'; note.textContent = 'The average Ordero order takes 30 seconds.';
+    form.querySelector('input').focus();
+  });
+})();
+
+// Business: the sentence with a blank carries the company name down to the contact form
+(() => {
+  const form = document.querySelector('[data-blank]');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const company = form.querySelector('input').value.trim();
+    const msg = document.querySelector('#contact textarea');
+    if (company && msg && !msg.value) msg.value = `Company: ${company}\n`;
+    const target = document.getElementById('contact');
+    target.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    setTimeout(() => (document.getElementById('c-name') || target).focus({ preventScroll: true }), 500);
+  });
+})();

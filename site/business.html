@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ordero Business — office lunch, pre-ordered in the app</title>
+<meta name="description" content="Your team pre-orders and pays for lunch in the Ordero app and picks it up at the office kitchen. No delivery fees, no subscriptions, nobody coordinating orders.">
+<link rel="icon" href="assets/brand/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Main" style="--nav-bg: var(--paper)">
+  <a class="nav__logo" href="index.html" aria-label="Ordero, home"><img src="assets/brand/logo.png" alt="Ordero" width="2673" height="800"></a>
+  <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+  <div class="nav__links" id="nav-links">
+    <div class="nav__products">
+      <button class="nav__products-btn" type="button" aria-expanded="false" aria-controls="products-menu">Products <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      <div class="nav__menu" id="products-menu">
+        <a href="index.html"><i style="background: var(--mint)"></i><strong>Ordero Kids</strong><span>School and kindergarten meals</span></a>
+        <a href="business.html" aria-current="page"><i style="background: var(--coral)"></i><strong>Ordero Business</strong><span>Lunch for offices and work sites</span></a>
+      </div>
+    </div>
+    <a class="link" href="#contact">Book a demo</a>
+    <a class="link" href="https://app.ordero.lt/login">Log in</a>
+    <a class="button nav__cta" href="https://business.ordero.lt/login"><span>Start ordering</span></a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- Hero: the office's lunch, filed in folders -->
+<header class="bhero">
+  <div class="bhero__head">
+    <h1 data-rise style="--d:0">Office lunch</h1>
+    <p data-rise style="--d:1">Your team pre-orders and pays for lunch in the Ordero Business app, then picks it up at the office kitchen. No delivery fees, no subscriptions, no queue.</p>
+  </div>
+  <div class="folders">
+    <div class="folder" data-rise style="--d:2; --k:0; --f: var(--surface); --x: 78%; --xm: 62%"><a class="folder__tab" href="#contact">Get in touch</a></div>
+    <div class="folder" data-rise style="--d:3; --k:1; --f: var(--paper); --x: 58%; --xm: 44%"><a class="folder__tab" href="#why">Why Ordero</a></div>
+    <div class="folder" data-rise style="--d:4; --k:2; --f: var(--amber); --x: 38%; --xm: 30%"><a class="folder__tab" href="#steps">Three steps</a></div>
+    <div class="folder" data-rise style="--d:5; --k:3; --f: var(--mint); --x: 18%; --xm: 0%"><a class="folder__tab" href="#partners">Partners</a></div>
+    <div class="folder folder--front" data-rise style="--d:6; --k:4; --f: var(--coral); --x: 0%; --xm: 52%"><a class="folder__tab" href="#order">Order lunch</a>
+      <a class="button" href="https://business.ordero.lt/login"><span>Start ordering</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- The front folder, open: an order in under thirty seconds -->
+<div class="order-wrap">
+  <section class="order" id="order" aria-labelledby="order-title" data-order30>
+    <div class="order__words">
+      <h2 class="head" id="order-title" data-reveal>Lunch in under 30 seconds</h2>
+      <p data-reveal style="--d:1">Browse the day’s menu, pick a dish and pay in the app. Try it here: the clock starts when you choose.</p>
+      <div class="watch" data-reveal style="--d:2" aria-live="off">
+        <b data-watch>0:00</b><span data-watch-note>The average Ordero order takes 30 seconds.</span>
+      </div>
+      <div class="ticket" data-ticket hidden tabindex="-1">
+        <h3>Pickup ticket <span data-ticket-no>No. 047</span></h3>
+        <dl>
+          <dt>Order</dt><dd data-ticket-dish>Soup + Swedish beef meatballs</dd>
+          <dt>Where</dt><dd>Office kitchen</dd>
+          <dt>When</dt><dd>From 12:00</dd>
+          <dt>Paid</dt><dd data-ticket-paid>6,90 €</dd>
+          <dt>Delivery</dt><dd>0,00 €</dd>
+          <dt>Ordered in</dt><dd data-ticket-time>9 s</dd>
+        </dl>
+        <button type="button" data-ticket-again>Order another</button>
+      </div>
+    </div>
+    <form class="order__app ui-card" data-ui data-reveal style="--d:1" data-order-form>
+      <div class="ui-card__top"><b>Today’s lunch</b><span>Office kitchen, from 12:00</span></div>
+      <div class="ui-dish"><b>Soup + main course</b><span>6,90 €</span></div>
+      <fieldset class="ui-pick">
+        <legend>Select main course</legend>
+        <label><input type="radio" name="main" value="Chicken steak"> Chicken steak</label>
+        <label><input type="radio" name="main" value="Swedish beef meatballs"> Swedish beef meatballs</label>
+        <label><input type="radio" name="main" value="Potato pudding (kugelis)"> Potato pudding (kugelis) with cracklings and sour cream</label>
+        <label><input type="radio" name="main" value="Thin pancakes with curd"> Thin pancakes with curd</label>
+      </fieldset>
+      <button class="ui-pay" type="submit" disabled data-pay><span>Pay and order</span><span>6,90 €</span></button>
+    </form>
+  </section>
+</div>
+
+<!-- Partners, printed as a guest list -->
+<section class="guests" id="partners" aria-labelledby="partners-title">
+  <div class="guests__card">
+    <h2 id="partners-title" data-reveal>Lunch is served at</h2>
+    <figure data-reveal style="--d:1">
+      <img src="assets/img/gediminas-avenue.jpg" alt="Gediminas Avenue in Vilnius on an autumn day, with offices and shops along the street" width="1600" height="1284" loading="lazy">
+      <figcaption>Gedimino prospektas, Vilnius</figcaption>
+    </figure>
+    <p class="guests__names" data-reveal style="--d:1">Avion Express&nbsp;· Firstpick&nbsp;· Oras&nbsp;· TeraSky&nbsp;· Homanit&nbsp;· Lost&nbsp;Astronaut</p>
+    <div class="guests__logos" aria-hidden="true" data-reveal style="--d:2">
+      <img src="assets/brand/b-avion.jpg" alt="" loading="lazy" width="480" height="128">
+      <img src="assets/brand/b-firstpick.png" alt="" loading="lazy" width="480" height="98">
+      <img src="assets/brand/b-oras.png" alt="" loading="lazy" width="240" height="240">
+      <img src="assets/brand/b-terasky.png" alt="" loading="lazy" width="480" height="78">
+      <img src="assets/brand/b-homanit.png" alt="" loading="lazy" width="480" height="85">
+      <img src="assets/brand/b-lost-astronaut.jpg" alt="" loading="lazy" width="430" height="191">
+    </div>
+    <p class="guests__more" data-reveal style="--d:3">and 100+ companies more.</p>
+  </div>
+</section>
+
+<!-- Three steps, on a slip -->
+<section class="section itinerary itinerary--amber" id="steps" aria-labelledby="steps-title">
+  <div class="grid">
+    <div class="itinerary__intro">
+      <h2 class="head" id="steps-title" data-reveal>Three steps, five minutes</h2>
+      <p data-reveal style="--d:1">From download to first order takes five minutes at most. After that, lunch takes thirty seconds.</p>
+      <figure class="itinerary__pic" data-reveal style="--d:2">
+        <img src="assets/img/ordero-business-hand.webp" alt="A hand holding a phone with the Ordero app open on Soup + main course, 6,90 €, Swedish beef meatballs selected" width="900" height="963" loading="lazy">
+      </figure>
+    </div>
+    <div class="receipt" data-reveal style="--d:1">
+      <h3>Once</h3>
+      <ol>
+        <li><span>Download the app</span><span>1 min</span></li>
+        <li><span>See your personalised daily menu</span><span>at once</span></li>
+      </ol>
+      <h3>Each day</h3>
+      <ol>
+        <li><span>Choose from fresh daily options</span><span>20 s</span></li>
+        <li><span>Pay in the app</span><span>10 s</span></li>
+      </ol>
+      <h3>At lunch</h3>
+      <ol>
+        <li><span>Pick up at the office kitchen</span><span>ready</span></li>
+        <li><span>Delivery fee</span><span>0,00 €</span></li>
+      </ol>
+      <p class="receipt__total"><span>Lunch, ordered</span><span>30 s</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- Why: the total and its receipt -->
+<section class="total" id="why" aria-labelledby="why-title">
+  <div class="total__left">
+    <div>
+      <h2 class="head" id="why-title" data-reveal>Nothing extra on the bill</h2>
+      <p data-reveal style="--d:1">Employees pre-order and pay in advance, so there are no lunch queues and nobody coordinates orders by hand. Meals arrive at the office kitchen pickup point.</p>
+    </div>
+    <div class="total__figure" data-reveal>
+      <b>0 €</b>
+      <span>in delivery fees. Ever.</span>
+    </div>
+  </div>
+  <div class="receipt" data-reveal style="--d:1">
+    <h3>Fees</h3>
+    <ol>
+      <li><span>Delivery</span><span>0,00 €</span></li>
+      <li><span>Courier</span><span>0,00 €</span></li>
+      <li><span>Subscription</span><span>0,00 €</span></li>
+      <li><span>Hidden fees</span><span>0,00 €</span></li>
+    </ol>
+    <h3>Time</h3>
+    <ol>
+      <li><span>Placing an order, on average</span><span>30 s</span></li>
+      <li><span>Saved per employee, each week</span><span>up to 2 h</span></li>
+    </ol>
+    <h3>People</h3>
+    <ol>
+      <li><span>Needed to manage lunch</span><span>0</span></li>
+    </ol>
+    <p class="receipt__total"><span>Extra on the bill</span><span>0,00 €</span></p>
+  </div>
+</section>
+
+<!-- A sentence with a blank -->
+<section class="blank" aria-labelledby="blank-title">
+  <form data-blank data-reveal>
+    <h2 id="blank-title">Bring Ordero lunch to</h2>
+    <label class="sr-only" for="blank-company">Your company</label>
+    <input id="blank-company" name="company" type="text" placeholder="your office" autocomplete="organization">
+    <button type="submit">book a demo</button>
+  </form>
+  <p data-reveal style="--d:1">Join 100+ companies already using Ordero Business. Getting started takes minutes.</p>
+  <div class="start__stores" data-reveal style="--d:2">
+    <a class="link" href="https://apps.apple.com/lt/app/ordero/id6749176295">Download on the App Store</a>
+    <a class="link" href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Get it on Google Play</a>
+  </div>
+</section>
+
+<!-- Coupon -->
+<section class="coupon-wrap coupon-wrap--surface" id="contact" aria-labelledby="contact-title">
+  <div class="coupon coupon--coral" data-reveal>
+    <div class="coupon__left">
+      <h2 class="head" id="contact-title">Lunch for your whole team</h2>
+      <p>Tell us about your office and how many people eat lunch there. We will set up a demo.</p>
+      <address>
+        <span>Business Centre Go9 Spaces, Gedimino pr. 9, 01103 Vilnius, Lithuania</span>
+        <span>Business Centre Raadhuspladsen, Rådhuspladsen 16, 1550 København, Denmark</span>
+      </address>
+    </div>
+    <form class="coupon__form" data-contact novalidate>
+      <label class="sr-only" for="c-name">Name</label>
+      <input id="c-name" name="name" type="text" placeholder="Name" autocomplete="name">
+      <label class="sr-only" for="c-email">Email</label>
+      <input id="c-email" name="email" type="email" placeholder="Email" autocomplete="email" required>
+      <label class="sr-only" for="c-phone">Phone</label>
+      <input id="c-phone" name="phone" type="tel" placeholder="Phone" autocomplete="tel" required>
+      <label class="sr-only" for="c-msg">Message</label>
+      <textarea id="c-msg" name="message" placeholder="Your company, and how many people eat lunch at the office" required></textarea>
+      <button type="submit">Book a demo</button>
+      <p class="coupon__status" role="status" data-contact-status></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__name"><img src="assets/brand/logo-1336.png" alt="Ordero" width="1336" height="400" loading="lazy"></div>
+  <div class="footer__row">
+    <div class="footer__places">
+      <a class="link" href="https://maps.google.com/?q=Gedimino+pr.+9,+Vilnius">Vilnius<span>Gedimino pr. 9, Go9 Spaces</span></a>
+      <a class="link" href="https://maps.google.com/?q=R%C3%A5dhuspladsen+16,+K%C3%B8benhavn">København<span>Rådhuspladsen 16</span></a>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <h2>Products</h2>
+        <ul class="list">
+          <li><a class="link" href="index.html">Ordero Kids</a></li>
+          <li><a class="link" href="business.html">Ordero Business</a></li>
+          <li><a class="link" href="#contact">Book a demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>App</h2>
+        <ul class="list">
+          <li><a class="link" href="https://business.ordero.lt/login">Business log in</a></li>
+          <li><a class="link" href="https://apps.apple.com/lt/app/ordero/id6749176295">App Store</a></li>
+          <li><a class="link" href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Google Play</a></li>
+          <li><a class="link" href="https://www.linkedin.com/company/ordero-app">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul class="list">
+          <li><a class="link" href="https://www.ordero.lt/en/terms-and-conditions">Terms and conditions</a></li>
+          <li><a class="link" href="https://www.ordero.lt/en/privacy-policy">Privacy policy</a></li>
+          <li><a class="link" href="https://www.ordero.lt/en/business-privacy-policy">Business privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer__legal">
+    <p>© 2026 Ordero. Simple, smart meal ordering for schools and workplaces. Picture: Gediminas Avenue, Vilnius, by Diliff, CC BY-SA 3.0, via Wikimedia Commons.</p>
+    <a class="link" href="#main">Back to top</a>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
