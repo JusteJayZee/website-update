@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ordero Kids — school and kindergarten meals, ordered in one app</title>
+<meta name="description" content="Ordero lets parents order, change and track school and kindergarten meals in one place. Schools get a clean daily headcount; caterers get the orders.">
+<link rel="icon" href="assets/brand/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Main">
+  <a class="nav__logo" href="index.html" aria-label="Ordero Kids, home"><img src="assets/brand/logo.png" alt="Ordero" width="2673" height="800"></a>
+  <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+  <div class="nav__links" id="nav-links">
+    <div class="nav__products">
+      <button class="nav__products-btn" type="button" aria-expanded="false" aria-controls="products-menu">Products <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      <div class="nav__menu" id="products-menu">
+        <a href="index.html" aria-current="page"><i style="background: var(--mint)"></i><strong>Ordero Kids</strong><span>School and kindergarten meals</span></a>
+        <a href="business.html"><i style="background: var(--coral)"></i><strong>Ordero Business</strong><span>Lunch for offices and work sites</span></a>
+      </div>
+    </div>
+    <a class="link" href="#contact">Book a demo</a>
+    <a class="link" href="https://app.ordero.lt/login">Log in</a>
+    <a class="button nav__cta" href="https://app.ordero.lt/login"><span>Start ordering</span></a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- Hero: the order form as a printed card, beside the picture -->
+<header class="hero">
+  <div class="hero__card">
+    <div class="stripe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="hero__body">
+      <h1 data-rise style="--d:0">School meals, sorted in minutes</h1>
+      <p data-rise style="--d:1">Parents order, change and track school and kindergarten meals in one app. No paper forms, no phone calls, no guessing.</p>
+      <a class="button" data-rise style="--d:2" href="https://app.ordero.lt/login"><span>Start ordering</span></a>
+    </div>
+    <div class="hero__links" data-rise style="--d:3">
+      <a class="link" href="https://apps.apple.com/lt/app/ordero/id6749176295">App Store</a>
+      <a class="link" href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Google Play</a>
+      <a class="link" href="#contact">Book a demo for your school</a>
+    </div>
+  </div>
+  <div class="hero__media" data-crossfade>
+    <figure class="is-on">
+      <img src="assets/img/ordero-app.jpg" alt="The Ordero app: a week's order with breakfast, lunch and dinner, and the day's lunch menu" width="1400" height="1400" fetchpriority="high">
+      <figcaption>The Ordero app</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/img/school-lunch-tray.jpg" alt="A school lunch tray with grapes, sweet potato, wraps and a carton of milk" width="1600" height="1122" loading="lazy">
+      <figcaption>A school lunch tray</figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- Showcase: the day's menu, the live thing -->
+<section class="showcase" aria-labelledby="menu-title" data-menu>
+  <div class="showcase__plate" data-reveal>
+    <div class="ui-card" data-ui aria-live="polite">
+      <div class="ui-card__top"><b>Order for <span data-day>tomorrow</span></b><span>Saulutė group</span></div>
+      <div class="ui-chips" aria-hidden="true">
+        <span data-chip="breakfast">Breakfast</span>
+        <span data-chip="lunch" class="is-on">Lunch</span>
+        <span data-chip="dinner">Dinner</span>
+      </div>
+      <div class="ui-menu" data-menu-list>
+        <ul>
+          <li>Mixed bean soup with fresh parsley and flaxseed oil</li>
+          <li>Sour cream</li>
+          <li>Lavash</li>
+          <li>Slow-cooked turkey cubes with greens</li>
+          <li>Fluffy buckwheat</li>
+          <li>Green salad with cucumbers, radishes and peas</li>
+          <li>Mixed salad leaves</li>
+          <li>Still water</li>
+        </ul>
+      </div>
+      <dl class="ui-meta">
+        <dt>Portion</dt><dd>Standard</dd>
+        <dt>Allergies</dt><dd>Peanuts · saved</dd>
+      </dl>
+      <div class="ui-order is-off" data-order-bar>
+        <span><span data-meal-name>Lunch</span><small data-order-state>Not ordered yet</small></span>
+        <span data-price>5,00 €</span>
+      </div>
+    </div>
+  </div>
+  <div class="showcase__side">
+    <div class="tabs" role="tablist" aria-label="Meal" data-reveal>
+      <button role="tab" type="button" aria-selected="false" data-meal="breakfast">Breakfast</button>
+      <button role="tab" type="button" aria-selected="true" data-meal="lunch">Lunch</button>
+      <button role="tab" type="button" aria-selected="false" data-meal="dinner">Dinner</button>
+    </div>
+    <div class="showcase__copy">
+      <h2 class="head" id="menu-title" data-reveal>Every dish, before you order</h2>
+      <p data-reveal style="--d:1">Caterers put up the whole menu: breakfast, lunch, snacks and extras. You see each dish, set the portion and the allergies once, and order with one tap. Plans change, so you can edit right up to the cutoff.</p>
+    </div>
+    <div data-reveal style="--d:2">
+      <div class="cells">
+        <button class="cell-ink" type="button" aria-pressed="false" data-order><span data-order-label>Order lunch</span><span data-order-price>5,00 €</span></button>
+        <button class="cell-soft" type="button" aria-pressed="false" data-repeat><span data-repeat-label>Repeat every week</span></button>
+      </div>
+      <p class="cutoff" data-cutoff>Change or cancel until the cutoff at 10:00 the day before.</p>
+    </div>
+  </div>
+</section>
+
+<!-- One order, three copies -->
+<section class="copies" aria-labelledby="copies-title">
+  <h2 class="head" id="copies-title" data-reveal>One order, three copies</h2>
+  <p data-reveal style="--d:1">A paper meal form went home, came back and was copied out twice. Ordero sends the same order to everyone at once, so the right meal reaches the right child.</p>
+
+  <article class="sheet sheet--paper" style="--i:0">
+    <h3>The parent’s copy</h3>
+    <div class="sheet__text">
+      <p>Order for the week in about a minute, from your phone.</p>
+      <ul>
+        <li><b>Personal.</b> Meal type, portion and allergies, saved once and applied to every order.</li>
+        <li><b>Changeable.</b> Edit or cancel right up to the cutoff.</li>
+        <li><b>Automatic.</b> Set a default order for a period and Ordero repeats it every week.</li>
+        <li><b>Visible.</b> The full menu, and a log of what your child actually ate.</li>
+      </ul>
+    </div>
+    <div class="sheet__pic">
+      <div data-ui>
+        <div class="ui-card__top"><b>Austėja’s plan</b><span>Kindergarten</span></div>
+        <div class="ui-row"><span>Auto-order, Mon–Fri</span><span><i class="ui-switch" aria-hidden="true"></i> On</span></div>
+        <div class="ui-row"><span>Breakfast and lunch</span><span>7,10 € a day</span></div>
+        <div class="ui-row"><span>Portion</span><span>Standard</span></div>
+        <div class="ui-row"><span>Allergies</span><span><span class="ui-tag ui-tag--coral">Peanuts</span></span></div>
+        <div class="ui-row"><span>Wednesday, lunch</span><span>Ate all of it</span></div>
+        <div class="ui-row"><span>Thursday</span><span>Cancelled, off sick</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="sheet sheet--mint" style="--i:1">
+    <h3>The caterer’s copy</h3>
+    <div class="sheet__text">
+      <p>The menu goes up once. Orders arrive already counted, per school and per meal, with special diets marked. The monthly report for each school and the waybills are generated for you.</p>
+    </div>
+    <div class="sheet__pic">
+      <div data-ui>
+        <div class="ui-card__top"><b>Tomorrow’s orders</b><span>3 schools</span></div>
+        <table class="ui-table">
+          <thead><tr><th>School</th><th class="n">Breakfast</th><th class="n">Lunch</th><th class="n">Diets</th></tr></thead>
+          <tbody>
+            <tr><td>Kindergarten, Žvėrynas</td><td class="n">38</td><td class="n">52</td><td class="n">4</td></tr>
+            <tr><td>Primary school, Antakalnis</td><td class="n">61</td><td class="n">143</td><td class="n">9</td></tr>
+            <tr><td>Nursery, Pašilaičiai</td><td class="n">24</td><td class="n">31</td><td class="n">2</td></tr>
+          </tbody>
+          <tfoot><tr><td>Total</td><td class="n">123</td><td class="n">226</td><td class="n">15</td></tr></tfoot>
+        </table>
+        <div class="ui-btns"><span>Waybills</span><span>Monthly report</span></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="sheet sheet--amber" style="--i:2">
+    <h3>The school’s copy</h3>
+    <div class="sheet__text">
+      <p>Each morning, an accurate headcount and meal list, group by group. Nothing to chase and nobody forgotten.</p>
+    </div>
+    <div class="sheet__pic">
+      <div data-ui>
+        <div class="ui-card__top"><b>Today’s meals</b><span>Kindergarten, Žvėrynas</span></div>
+        <table class="ui-table">
+          <thead><tr><th>Group</th><th class="n">Children</th><th class="n">Lunch</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Saulutė</td><td class="n">18</td><td class="n">17</td><td><span class="ui-tag ui-tag--coral">1 peanuts</span></td></tr>
+            <tr><td>Bitutės</td><td class="n">20</td><td class="n">20</td><td><span class="ui-tag">2 vegetarian</span></td></tr>
+            <tr><td>Drugeliai</td><td class="n">16</td><td class="n">15</td><td><span class="ui-tag">1 lactose-free</span></td></tr>
+          </tbody>
+          <tfoot><tr><td>Total</td><td class="n">54</td><td class="n">52</td><td>4 diets</td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+  </article>
+
+  <article class="sheet sheet--coral" style="--i:3">
+    <h3>The paper copy</h3>
+    <div class="sheet__text">
+      <p>There isn’t one. No forms in the schoolbag, no lists to copy out, no calls to the office before nine.</p>
+    </div>
+    <figure class="sheet__pic sheet__pic--photo">
+      <img src="assets/img/school-lunch-menu-1967.jpg" alt="A typed school lunch menu from April 1967, with a note about lunch money and record keeping" width="1280" height="949" loading="lazy">
+      <figcaption>A school lunch menu, April 1967</figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- The ledger -->
+<section class="section" aria-labelledby="ledger-title">
+  <div class="grid ledger">
+    <h2 class="head" id="ledger-title" data-reveal><span>Less paperwork,</span> more lunch</h2>
+    <dl>
+      <div><dt data-reveal>100+</dt><dd data-reveal>schools, kindergartens and partners already on board</dd></div>
+      <div><dt data-reveal style="--d:1">1</dt><dd data-reveal>minute, on average, to order a full week of meals</dd></div>
+      <div><dt data-reveal style="--d:2">0</dt><dd data-reveal>paper forms</dd></div>
+      <div><dt data-reveal style="--d:3">7</dt><dd data-reveal>days a week of human support, weekends included</dd></div>
+    </dl>
+    <div class="partners">
+      <p data-reveal>Among the schools and kindergartens using Ordero:</p>
+      <ul data-reveal style="--d:1">
+        <li><a href="https://www.baltusalis.lt/apie-mus"><img src="assets/brand/p-baltu-salis.png" alt="Baltų šalis" loading="lazy" width="304" height="280"></a></li>
+        <li><a href="https://katinodieneles.lt/"><img src="assets/brand/p-katino-dieneles.png" alt="Katino dienelės international nursery" loading="lazy" width="320" height="320"></a></li>
+        <li><a href="https://mazuju-valdos.lt/"><img src="assets/brand/p-mazuju-valdos.png" alt="Mažųjų valdos" loading="lazy" width="320" height="184"></a></li>
+        <li><a href="https://www.demokratinemokykla.lt/"><img src="assets/brand/p-demokratine.png" alt="Demokratinė mokykla" loading="lazy" width="320" height="320"></a></li>
+        <li><a href="https://www.aisv.lt/"><img src="assets/brand/p-aisv.png" alt="The American International School of Vilnius" loading="lazy" width="230" height="320"></a></li>
+        <li><a href="https://kd.lt/"><img src="assets/brand/p-kd-school.png" alt="KD International School" loading="lazy" width="320" height="260"></a></li>
+        <li><a href="https://vaikystes-sodas.lt/"><img src="assets/brand/p-vaikystes-sodas.png" alt="Vaikystės sodas" loading="lazy" width="320" height="168"></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Three slips -->
+<section class="slips" aria-labelledby="slips-title">
+  <h2 class="head" id="slips-title" data-reveal>Parents, teachers and caterers agree</h2>
+  <div class="slips__row">
+    <figure class="slip" style="--who: var(--mint)" data-reveal>
+      <header><b>Edita Šakalienė</b><span>Mother of two</span><i aria-hidden="true"></i></header>
+      <blockquote><p>Great system. It’s easy to manage my child’s food orders. It is also not at all difficult to adjust a child’s eating habits by adding healthier food choices.</p></blockquote>
+    </figure>
+    <figure class="slip" style="--who: var(--amber); --d:1" data-reveal>
+      <header><b>Jolanta Balsytė</b><span>Teacher</span><i aria-hidden="true"></i></header>
+      <blockquote><p>It is very convenient to get lists with children’s food orders in the morning. With Ordero we also avoid the unpleasant situations when a child was not ordered food by mistake.</p></blockquote>
+    </figure>
+    <figure class="slip" style="--who: var(--coral); --d:2" data-reveal>
+      <header><b>Mantas Žilinskas</b><span>Catering provider</span><i aria-hidden="true"></i></header>
+      <blockquote><p>A truly time-saving system. It can automatically generate a monthly report and send it to the school, and it can generate the waybills too.</p></blockquote>
+    </figure>
+  </div>
+</section>
+
+<!-- The itinerary -->
+<section class="section itinerary" aria-labelledby="steps-title">
+  <div class="grid">
+    <div class="itinerary__intro">
+      <h2 class="head" id="steps-title" data-reveal>Five minutes to start</h2>
+      <p data-reveal style="--d:1">From sign-up to your first order takes about five minutes. After that, the week takes about one.</p>
+    </div>
+    <div class="receipt" data-reveal style="--d:1">
+      <h3>Once</h3>
+      <ol>
+        <li><span>Create your account</span><span>2 min</span></li>
+        <li><span>Add your child and their school</span><span>1 min</span></li>
+        <li><span>Set the portion and any allergies</span><span>1 min</span></li>
+      </ol>
+      <h3>Every week</h3>
+      <ol>
+        <li><span>Pick meals from the school’s menu</span><span>1 min</span></li>
+        <li><span>Or turn on auto-order</span><span>0 min</span></li>
+      </ol>
+      <h3>Every morning</h3>
+      <ol>
+        <li><span>The school gets the headcount</span><span>auto</span></li>
+        <li><span>The caterer cooks to the count</span><span>auto</span></li>
+      </ol>
+      <p class="receipt__total"><span>Your week, sorted</span><span>about 5 min</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- First step, already open -->
+<section class="start" aria-labelledby="start-title">
+  <div class="start__words">
+    <h2 class="display" id="start-title" data-reveal>Start this week</h2>
+    <p data-reveal style="--d:1">Add your child, and the school’s menu is waiting. Order on the web or in the app.</p>
+    <div class="start__stores" data-reveal style="--d:2">
+      <a class="link" href="https://apps.apple.com/lt/app/ordero/id6749176295">Download on the App Store</a>
+      <a class="link" href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Get it on Google Play</a>
+    </div>
+  </div>
+  <div class="start__dialog" data-reveal style="--d:1">
+    <form class="dialog" data-ui action="https://app.ordero.lt/login" method="get" data-start>
+      <h3>Add your child</h3>
+      <p>You can add brothers and sisters later.</p>
+      <label for="child-name">First name</label>
+      <input id="child-name" name="child" type="text" value="Austėja" autocomplete="off">
+      <fieldset class="seg-field">
+        <legend>Goes to</legend>
+        <div class="seg">
+          <label><input type="radio" name="type" value="kindergarten" checked><span>Kindergarten</span></label>
+          <label><input type="radio" name="type" value="school"><span>School</span></label>
+        </div>
+      </fieldset>
+      <button class="dialog__go" type="submit" data-start-label>Create account for Austėja</button>
+    </form>
+  </div>
+</section>
+
+<!-- Coupon -->
+<section class="coupon-wrap" id="contact" aria-labelledby="contact-title">
+  <div class="coupon" data-reveal>
+    <div class="coupon__left">
+      <h2 class="head" id="contact-title">Bring Ordero to your school</h2>
+      <p>For schools, kindergartens and caterers. Leave your details and we will set up a demo.</p>
+      <address>
+        <span>Business Centre Go9 Spaces, Gedimino pr. 9, 01103 Vilnius, Lithuania</span>
+        <span>Business Centre Raadhuspladsen, Rådhuspladsen 16, 1550 København, Denmark</span>
+      </address>
+    </div>
+    <form class="coupon__form" data-contact novalidate>
+      <label class="sr-only" for="c-name">Name</label>
+      <input id="c-name" name="name" type="text" placeholder="Name" autocomplete="name">
+      <label class="sr-only" for="c-email">Email</label>
+      <input id="c-email" name="email" type="email" placeholder="Email" autocomplete="email" required>
+      <label class="sr-only" for="c-phone">Phone</label>
+      <input id="c-phone" name="phone" type="tel" placeholder="Phone" autocomplete="tel" required>
+      <label class="sr-only" for="c-msg">Message</label>
+      <textarea id="c-msg" name="message" placeholder="Your school or company, and how many children or meals a day" required></textarea>
+      <button type="submit">Book a demo</button>
+      <p class="coupon__status" role="status" data-contact-status></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__name"><img src="assets/brand/logo-1336.png" alt="Ordero" width="1336" height="400" loading="lazy"></div>
+  <div class="footer__row">
+    <div class="footer__places">
+      <a class="link" href="https://maps.google.com/?q=Gedimino+pr.+9,+Vilnius">Vilnius<span>Gedimino pr. 9, Go9 Spaces</span></a>
+      <a class="link" href="https://maps.google.com/?q=R%C3%A5dhuspladsen+16,+K%C3%B8benhavn">København<span>Rådhuspladsen 16</span></a>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <h2>Products</h2>
+        <ul class="list">
+          <li><a class="link" href="index.html">Ordero Kids</a></li>
+          <li><a class="link" href="business.html">Ordero Business</a></li>
+          <li><a class="link" href="#contact">Book a demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>App</h2>
+        <ul class="list">
+          <li><a class="link" href="https://app.ordero.lt/login">Log in</a></li>
+          <li><a class="link" href="https://apps.apple.com/lt/app/ordero/id6749176295">App Store</a></li>
+          <li><a class="link" href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Google Play</a></li>
+          <li><a class="link" href="https://www.linkedin.com/company/ordero-app">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul class="list">
+          <li><a class="link" href="https://www.ordero.lt/en/terms-and-conditions">Terms and conditions</a></li>
+          <li><a class="link" href="https://www.ordero.lt/en/privacy-policy">Privacy policy</a></li>
+          <li><a class="link" href="https://www.ordero.lt/en/business-privacy-policy">Business privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer__legal">
+    <p>© 2026 Ordero. Simple, smart meal ordering for schools and workplaces. Pictures: school lunch tray, U.S. Department of Agriculture, public domain; school lunch menu, April 1967, Downtowngal, CC0, via Wikimedia Commons.</p>
+    <a class="link" href="#main">Back to top</a>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
