@@ -59,3 +59,19 @@ there is no public email or phone to set as the display line).
 Idea: the office lunch pickup ticket. Live thing: order in under 30 seconds, timed.
 Defended WARNs: no footage (no honest clip found); grey-body 4.9:1 is ink on the brand coral; size-count from
 the giant 0 € figure and the app fragments.
+
+# v2 rework (2026-10-30)
+Brief change: rework completely around the original Kids illustrations from ordero.lt; no invented UI;
+follow the Ordero Design System (github.com/JusteJayZee/Ordero-Design-System).
+Direction: colour-chapters, seed 1119851433 (.taste-skill/v2). Redraws: features → specimens-on-colour-tiles
+(each capability is one drawing on a tile; the dealt one needs invented controls); stats → figures-inside-a-sentence
+(the slider needs an invented formula); testimonial → gutter-quotes-pinned (three real quotes); cta → object-returns
+(the hero drawing returns; the blank-in-sentence form has no backend).
+Idea: the coloured disc behind each Ordero drawing grows into the field the drawing sits on (disc colours normalised
+to the DS tokens, -nodisc cut-outs on matching fields).
+Live thing: drag an order through its stages (Kids: set up → pick the week → change a day → served; Business:
+get the app → pick and pay → pick up).
+Pictures: the original drawings, the original Business icons and phone renders, real DS prototype screens.
+Deviations from the DS: dark labels on mint buttons for contrast; mono wordmark on gold/mint panels (DS Logo mono variant).
+Defended WARNs: fonts are the brand's (sheet text is stale); no honest footage; strip marquee reads as empty middle;
+Business phones image sits left of its text by design.

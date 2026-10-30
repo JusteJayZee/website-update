@@ -1,54 +1,16 @@
-// Ordero — shared page script. Everything here is an enhancement: the page reads fully without it.
+// Ordero — site script. Everything here is an enhancement: the pages read fully without it.
 
-// Navigation: phone menu and the Products switcher
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Products menu: switch between Ordero Kids and Ordero Business
 (() => {
-  const toggle = document.querySelector('.nav__toggle');
-  const links = document.getElementById('nav-links');
-  const productsBtn = document.querySelector('.nav__products-btn');
+  const btn = document.querySelector('.products__btn');
   const menu = document.getElementById('products-menu');
-  if (!links) return;
-
-  const setMenu = (open) => {
-    productsBtn.setAttribute('aria-expanded', String(open));
-    menu.classList.toggle('is-open', open);
-  };
-  const setLinks = (open) => {
-    toggle.setAttribute('aria-expanded', String(open));
-    links.classList.toggle('is-open', open);
-    if (open) setMenu(true);
-  };
-
-  productsBtn.addEventListener('click', () => setMenu(productsBtn.getAttribute('aria-expanded') !== 'true'));
-  toggle.addEventListener('click', () => setLinks(toggle.getAttribute('aria-expanded') !== 'true'));
-
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.nav')) { setMenu(false); setLinks(false); }
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    if (menu.classList.contains('is-open')) { setMenu(false); productsBtn.focus(); }
-    if (links.classList.contains('is-open')) { setLinks(false); toggle.focus(); }
-  });
-  // in-page links (Book a demo) close the phone menu
-  links.addEventListener('click', (e) => {
-    const a = e.target.closest('a');
-    if (a && a.getAttribute('href').startsWith('#')) { setMenu(false); setLinks(false); }
-  });
-})();
-
-// Hero: slow crossfade between the pictures, paused when the tab is hidden
-(() => {
-  const stage = document.querySelector('[data-crossfade]');
-  if (!stage || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const frames = [...stage.querySelectorAll('figure')];
-  if (frames.length < 2) return;
-  let i = 0;
-  setInterval(() => {
-    if (document.hidden) return;
-    frames[i].classList.remove('is-on');
-    i = (i + 1) % frames.length;
-    frames[i].classList.add('is-on');
-  }, 6500);
+  if (!btn || !menu) return;
+  const set = (open) => { btn.setAttribute('aria-expanded', String(open)); menu.classList.toggle('is-open', open); };
+  btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('click', (e) => { if (!e.target.closest('.products')) set(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && menu.classList.contains('is-open')) { set(false); btn.focus(); } });
 })();
 
 // Entrances: reveal once as each part enters
@@ -61,7 +23,7 @@
       entry.target.classList.add('is-in');
       io.unobserve(entry.target);
     }
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
   targets.forEach((el) => io.observe(el));
   addEventListener('load', () => setTimeout(() => targets.forEach((el) => {
     const r = el.getBoundingClientRect();
@@ -69,172 +31,126 @@
   }), 2500));
 })();
 
-// The live menu card: pick a meal, order it, repeat it, see the cutoff
+// Swap an element's content with a short crossfade
+const crossfade = (els, apply) => {
+  if (reduced) { apply(); return; }
+  els.forEach((el) => el.classList.add('is-out'));
+  setTimeout(() => { apply(); els.forEach((el) => el.classList.remove('is-out')); }, 200);
+};
+
+// The live thing: drag an order through its stages
 (() => {
-  const root = document.querySelector('[data-menu]');
+  const root = document.querySelector('[data-stages]');
   if (!root) return;
-  const MEALS = root.dataset.meals ? JSON.parse(root.dataset.meals) : {
-    breakfast: { name: 'Breakfast', price: '2,10 €', items: ['7-grain porridge with berries', 'Fruit', 'Unsweetened tea'] },
-    lunch: { name: 'Lunch', price: '5,00 €', items: ['Mixed bean soup with fresh parsley and flaxseed oil', 'Sour cream', 'Lavash', 'Slow-cooked turkey cubes with greens', 'Fluffy buckwheat', 'Green salad with cucumbers, radishes and peas', 'Mixed salad leaves', 'Still water'] },
-    dinner: { name: 'Dinner', price: '3,20 €', items: ['Curd pancakes with apple sauce', 'Kefir', 'Pear'] },
+  const STAGES = JSON.parse(root.dataset.stagesJson || 'null') || [
+    { title: 'First, add your child', body: 'Sign up, add your child and their group, and set any allergies or dietary needs. Saved once, applied always.', img: 'plate-allergies-nodisc', alt: 'A plate of food with wheat and milk crossed out above it', art: 'var(--coral)' },
+    { title: 'Then, pick the week', body: 'Browse the school’s menu and choose, or turn on auto-order and let Ordero handle it every week.', img: 'week-auto-order-nodisc', alt: 'A week from Monday to Sunday above a lunch tray, with arrows going round', art: 'var(--mint)' },
+    { title: 'Next, change any day', body: 'Off sick, or a trip? Change or cancel any meal right up to the cutoff.', img: 'calendar-edit-nodisc', alt: 'A calendar being edited with a pencil, above a lunch tray', art: 'var(--gold)' },
+    { title: 'Finally, it’s served', body: 'The school gets an accurate headcount each morning and the caterer gets the orders. The right meal reaches the right child.', img: 'school', alt: 'A school house with a clock above the door', art: 'var(--mint-tint)' },
+  ];
+  const range = root.querySelector('input[type="range"]');
+  const names = [...root.querySelectorAll('[data-step]')];
+  const text = root.querySelector('[data-stage-text]');
+  const img = root.querySelector('[data-stage-img]');
+  const art = root.querySelector('[data-stage-art]');
+  let current = 0;
+  const base = img.getAttribute('src').replace(/[^/]+$/, '');
+  const show = (i) => {
+    if (i === current) return;
+    current = i;
+    const s = STAGES[i];
+    range.value = i;
+    range.style.setProperty('--p', (i / (STAGES.length - 1)) * 100 + '%');
+    range.setAttribute('aria-valuetext', s.title);
+    names.forEach((n) => { if (Number(n.dataset.step) === i) n.setAttribute('aria-current', 'step'); else n.removeAttribute('aria-current'); });
+    art.style.setProperty('--art', s.art);
+    crossfade([text, img], () => {
+      text.querySelector('h2').textContent = s.title;
+      text.querySelector('[data-stage-body]').textContent = s.body;
+      img.src = base + s.img + '.webp';
+      img.alt = s.alt;
+    });
   };
-  const CUTOFF_HOUR = Number(root.dataset.cutoff || 10);
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const state = { meal: 'lunch', ordered: {}, repeat: {} };
-  const $ = (s) => root.querySelector(s);
-  const tabs = [...root.querySelectorAll('[data-meal]')];
+  range.max = String(STAGES.length - 1);
+  range.style.setProperty('--p', '0%');
+  range.addEventListener('input', () => show(Number(range.value)));
+  names.forEach((n) => n.addEventListener('click', () => show(Number(n.dataset.step))));
+})();
 
-  // the next school day after the cutoff
-  const target = new Date();
-  target.setDate(target.getDate() + 1);
-  while (target.getDay() === 0 || target.getDay() === 6) target.setDate(target.getDate() + 1);
-  const dayName = days[target.getDay()];
-  $('[data-day]').textContent = dayName;
-
-  const render = () => {
-    const m = MEALS[state.meal];
-    root.querySelectorAll('[data-chip]').forEach((c) => c.classList.toggle('is-on', c.dataset.chip === state.meal));
-    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.meal === state.meal)));
-    $('[data-menu-list]').innerHTML = '<ul>' + m.items.map((x) => `<li>${x}</li>`).join('') + '</ul>';
-    $('[data-meal-name]').textContent = m.name;
-    $('[data-price]').textContent = m.price;
-    const ordered = !!state.ordered[state.meal];
-    const repeat = !!state.repeat[state.meal];
-    const bar = $('[data-order-bar]');
-    bar.classList.toggle('is-off', !ordered);
-    bar.classList.toggle('is-ordered', ordered);
-    $('[data-order-state]').textContent = ordered ? (repeat ? `Ordered · repeats every ${dayName}` : `Ordered for ${dayName}`) : 'Not ordered yet';
-    const orderBtn = $('[data-order]');
-    orderBtn.setAttribute('aria-pressed', String(ordered));
-    $('[data-order-label]').textContent = ordered ? `Ordered · cancel` : `Order ${m.name.toLowerCase()}`;
-    $('[data-order-price]').textContent = m.price;
-    const repBtn = $('[data-repeat]');
-    repBtn.setAttribute('aria-pressed', String(repeat));
-    $('[data-repeat-label]').textContent = repeat ? `Repeats every ${dayName}` : 'Repeat every week';
+// The app: pick a screen, see it on the stage
+(() => {
+  const root = document.querySelector('[data-screens]');
+  if (!root) return;
+  const tabs = [...root.querySelectorAll('[data-screen]')];
+  const fig = root.querySelector('[data-screen-fig]');
+  const img = root.querySelector('[data-screen-img]');
+  const cap = root.querySelector('[data-screen-cap]');
+  const base = img.getAttribute('src').replace(/[^/]+$/, '');
+  const select = (tab) => {
+    if (tab.getAttribute('aria-selected') === 'true') return;
+    tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+    crossfade([fig], () => {
+      img.src = base + tab.dataset.screen + '.webp';
+      img.alt = 'Ordero app: ' + tab.textContent.trim().toLowerCase() + '. ' + tab.dataset.cap;
+      cap.textContent = tab.dataset.cap;
+    });
   };
-
   tabs.forEach((t, i) => {
-    t.addEventListener('click', () => { state.meal = t.dataset.meal; render(); });
+    t.addEventListener('click', () => select(t));
     t.addEventListener('keydown', (e) => {
-      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      const d = ['ArrowDown', 'ArrowRight'].includes(e.key) ? 1 : ['ArrowUp', 'ArrowLeft'].includes(e.key) ? -1 : 0;
       if (!d) return;
+      e.preventDefault();
       const next = tabs[(i + d + tabs.length) % tabs.length];
-      next.focus(); next.click();
+      next.focus(); select(next);
     });
   });
-  $('[data-order]').addEventListener('click', () => {
-    state.ordered[state.meal] = !state.ordered[state.meal];
-    if (!state.ordered[state.meal]) state.repeat[state.meal] = false;
-    render();
-  });
-  $('[data-repeat]').addEventListener('click', () => {
-    state.repeat[state.meal] = !state.repeat[state.meal];
-    if (state.repeat[state.meal]) state.ordered[state.meal] = true;
-    render();
-  });
-
-  // the cutoff: today at CUTOFF_HOUR, or already passed
-  const cutoffEl = $('[data-cutoff]');
-  const tick = () => {
-    const now = new Date();
-    const cut = new Date(now); cut.setHours(CUTOFF_HOUR, 0, 0, 0);
-    const pad = (n) => String(n).padStart(2, '0'); // taste-skill-ignore: clock time
-    if (now < cut) {
-      const mins = Math.ceil((cut - now) / 60000);
-      const h = Math.floor(mins / 60), m = mins % 60;
-      cutoffEl.textContent = `Change or cancel ${dayName}’s order until ${pad(CUTOFF_HOUR)}:00 today: ${h ? h + ' h ' : ''}${m} min left.`;
-    } else {
-      const left = new Date(cut); left.setDate(left.getDate() + 1);
-      const mins = Math.ceil((left - now) / 60000);
-      cutoffEl.textContent = `The cutoff is ${pad(CUTOFF_HOUR)}:00 the day before. Next one in ${Math.floor(mins / 60)} h ${mins % 60} min.`;
-    }
-  };
-  tick(); setInterval(tick, 30000);
-  render();
+  // preload the other screens so the swap is instant
+  addEventListener('load', () => tabs.forEach((t) => { const p = new Image(); p.src = base + t.dataset.screen + '.webp'; }));
 })();
 
-// The open "Add your child" dialog: the button carries the typed name
+// Voices: one quotation per scroll step, each with its own ground
 (() => {
-  const form = document.querySelector('[data-start]');
-  if (!form) return;
-  const input = form.querySelector('input[type="text"]');
-  const label = form.querySelector('[data-start-label]');
-  const base = label.dataset.base || 'Create account for';
-  const update = () => { const v = input.value.trim(); label.textContent = v ? `${base} ${v}` : base.replace(/ for$/, ''); };
-  input.addEventListener('input', update);
-  update();
+  const root = document.querySelector('[data-voices]');
+  if (!root || !('IntersectionObserver' in window) || matchMedia('(max-width: 60em)').matches) return;
+  const GROUNDS = ['var(--coral)', 'var(--mint)', 'var(--gold)'];
+  const stage = root.querySelector('.voices__stage');
+  const quotes = [...root.querySelectorAll('[data-voice]')];
+  const pics = [...root.querySelectorAll('[data-voice-img]')];
+  const io = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      const i = Number(entry.target.dataset.step);
+      quotes.forEach((q) => q.classList.toggle('is-on', Number(q.dataset.voice) === i));
+      pics.forEach((p) => p.classList.toggle('is-on', Number(p.dataset.voiceImg) === i));
+      stage.style.setProperty('--v', GROUNDS[i]);
+    }
+  }, { rootMargin: '-50% 0px -50% 0px' });
+  root.querySelectorAll('.voices__steps i').forEach((s) => io.observe(s));
 })();
 
-// The coupon form. It is not connected to a backend yet (see README); it checks the fields and says so.
+// The picture strip: duplicate it once so the drift loops without a seam
+(() => {
+  const strip = document.querySelector('[data-strip]');
+  if (!strip) return;
+  [...strip.children].forEach((li) => { const c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.querySelectorAll('img').forEach((i) => (i.alt = '')); strip.appendChild(c); });
+})();
+
+// The contact bar. It is not connected to a backend yet (see README); it checks the fields and says so.
 (() => {
   const form = document.querySelector('[data-contact]');
   if (!form) return;
-  const status = form.querySelector('[data-contact-status]');
+  const status = document.querySelector('[data-contact-status]');
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const missing = [...form.querySelectorAll('[required]')].filter((f) => !f.value.trim() || !f.checkValidity());
+    const missing = [...form.querySelectorAll('[required]')].filter((f) => !f.value.trim());
     form.querySelectorAll('[aria-invalid]').forEach((f) => f.removeAttribute('aria-invalid'));
     if (missing.length) {
       missing.forEach((f) => f.setAttribute('aria-invalid', 'true'));
-      status.textContent = 'Please fill in your email, phone and a short message.';
+      status.textContent = 'Please add your name and an email or phone number.';
       missing[0].focus();
       return;
     }
-    status.textContent = 'Thank you. This preview isn’t connected to email yet, so nothing was sent.';
-  });
-})();
-
-// Business: an order in under thirty seconds. The clock starts at the first choice and stops at payment.
-(() => {
-  const root = document.querySelector('[data-order30]');
-  if (!root) return;
-  const form = root.querySelector('[data-order-form]');
-  const pay = root.querySelector('[data-pay]');
-  const watch = root.querySelector('[data-watch]');
-  const note = root.querySelector('[data-watch-note]');
-  const ticket = root.querySelector('[data-ticket]');
-  let start = 0, timer = 0;
-  const fmt = (ms) => { const s = Math.floor(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; }; // taste-skill-ignore: clock time
-  const run = () => { watch.textContent = fmt(Date.now() - start); };
-
-  form.addEventListener('change', () => {
-    pay.disabled = !form.querySelector('input:checked');
-    if (!start) { start = Date.now(); timer = setInterval(run, 250); note.textContent = 'Running. Pay when you are ready.'; }
-  });
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const main = form.querySelector('input:checked');
-    if (!main) return;
-    clearInterval(timer);
-    const secs = Math.max(1, Math.round((Date.now() - (start || Date.now())) / 1000));
-    watch.textContent = fmt(secs * 1000);
-    note.textContent = secs <= 30 ? 'Under thirty seconds. Lunch is ordered.' : 'Ordered. It gets quicker with practice.';
-    root.querySelector('[data-ticket-no]').textContent = 'No. ' + String(Math.floor(Math.random() * 900) + 100);
-    root.querySelector('[data-ticket-dish]').textContent = 'Soup + ' + main.value;
-    root.querySelector('[data-ticket-time]').textContent = secs + ' s';
-    ticket.hidden = false;
-    ticket.classList.remove('is-printing'); void ticket.offsetWidth; ticket.classList.add('is-printing');
-    ticket.focus({ preventScroll: true });
-    pay.disabled = true;
-  });
-  root.querySelector('[data-ticket-again]').addEventListener('click', () => {
-    form.reset(); pay.disabled = true; ticket.hidden = true;
-    start = 0; watch.textContent = '0:00'; note.textContent = 'The average Ordero order takes 30 seconds.';
-    form.querySelector('input').focus();
-  });
-})();
-
-// Business: the sentence with a blank carries the company name down to the contact form
-(() => {
-  const form = document.querySelector('[data-blank]');
-  if (!form) return;
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const company = form.querySelector('input').value.trim();
-    const msg = document.querySelector('#contact textarea');
-    if (company && msg && !msg.value) msg.value = `Company: ${company}\n`;
-    const target = document.getElementById('contact');
-    target.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-    setTimeout(() => (document.getElementById('c-name') || target).focus({ preventScroll: true }), 500);
+    status.textContent = 'Thank you. This preview isn’t connected yet, so nothing was sent.';
   });
 })();

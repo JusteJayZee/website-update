@@ -1,0 +1,2218 @@
+{
+ "url": "site/business.html",
+ "at": "2026-10-30T11:35:25.571Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 7,
+   "filled": [
+    1,
+    0.57,
+    0.7,
+    0.93,
+    1,
+    1,
+    0.59
+   ],
+   "motion": {
+    "elements": 21,
+    "css": 6,
+    "transitions": 15,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 6277,
+     "screens": 7,
+     "words": 335,
+     "img": 36,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 8,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "ordero-business-hand.webp",
+      "thirty-seconds.webp",
+      "two-hours.webp",
+      "zero-fees.webp",
+      "lunchbox.webp",
+      "pick-meal.webp",
+      "download-app.webp",
+      "ordero-business-phones.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Office lunch, sorted",
+     "words": 3,
+     "chars": 20,
+     "lines": 2,
+     "size": 131.2,
+     "vw": 9.1,
+     "font": "Poppins",
+     "weight": 700,
+     "tracking": -0.03,
+     "leading": 1.02,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "left",
+     "widthRatio": 0.78,
+     "top": 118,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Office lunch, sorted",
+     "words": 3,
+     "lines": 2,
+     "size": 131.2,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "Office lunch, sorted",
+      "words": 3,
+      "chars": 20,
+      "lines": 2,
+      "size": 131.2,
+      "vw": 9.1,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.78,
+      "top": 118,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Why Ordero Business",
+      "words": 3,
+      "chars": 19,
+      "lines": 2,
+      "size": 45.4,
+      "vw": 3.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.22,
+      "top": 1058,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "First, get the app",
+      "words": 4,
+      "chars": 18,
+      "lines": 2,
+      "size": 67.8,
+      "vw": 4.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 2466,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "30 seconds, 0 € delivery",
+      "words": 5,
+      "chars": 24,
+      "lines": 2,
+      "size": 131.2,
+      "vw": 9.1,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.71,
+      "top": 3270,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "That’s the average order, and the fee. Each employee saves up to 2 hours a week, and 0 people are needed to manage lunch.",
+      "words": 24,
+      "chars": 121,
+      "lines": 3,
+      "size": 33.3,
+      "vw": 2.3,
+      "font": "Poppins",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.6,
+      "top": 3572,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Lunch for your team",
+      "words": 4,
+      "chars": 19,
+      "lines": 2,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.22,
+      "top": 4105,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Book a demo",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 56,
+      "vw": 3.9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 4953,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Vilnius",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 33.6,
+      "vw": 2.3,
+      "font": "Poppins",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.08,
+      "top": 5969,
+      "tag": "a",
+      "kind": "statement"
+     },
+     {
+      "text": "København",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 33.6,
+      "vw": 2.3,
+      "font": "Poppins",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.13,
+      "top": 6054,
+      "tag": "a",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 9,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 3,
+     "centered": 1,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Nunito Sans",
+       "share": 0.85,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.15,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      15,
+      16,
+      17,
+      20,
+      22,
+      26,
+      33,
+      34,
+      40,
+      45,
+      56,
+      68,
+      131
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "Nunito Sans",
+      "size": 16,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.4
+     },
+     "measureChars": 38,
+     "max": {
+      "size": 131.2,
+      "vw": 9.1,
+      "font": "Poppins",
+      "text": "Office lunch, sorted"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.11,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fafafa",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fafafa",
+       "top": 0,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#3ecfa3",
+       "top": 10,
+       "hsl": {
+        "h": 162,
+        "s": 0.6,
+        "l": 0.53
+       }
+      },
+      {
+       "color": "#d6f5ec",
+       "top": 2307,
+       "hsl": {
+        "h": 163,
+        "s": 0.61,
+        "l": 0.9
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 2307,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#18181b",
+       "top": 3099,
+       "hsl": {
+        "h": 240,
+        "s": 0.06,
+        "l": 0.1
+       }
+      },
+      {
+       "color": "#ff4d5e",
+       "top": 3873,
+       "hsl": {
+        "h": 354,
+        "s": 1,
+        "l": 0.65
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#18181b",
+       "share": 0.55
+      },
+      {
+       "color": "#52525b",
+       "share": 0.26
+      },
+      {
+       "color": "#c9c9cf",
+       "share": 0.13
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.05
+      },
+      {
+       "color": "#3ecfa3",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#18181b",
+      "hsl": {
+       "h": 240,
+       "s": 0.06,
+       "l": 0.1
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 2,
+     "radius": 14,
+     "height": 52,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Start ordering"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 26,
+     "boxRadius": 14,
+     "squareMedia": 3,
+     "roundedMedia": 6,
+     "mediaRadius": 14,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.22
+     }
+    ],
+    "nav": {
+     "links": 4,
+     "fixed": false,
+     "height": 900,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "nunito sans",
+     "poppins"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 6277,
+    "margins": {
+     "left": 28,
+     "right": 32
+    },
+    "sections": [
+     {
+      "sel": "header.hero",
+      "tag": "header",
+      "top": 0,
+      "height": 900,
+      "words": 52,
+      "media": 1,
+      "middle": 58,
+      "heading": {
+       "text": "Office lunch,",
+       "size": 131,
+       "tag": "h1"
+      },
+      "left": 38,
+      "right": 126,
+      "textLeft": 38,
+      "textRight": 126,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#why.chapter",
+      "tag": "section",
+      "top": 900,
+      "height": 1407,
+      "words": 104,
+      "media": 5,
+      "middle": 44,
+      "heading": {
+       "text": "Why Ordero Business",
+       "size": 45,
+       "tag": "h2"
+      },
+      "left": 32,
+      "right": 37,
+      "textLeft": 32,
+      "textRight": 37,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#how.stages",
+      "tag": "section",
+      "top": 2307,
+      "height": 792,
+      "words": 26,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "First, get the app",
+       "size": 68,
+       "tag": "h2"
+      },
+      "left": 28,
+      "right": 28,
+      "textLeft": 28,
+      "textRight": 374,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#figures.sentence",
+      "tag": "section",
+      "top": 3099,
+      "height": 774,
+      "words": 28,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "30 seconds,",
+       "size": 131,
+       "tag": "h2"
+      },
+      "left": 146,
+      "right": 458,
+      "textLeft": 146,
+      "textRight": 458,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#lunch.returns",
+      "tag": "section",
+      "top": 3873,
+      "height": 810,
+      "words": 31,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Lunch for your team",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 1086,
+      "right": 32,
+      "textLeft": 1086,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.contact",
+      "tag": "section",
+      "top": 4683,
+      "height": 730,
+      "words": 28,
+      "media": 0,
+      "middle": 2505,
+      "heading": {
+       "text": "Book a demo",
+       "size": 56,
+       "tag": "h2"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": 32,
+      "textRight": 107,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer",
+      "tag": "footer",
+      "top": 5413,
+      "height": 864,
+      "words": 50,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 32,
+      "right": 32,
+      "textLeft": 32,
+      "textRight": 32,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 2148,
+      "height": 304
+     },
+     {
+      "top": 5208,
+      "height": 284
+     }
+    ],
+    "h1s": [
+     {
+      "text": "Office lunch, sorted",
+      "size": 131,
+      "top": 118,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 32,
+      "n": 6
+     },
+     {
+      "x": 146,
+      "n": 3
+     },
+     {
+      "x": 1086,
+      "n": 2
+     },
+     {
+      "x": 955,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 12,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.07,
+    "voidBox": {
+     "x": 1320,
+     "y": 120,
+     "w": 120,
+     "h": 780
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    1,
+    0.73,
+    0.82,
+    0.92,
+    1,
+    1,
+    0.49,
+    0.41
+   ],
+   "motion": {
+    "elements": 21,
+    "css": 6,
+    "transitions": 15,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 7257,
+     "screens": 7.1,
+     "words": 332,
+     "img": 36,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 8,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "ordero-business-hand.webp",
+      "thirty-seconds.webp",
+      "two-hours.webp",
+      "zero-fees.webp",
+      "lunchbox.webp",
+      "pick-meal.webp",
+      "download-app.webp",
+      "ordero-business-phones.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Office lunch, sorted",
+     "words": 3,
+     "chars": 20,
+     "lines": 2,
+     "size": 92.2,
+     "vw": 12,
+     "font": "Poppins",
+     "weight": 700,
+     "tracking": -0.03,
+     "leading": 1.02,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "center",
+     "widthRatio": 0.93,
+     "top": 113,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Office lunch, sorted",
+     "words": 3,
+     "lines": 2,
+     "size": 92.2,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "Office lunch, sorted",
+      "words": 3,
+      "chars": 20,
+      "lines": 2,
+      "size": 92.2,
+      "vw": 12,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 113,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Why Ordero Business",
+      "words": 3,
+      "chars": 19,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 1309,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "First, get the app",
+      "words": 4,
+      "chars": 18,
+      "lines": 2,
+      "size": 69.1,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.7,
+      "top": 3803,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "30 seconds, 0 € delivery",
+      "words": 5,
+      "chars": 24,
+      "lines": 2,
+      "size": 76.8,
+      "vw": 10,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.78,
+      "top": 4307,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Lunch for your team",
+      "words": 4,
+      "chars": 19,
+      "lines": 1,
+      "size": 28,
+      "vw": 3.6,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 5325,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Book a demo",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 5822,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Vilnius",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 26.9,
+      "vw": 3.5,
+      "font": "Poppins",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.11,
+      "top": 6673,
+      "tag": "a",
+      "kind": "statement"
+     },
+     {
+      "text": "København",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 26.9,
+      "vw": 3.5,
+      "font": "Poppins",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.2,
+      "top": 6753,
+      "tag": "a",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 8,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 2,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Nunito Sans",
+       "share": 0.84,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.16,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      15,
+      16,
+      17,
+      18,
+      22,
+      27,
+      28,
+      36,
+      69,
+      77,
+      92
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Nunito Sans",
+      "size": 18,
+      "leading": 1.35,
+      "weight": 600,
+      "tracking": 0,
+      "contrast": 9
+     },
+     "measureChars": 48,
+     "max": {
+      "size": 92.2,
+      "vw": 12,
+      "font": "Poppins",
+      "text": "Office lunch, sorted"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.13,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fafafa",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fafafa",
+       "top": 0,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#3ecfa3",
+       "top": 8,
+       "hsl": {
+        "h": 162,
+        "s": 0.6,
+        "l": 0.53
+       }
+      },
+      {
+       "color": "#ffbe00",
+       "top": 1490,
+       "hsl": {
+        "h": 45,
+        "s": 1,
+        "l": 0.5
+       }
+      },
+      {
+       "color": "#d6f5ec",
+       "top": 3775,
+       "hsl": {
+        "h": 163,
+        "s": 0.61,
+        "l": 0.9
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 3304,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#18181b",
+       "top": 4227,
+       "hsl": {
+        "h": 240,
+        "s": 0.06,
+        "l": 0.1
+       }
+      },
+      {
+       "color": "#ff4d5e",
+       "top": 4666,
+       "hsl": {
+        "h": 354,
+        "s": 1,
+        "l": 0.65
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#18181b",
+       "share": 0.55
+      },
+      {
+       "color": "#52525b",
+       "share": 0.26
+      },
+      {
+       "color": "#c9c9cf",
+       "share": 0.14
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.05
+      },
+      {
+       "color": "#3ecfa3",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#18181b",
+      "hsl": {
+       "h": 240,
+       "s": 0.06,
+       "l": 0.1
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 2,
+     "radius": 14,
+     "height": 52,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Start ordering"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 16,
+     "boxRadius": 14,
+     "squareMedia": 2,
+     "roundedMedia": 6,
+     "mediaRadius": 14,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.32
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 1213,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "nunito sans",
+     "poppins"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 7257,
+    "margins": {
+     "left": 17,
+     "right": 17
+    },
+    "sections": [
+     {
+      "sel": "header.hero",
+      "tag": "header",
+      "top": 0,
+      "height": 1213,
+      "words": 49,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Office lunch,",
+       "size": 92,
+       "tag": "h1"
+      },
+      "left": 26,
+      "right": 28,
+      "textLeft": 26,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#why.chapter",
+      "tag": "section",
+      "top": 1213,
+      "height": 2091,
+      "words": 104,
+      "media": 5,
+      "middle": 0,
+      "heading": {
+       "text": "Why Ordero Business",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 42,
+      "textLeft": 17,
+      "textRight": 50,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#how.stages",
+      "tag": "section",
+      "top": 3304,
+      "height": 922,
+      "words": 26,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "First, get the app",
+       "size": 69,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 17,
+      "textLeft": 17,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#figures.sentence",
+      "tag": "section",
+      "top": 4227,
+      "height": 439,
+      "words": 28,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "30 seconds,",
+       "size": 77,
+       "tag": "h2"
+      },
+      "left": 17,
+      "right": 198,
+      "textLeft": 17,
+      "textRight": 198,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#lunch.returns",
+      "tag": "section",
+      "top": 4666,
+      "height": 926,
+      "words": 31,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": 17,
+      "right": 171,
+      "textLeft": 17,
+      "textRight": 171,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.contact",
+      "tag": "section",
+      "top": 5592,
+      "height": 747,
+      "words": 28,
+      "media": 0,
+      "middle": 2154,
+      "heading": {
+       "text": "Book a demo",
+       "size": 69,
+       "tag": "h2"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": 17,
+      "textRight": 246,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer",
+      "tag": "footer",
+      "top": 6338,
+      "height": 919,
+      "words": 50,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Vilnius",
+       "size": 27,
+       "tag": "a"
+      },
+      "left": 17,
+      "right": 17,
+      "textLeft": 17,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "Office lunch, sorted",
+      "size": 92,
+      "top": 113,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 17,
+      "n": 12
+     }
+    ],
+    "leftBlocks": 12,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    1,
+    0.69,
+    0.71,
+    0.93,
+    1,
+    1,
+    0.56,
+    0.36
+   ],
+   "motion": {
+    "elements": 21,
+    "css": 6,
+    "transitions": 15,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 6211,
+     "screens": 7.4,
+     "words": 332,
+     "img": 36,
+     "video": 0,
+     "canvas": 0,
+     "svg": 1,
+     "sections": 5,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 8,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "ordero-business-hand.webp",
+      "thirty-seconds.webp",
+      "two-hours.webp",
+      "zero-fees.webp",
+      "lunchbox.webp",
+      "pick-meal.webp",
+      "download-app.webp",
+      "ordero-business-phones.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Office lunch, sorted",
+     "words": 3,
+     "chars": 20,
+     "lines": 2,
+     "size": 46.8,
+     "vw": 12,
+     "font": "Poppins",
+     "weight": 700,
+     "tracking": -0.03,
+     "leading": 1.02,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "center",
+     "widthRatio": 0.86,
+     "top": 106,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Office lunch, sorted",
+     "words": 3,
+     "lines": 2,
+     "size": 46.8,
+     "font": "Poppins"
+    },
+    "headings": [
+     {
+      "text": "Office lunch, sorted",
+      "words": 3,
+      "chars": 20,
+      "lines": 2,
+      "size": 46.8,
+      "vw": 12,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.86,
+      "top": 106,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Why Ordero Business",
+      "words": 3,
+      "chars": 19,
+      "lines": 2,
+      "size": 36,
+      "vw": 9.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1167,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "First, get the app",
+      "words": 4,
+      "chars": 18,
+      "lines": 2,
+      "size": 35.1,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.7,
+      "top": 2990,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "30 seconds, 0 € delivery",
+      "words": 5,
+      "chars": 24,
+      "lines": 2,
+      "size": 39,
+      "vw": 10,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 3419,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "That’s the average order, and the fee. Each employee saves up to 2 hours a week, and 0 people are needed to manage lunch.",
+      "words": 24,
+      "chars": 121,
+      "lines": 4,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Poppins",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.3,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 3537,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Lunch for your team",
+      "words": 4,
+      "chars": 19,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 4291,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Set up in minutes",
+      "words": 4,
+      "chars": 17,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Poppins",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.55,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 4431,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "Book a demo",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 35.1,
+      "vw": 9,
+      "font": "Poppins",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 4814,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Book a demo",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 22,
+      "vw": 5.6,
+      "font": "Poppins",
+      "weight": 800,
+      "tracking": 0,
+      "leading": 1.55,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 5026,
+      "tag": "button",
+      "kind": "heading"
+     },
+     {
+      "text": "Vilnius",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.22,
+      "top": 5567,
+      "tag": "a",
+      "kind": "statement"
+     },
+     {
+      "text": "København",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 26,
+      "vw": 6.7,
+      "font": "Poppins",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 5646,
+      "tag": "a",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 11,
+     "maxLines": 4,
+     "over2Lines": 0,
+     "statements": 4,
+     "centered": 2,
+     "medianWords": 4,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Nunito Sans",
+       "share": 0.84,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.16,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      15,
+      16,
+      17,
+      18,
+      22,
+      26,
+      28,
+      35,
+      36,
+      39,
+      47
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Nunito Sans",
+      "size": 17,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 17
+     },
+     "measureChars": 37,
+     "max": {
+      "size": 46.8,
+      "vw": 12,
+      "font": "Poppins",
+      "text": "Office lunch, sorted"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.13,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#fafafa",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.98
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#fafafa",
+       "top": 0,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.98
+       }
+      },
+      {
+       "color": "#3ecfa3",
+       "top": 8,
+       "hsl": {
+        "h": 162,
+        "s": 0.6,
+        "l": 0.53
+       }
+      },
+      {
+       "color": "#d6f5ec",
+       "top": 2962,
+       "hsl": {
+        "h": 163,
+        "s": 0.61,
+        "l": 0.9
+       }
+      },
+      {
+       "color": "#ffffff",
+       "top": 2573,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#18181b",
+       "top": 3339,
+       "hsl": {
+        "h": 240,
+        "s": 0.06,
+        "l": 0.1
+       }
+      },
+      {
+       "color": "#ff4d5e",
+       "top": 3731,
+       "hsl": {
+        "h": 354,
+        "s": 1,
+        "l": 0.65
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#18181b",
+       "share": 0.55
+      },
+      {
+       "color": "#52525b",
+       "share": 0.26
+      },
+      {
+       "color": "#c9c9cf",
+       "share": 0.14
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.05
+      },
+      {
+       "color": "#3ecfa3",
+       "share": 0
+      }
+     ],
+     "button": {
+      "bg": "#18181b",
+      "hsl": {
+       "h": 240,
+       "s": 0.06,
+       "l": 0.1
+      },
+      "fg": "#18181b"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 9,
+     "inHero": 3,
+     "radius": 0,
+     "height": 52,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "Start ordering",
+      "Why Ordero"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 16,
+     "boxRadius": 14,
+     "squareMedia": 1,
+     "roundedMedia": 2,
+     "mediaRadius": 14,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.29
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 1071,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "nunito sans",
+     "poppins"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 6211,
+    "margins": {
+     "left": 16,
+     "right": 16
+    },
+    "sections": [
+     {
+      "sel": "header.hero",
+      "tag": "header",
+      "top": 0,
+      "height": 1071,
+      "words": 49,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Office lunch,",
+       "size": 47,
+       "tag": "h1"
+      },
+      "left": 26,
+      "right": 28,
+      "textLeft": 26,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#why.chapter",
+      "tag": "section",
+      "top": 1071,
+      "height": 1502,
+      "words": 104,
+      "media": 5,
+      "middle": 0,
+      "heading": {
+       "text": "Why Ordero Business",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 17,
+      "textLeft": 16,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#how.stages",
+      "tag": "section",
+      "top": 2573,
+      "height": 766,
+      "words": 26,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "First, get the app",
+       "size": 35,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#figures.sentence",
+      "tag": "section",
+      "top": 3339,
+      "height": 392,
+      "words": 28,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "30 seconds,",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#lunch.returns",
+      "tag": "section",
+      "top": 3731,
+      "height": 853,
+      "words": 31,
+      "media": 1,
+      "middle": 0,
+      "heading": null,
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 39,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.contact",
+      "tag": "section",
+      "top": 4584,
+      "height": 760,
+      "words": 28,
+      "media": 0,
+      "middle": 2534,
+      "heading": {
+       "text": "Book a demo",
+       "size": 35,
+       "tag": "h2"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": 16,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "footer.footer",
+      "tag": "footer",
+      "top": 5344,
+      "height": 867,
+      "words": 50,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Vilnius",
+       "size": 26,
+       "tag": "a"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 51,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 3652,
+      "height": 292
+     }
+    ],
+    "h1s": [
+     {
+      "text": "Office lunch, sorted",
+      "size": 47,
+      "top": 106,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 12
+     }
+    ],
+    "leftBlocks": 12,
+    "bodySize": 16,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "13 different font sizes (15, 16, 17, 20, 22, 26, 33, 34, 40, 45, 56, 68, 131).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "font-not-dealt",
+   "width": 1440,
+   "message": "The sheet dealt Zilla Slab and Zilla Slab, but the page renders Nunito Sans, Poppins.",
+   "fix": "Load the dealt face (the link on the sheet) and put it first in font-family. A build that falls back to a default face lands on the default look."
+  },
+  {
+   "level": "WARN",
+   "id": "lopsided",
+   "width": 1440,
+   "message": "A section keeps its content on one side and leaves 1086px of the width empty: \"Lunch for your team\".",
+   "fix": "Fill the other side with what the section has (its picture, a second column, the figure), or defend the void in one sentence."
+  },
+  {
+   "level": "WARN",
+   "id": "empty-middle",
+   "width": 1440,
+   "message": "1 section(s) have content at both edges and 2505px of nothing between: \"Book a demo\"",
+   "fix": "Bring the two parts together on the grid, or put the picture or figure of the section in the middle. An empty middle third reads as a hole, the same as an empty half.",
+   "alsoAt": [
+    768
+   ]
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/user/website-update/.taste-skill/v2/inspect-business/desktop-fold.jpg",
+   "pages": [
+    "/home/user/website-update/.taste-skill/v2/inspect-business/desktop-page-01.jpg",
+    "/home/user/website-update/.taste-skill/v2/inspect-business/desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/user/website-update/.taste-skill/v2/inspect-business/tablet-fold.jpg",
+   "pages": [
+    "/home/user/website-update/.taste-skill/v2/inspect-business/tablet-page-01.jpg",
+    "/home/user/website-update/.taste-skill/v2/inspect-business/tablet-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/user/website-update/.taste-skill/v2/inspect-business/mobile-fold.jpg",
+   "pages": [
+    "/home/user/website-update/.taste-skill/v2/inspect-business/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
