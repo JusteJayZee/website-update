@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ordero Business — office lunch, ordered in the app</title>
-<meta name="description" content="Your team pre-orders and pays for lunch in the Ordero app and picks it up at the office kitchen. No delivery fees, no subscriptions, nobody coordinating orders.">
+<title>Ordero Business — one click, faster orders</title>
+<meta name="description" content="Turn workplace meals into a premium employee experience. Your team gets a personalised food ordering platform that simplifies lunch.">
 <link rel="icon" href="assets/brand/ordero-logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,205 +15,169 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- Hero: the office's lunch, one tap away -->
-<header class="hero">
-  <div class="panel" style="--panel: var(--mint)">
-    <div class="panel__top">
-      <a class="panel__logo" href="index.html" aria-label="Ordero, home"><img src="assets/brand/ordero-logo-mono.svg" alt="Ordero" width="121" height="36"></a>
-      <nav class="panel__nav" aria-label="Main">
-        <div class="products">
-          <button class="products__btn" type="button" aria-expanded="false" aria-controls="products-menu">Products <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
-          <div class="products__menu" id="products-menu">
-            <a href="index.html"><img src="assets/illustrations/school.webp" alt="" width="1165" height="1200"><strong>Ordero Kids</strong><span>School and kindergarten meals</span></a>
-            <a href="business.html" aria-current="page"><img src="assets/img/ordero-business-hand.webp" alt="" width="900" height="963"><strong>Ordero Business</strong><span>Lunch for offices and teams</span></a>
-          </div>
+<header class="nav">
+  <div class="wrap">
+    <a class="nav__logo" href="index.html" aria-label="Ordero, home"><img src="assets/brand/ordero-logo.svg" alt="Ordero" width="121" height="36"></a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="products">
+        <button class="products__btn" type="button" aria-expanded="false" aria-controls="products-menu">Products <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+        <div class="products__menu" id="products-menu">
+          <a href="index.html"><img src="assets/illustrations/school.webp" alt="" width="1165" height="1200"><strong>Ordero Kids</strong><span>School and kindergarten meals</span></a>
+          <a href="business.html" aria-current="page"><img src="assets/img/ordero-business-hand.webp" alt="" width="900" height="963"><strong>Ordero Business</strong><span>Lunch for offices and teams</span></a>
         </div>
-        <a class="link hide-s" href="#contact">Book a demo</a>
-        <a class="link" href="https://business.ordero.lt/login">Log in</a>
-      </nav>
-    </div>
-    <div class="panel__head">
-      <h1 data-rise style="--d:0">Office lunch,<br> sorted</h1>
-      <p data-rise style="--d:1">Your team pre-orders and pays for lunch in the Ordero app, then picks it up at the office kitchen. No delivery fees, no subscriptions, no queue.</p>
-    </div>
-    <div class="panel__art"><img src="assets/img/ordero-business-hand.webp" alt="A hand holding a phone with the Ordero app open on Soup + main course, 6,90 €" width="900" height="963" fetchpriority="high" data-rise style="--d:2"></div>
-    <div class="panel__foot">
-      <p class="panel__stores" data-rise style="--d:4"><a class="link" href="https://apps.apple.com/lt/app/ordero/id6749176295">App Store</a> <a class="link" href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Google Play</a></p>
-      <a class="button button--ink" href="https://business.ordero.lt/login" data-rise style="--d:3">Start ordering</a>
-      <span aria-hidden="true"></span>
-    </div>
+      </div>
+      <a class="hide-s" href="#contact">Book a demo</a>
+      <a href="https://app.ordero.lt/login">Log in</a>
+      <a class="button hide-s" href="https://business.ordero.lt/login">Get started</a>
+    </nav>
   </div>
-  <nav class="swatches" aria-label="On this page">
-    <a href="#why" style="--c: var(--white)">Why Ordero</a>
-    <a href="#how" style="--c: var(--mint-tint)">Three steps</a>
-    <a href="#figures" style="--c: var(--gold)">In numbers</a>
-    <a href="#lunch" style="--c: var(--coral)">The app</a>
-    <a href="#contact" style="--c: var(--ink); --t: var(--white)">Book a demo</a>
-  </nav>
 </header>
 
 <main id="main">
 
-<!-- 1. What it saves, one icon per tile -->
-<section class="chapter" id="why" aria-labelledby="why-title" style="--g: var(--paper)">
-  <div class="grid">
-    <div class="tiles__intro">
-      <h2 class="head" id="why-title" data-reveal>Why Ordero Business</h2>
-      <p data-reveal style="--d:1">A personalised lunch ordering platform for your team. It simplifies lunch and gives people back their time.</p>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title" data-reveal>One click.<br> Faster orders.</h1>
+      <p class="lead" data-reveal style="--d:1">Turn workplace meals into a premium employee experience. Your team gets a personalised food ordering platform that simplifies lunch and boosts satisfaction.</p>
+      <div class="hero__actions" data-reveal style="--d:2">
+        <a class="button" href="https://business.ordero.lt/login">Get started</a>
+        <a class="link" href="#contact">Book a demo</a>
+      </div>
     </div>
-    <ul class="tiles tiles--icons">
-      <li class="tile" data-reveal>
-        <figure style="--c: var(--mint-tint)"><img src="assets/icons/thirty-seconds.webp" alt="A stopwatch with a fork and knife, marked 30 seconds" width="575" height="640" loading="lazy"></figure>
-        <h3>Lunch in under 30 seconds</h3>
-        <p>Browse the menu, pick a meal and pay in the app.</p>
+    <figure class="hero__pic hero__pic--panel" data-reveal style="--d:1">
+      <img src="assets/img/ordero-business-hand.webp" alt="A hand holding a phone with the Ordero app open on Soup + main course, 6,90 €" width="900" height="963" fetchpriority="high">
+    </figure>
+  </div>
+</section>
+
+<section class="partners" aria-labelledby="partners-title">
+  <div class="wrap">
+    <h2 id="partners-title" data-reveal>Our partners</h2>
+    <ul data-reveal style="--d:1">
+      <li><img src="assets/brand/b-avion.jpg" alt="Avion Express" loading="lazy" width="480" height="128"></li>
+      <li><img src="assets/brand/b-firstpick.png" alt="Firstpick" loading="lazy" width="480" height="98"></li>
+      <li><img src="assets/brand/b-oras.png" alt="Oras" loading="lazy" width="240" height="240"></li>
+      <li><img src="assets/brand/b-terasky.png" alt="TeraSky" loading="lazy" width="480" height="78"></li>
+      <li><img src="assets/brand/b-homanit.png" alt="Homanit" loading="lazy" width="480" height="85"></li>
+      <li><img src="assets/brand/b-lost-astronaut.jpg" alt="Lost Astronaut" loading="lazy" width="430" height="191"></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--tone" aria-labelledby="steps-title">
+  <div class="wrap">
+    <div class="section__head">
+      <h2 id="steps-title" data-reveal>Three steps, that’s all</h2>
+      <p class="lead muted" data-reveal style="--d:1">From download to first order: five minutes, max.</p>
+    </div>
+    <ol class="steps">
+      <li data-reveal><i class="bar" style="--c: var(--gold)" aria-hidden="true"></i><h3>Download the app</h3><p>Get started in seconds. Download the app, browse personalised daily meal options, and order your lunch directly from your phone.</p></li>
+      <li data-reveal style="--d:1"><i class="bar" style="--c: var(--coral)" aria-hidden="true"></i><h3>Select your meals</h3><p>Choose from fresh, daily options, place your order and pay directly in the app. Quick, convenient, ready when you are.</p></li>
+      <li data-reveal style="--d:2"><i class="bar" style="--c: var(--mint)" aria-hidden="true"></i><h3>Pick up at the office kitchen</h3><p>Your order is ready for pickup at your office kitchen point. No delivery fees, no subscriptions, no waiting around.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="why-title">
+  <div class="wrap split">
+    <div class="section__head">
+      <h2 id="why-title" data-reveal>Why Ordero Business?</h2>
+    </div>
+    <ul class="items">
+      <li class="item" data-reveal>
+        <img src="assets/icons/two-hours.webp" alt="" width="640" height="569" loading="lazy">
+        <div><h3>Up to 2 hours saved every week</h3><p>Employees pre-order and pay in advance, reducing lunch queues and eliminating time spent coordinating food orders manually.</p></div>
       </li>
-      <li class="tile tile--wide" data-reveal style="--d:1">
-        <figure style="--c: var(--gold)"><img src="assets/icons/two-hours.webp" alt="A clock with an arrow and a check mark, marked 2 hours" width="640" height="569" loading="lazy"></figure>
-        <h3>Up to 2 hours saved each week</h3>
-        <p>Employees pre-order and pay in advance, so there are no lunch queues and no orders to coordinate by hand.</p>
+      <li class="item" data-reveal>
+        <img src="assets/icons/thirty-seconds.webp" alt="" width="575" height="640" loading="lazy">
+        <div><h3>Order lunch in under 30 seconds</h3><p>Browse menus, select meals, and pay instantly in the app. A fast and seamless experience for busy teams.</p></div>
       </li>
-      <li class="tile" data-reveal style="--d:2">
-        <figure style="--c: var(--coral-tint)"><img src="assets/icons/zero-fees.webp" alt="A takeaway bag with a fork and spoon and a price tag reading 0" width="604" height="640" loading="lazy"></figure>
-        <h3>0 € delivery fees</h3>
-        <p>Meals come to the office kitchen. No courier costs, no hidden fees.</p>
-      </li>
-      <li class="tile" data-reveal style="--d:3">
-        <figure style="--c: var(--gold)"><img src="assets/icons/lunchbox.webp" alt="A lunchbox with three compartments" width="640" height="621" loading="lazy"></figure>
-        <h3>Nobody manages lunch</h3>
-        <p>The system does it. Zero people needed to collect orders.</p>
-      </li>
-      <li class="tile" data-reveal style="--d:4">
-        <figure style="--c: var(--mint-tint)"><img src="assets/icons/pick-meal.webp" alt="A finger choosing a salad bowl" width="640" height="449" loading="lazy"></figure>
-        <h3>Fresh options daily</h3>
-        <p>Choose from the day’s meals, personalised for each person.</p>
+      <li class="item" data-reveal>
+        <img src="assets/icons/zero-fees.webp" alt="" width="604" height="640" loading="lazy">
+        <div><h3>0 € delivery fees</h3><p>Meals are delivered directly to the office kitchen pickup point. No courier costs, no hidden fees, and no unnecessary hassle.</p></div>
       </li>
     </ul>
   </div>
 </section>
 
-<!-- 2. Three steps, dragged -->
-<section class="stages" id="how" aria-labelledby="stage-title" data-stages data-stages-json='[
-  {"title":"First, get the app","body":"Get started in seconds. Download the app and browse your personalised daily meal options.","img":"download-app","alt":"A phone with a download arrow and a fork and spoon on its screen","art":"var(--white)"},
-  {"title":"Then, pick and pay","body":"Choose from fresh daily options, place your order and pay directly in the app. Quick, and ready when you are.","img":"pick-meal","alt":"A finger choosing a salad bowl","art":"var(--gold)"},
-  {"title":"Finally, pick it up","body":"Your order waits at the office kitchen pickup point. No delivery fees, no subscriptions, no waiting around.","img":"lunchbox","alt":"A lunchbox with three compartments","art":"var(--coral-tint)"}]'>
-  <div class="stages__clause">
-    <div class="fade" data-stage-text>
-      <h2 id="stage-title">First, get the app</h2>
-      <p data-stage-body>Get started in seconds. Download the app and browse your personalised daily meal options.</p>
-    </div>
-  </div>
-  <div class="stages__art stages__art--icon" data-stage-art style="--art: var(--white)">
-    <img class="fade" src="assets/icons/download-app.webp" alt="A phone with a download arrow and a fork and spoon on its screen" width="414" height="640" loading="lazy" data-stage-img>
-  </div>
-  <div class="stages__control">
-    <label class="sr-only" for="stage-range">Step of an Ordero Business order</label>
-    <input id="stage-range" type="range" min="0" max="2" step="1" value="0" aria-valuetext="First, get the app">
-    <div class="stages__names stages__names--3">
-      <button type="button" data-step="0" aria-current="step">Download</button>
-      <button type="button" data-step="1">Pick and pay</button>
-      <button type="button" data-step="2">Pick up</button>
-    </div>
+<section class="section section--tone" aria-labelledby="figures-title">
+  <div class="wrap">
+    <h2 id="figures-title" data-reveal>Ordero Business in numbers</h2>
+    <dl class="figures">
+      <div data-reveal><dt>30&nbsp;s</dt><dd>Average time to place an order</dd></div>
+      <div data-reveal style="--d:1"><dt>2&nbsp;h</dt><dd>Saved per employee every week</dd></div>
+      <div data-reveal style="--d:2"><dt>0&nbsp;€</dt><dd>Delivery fees. Ever.</dd></div>
+      <div data-reveal style="--d:3"><dt>0</dt><dd>People needed to manage lunch. The system does it.</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- 3. The figures -->
-<section class="sentence" id="figures" aria-labelledby="figures-title" style="background: var(--ink)">
-  <div class="sentence__inner">
-    <h2 id="figures-title" data-reveal>30&nbsp;seconds,<br> 0&nbsp;€ delivery</h2>
-    <p data-reveal style="--d:1">That’s the average order, and the fee. Each employee saves up to <b>2&nbsp;hours</b> a week, and <b class="m">0&nbsp;people</b> are needed to manage lunch.</p>
-  </div>
-</section>
-
-<!-- 4. The app returns, from the side -->
-<section class="returns" id="lunch" aria-labelledby="returns-title" style="background: var(--coral)">
-  <div class="returns__art"><img src="assets/img/ordero-business-phones.webp" alt="Two phones with the Ordero Business app: soup and a main course for 6,90 €, and the daily lunch set" width="800" height="1124" loading="lazy" style="width: 92%; left: 4%; bottom: -34%"></div>
-  <div class="returns__text">
-    <h2 id="returns-title" data-reveal>Lunch for your team</h2>
-    <p data-reveal style="--d:1">Today’s set lunch, soup and a main, chosen and paid in a few taps. Join 100+ companies already using Ordero Business.</p>
-    <p class="returns__fact" data-reveal style="--d:2">Set up in minutes</p>
-    <a class="button button--ink" href="https://business.ordero.lt/login" data-reveal style="--d:3">Start ordering</a>
-    <div class="returns__stores" data-reveal style="--d:4">
-      <a class="link" href="https://apps.apple.com/lt/app/ordero/id6749176295">App Store</a>
-      <a class="link" href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Google Play</a>
+<section class="section cta" aria-labelledby="cta-title">
+  <div class="wrap">
+    <h2 id="cta-title" data-reveal>Make lunch effortless for your team</h2>
+    <p class="lead" data-reveal style="--d:1">Join 100+ companies already using Ordero Business. Get started in minutes.</p>
+    <div class="stores" data-reveal style="--d:2">
+      <a href="https://apps.apple.com/lt/app/ordero/id6749176295"><img src="assets/brand/badge-app-store.png" alt="Download on the App Store" width="240" height="80" loading="lazy"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en"><img src="assets/brand/badge-google-play.png" alt="Get it on Google Play" width="240" height="80" loading="lazy"></a>
     </div>
   </div>
 </section>
 
-<!-- 5. Book a demo -->
-<section class="contact" id="contact" aria-labelledby="contact-title">
-  <div class="strip-wrap">
-  <ul class="strip" aria-label="Companies using Ordero Business" data-strip>
-    <li class="r32"><img src="assets/brand/b-avion.jpg" alt="Avion Express" loading="lazy" width="480" height="128"></li>
-    <li class="r11" style="--c: var(--mint-tint)"><img src="assets/icons/thirty-seconds.webp" alt="" loading="lazy" width="575" height="640"></li>
-    <li class="r32"><img src="assets/brand/b-firstpick.png" alt="Firstpick" loading="lazy" width="480" height="98"></li>
-    <li class="r34" style="--c: var(--gold)"><img src="assets/icons/two-hours.webp" alt="" loading="lazy" width="640" height="569"></li>
-    <li class="r11"><img src="assets/brand/b-oras.png" alt="Oras" loading="lazy" width="240" height="240"></li>
-    <li class="r11" style="--c: var(--coral-tint)"><img src="assets/icons/zero-fees.webp" alt="" loading="lazy" width="604" height="640"></li>
-    <li class="r32"><img src="assets/brand/b-terasky.png" alt="TeraSky" loading="lazy" width="480" height="78"></li>
-    <li class="r34" style="--c: var(--mint-tint)"><img src="assets/icons/lunchbox.webp" alt="" loading="lazy" width="640" height="621"></li>
-    <li class="r32"><img src="assets/brand/b-homanit.png" alt="Homanit" loading="lazy" width="480" height="85"></li>
-    <li class="r11" style="--c: var(--gold)"><img src="assets/icons/pick-meal.webp" alt="" loading="lazy" width="640" height="449"></li>
-    <li class="r32"><img src="assets/brand/b-lost-astronaut.jpg" alt="Lost Astronaut" loading="lazy" width="430" height="191"></li>
-    <li class="r34" style="--c: var(--white)"><img src="assets/icons/download-app.webp" alt="" loading="lazy" width="414" height="640"></li>
-  </ul>
-  </div>
-  <div class="contact__body">
-    <h2 id="contact-title" data-reveal>Book a demo</h2>
-    <form class="contact__bar" data-contact novalidate data-reveal style="--d:1">
-      <label class="sr-only" for="c-name">Your name and company</label>
-      <input id="c-name" name="name" type="text" placeholder="Your name and company" autocomplete="name" required>
-      <label class="sr-only" for="c-reach">Email or phone</label>
-      <input id="c-reach" name="reach" type="text" placeholder="Email or phone" autocomplete="email" required>
-      <button type="submit">Book a demo</button>
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <div class="wrap contact">
+    <div>
+      <h2 id="contact-title" data-reveal>Get in touch</h2>
+      <address data-reveal style="--d:1">
+        <span>Business Centre Go9 Spaces<br>Gedimino pr. 9, Vilnius, 01103<br>Lithuania</span>
+        <span>Business Centre Raadhuspladsen<br>Rådhuspladsen 16, 1550 København<br>Denmark</span>
+        <a class="link" href="https://www.linkedin.com/company/ordero-app">Ordero on LinkedIn</a>
+      </address>
+    </div>
+    <form class="form" data-contact novalidate data-reveal style="--d:1">
+      <label>Name<input name="name" type="text" autocomplete="name"></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      <label class="full">Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+      <label class="full">Message<textarea name="message" required></textarea></label>
+      <button class="button" type="submit">Send</button>
+      <p class="form__status" role="status" data-contact-status></p>
     </form>
-    <div class="contact__notes">
-      <p>For offices, work sites and canteens. Already used by 100+ companies.</p>
-      <p>Go9 Spaces, Gedimino pr. 9, Vilnius · Rådhuspladsen 16, København</p>
-    </div>
-    <p class="contact__status" role="status" data-contact-status></p>
   </div>
 </section>
 
 </main>
 
 <footer class="footer">
-  <div class="footer__name"><img src="assets/brand/ordero-logo.svg" alt="Ordero" width="121" height="36" loading="lazy"></div>
-  <div class="footer__row">
-    <div class="footer__places">
-      <p><a class="link" href="https://maps.google.com/?q=Gedimino+pr.+9,+Vilnius">Vilnius</a><span>Gedimino pr. 9, Go9 Spaces</span></p>
-      <p><a class="link" href="https://maps.google.com/?q=R%C3%A5dhuspladsen+16,+K%C3%B8benhavn">København</a><span>Rådhuspladsen 16</span></p>
+  <div class="wrap">
+    <div class="footer__brand">
+      <img src="assets/brand/ordero-logo.svg" alt="Ordero" width="121" height="36" loading="lazy">
+      <p>Simple, smart meal ordering for schools and workplaces.</p>
     </div>
-    <div class="footer__cols">
-      <div>
-        <h2>Products</h2>
-        <ul class="list">
-          <li><a class="link" href="index.html">Ordero Kids</a></li>
-          <li><a class="link" href="business.html">Ordero Business</a></li>
-          <li><a class="link" href="#contact">Book a demo</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>App</h2>
-        <ul class="list">
-          <li><a class="link" href="https://business.ordero.lt/login">Business log in</a></li>
-          <li><a class="link" href="https://apps.apple.com/lt/app/ordero/id6749176295">App Store</a></li>
-          <li><a class="link" href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Google Play</a></li>
-          <li><a class="link" href="https://www.linkedin.com/company/ordero-app">LinkedIn</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Legal</h2>
-        <ul class="list">
-          <li><a class="link" href="https://www.ordero.lt/en/terms-and-conditions">Terms and conditions</a></li>
-          <li><a class="link" href="https://www.ordero.lt/en/privacy-policy">Privacy policy</a></li>
-          <li><a class="link" href="https://www.ordero.lt/en/business-privacy-policy">Business privacy policy</a></li>
-        </ul>
-      </div>
+    <div>
+      <h2>Products</h2>
+      <ul>
+        <li><a href="index.html">Ordero Kids</a></li>
+        <li><a href="business.html">Ordero Business</a></li>
+        <li><a href="#contact">Book a demo</a></li>
+      </ul>
     </div>
-  </div>
-  <div class="footer__legal">
-    <p>© 2026 Ordero. Simple, smart meal ordering for schools and workplaces.</p>
-    <a class="link" href="#main">Back to top</a>
+    <div>
+      <h2>App</h2>
+      <ul>
+        <li><a href="https://business.ordero.lt/login">Business log in</a></li>
+        <li><a href="https://apps.apple.com/lt/app/ordero/id6749176295">App Store</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Google Play</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Legal</h2>
+      <ul>
+        <li><a href="https://www.ordero.lt/en/terms-and-conditions">Terms and conditions</a></li>
+        <li><a href="https://www.ordero.lt/en/privacy-policy">Privacy policy</a></li>
+        <li><a href="https://www.ordero.lt/en/business-privacy-policy">Business privacy policy</a></li>
+      </ul>
+    </div>
+    <p class="footer__legal"><span>© 2026 Ordero</span><a class="link" href="#main">Back to top</a></p>
   </div>
 </footer>
 

@@ -75,3 +75,11 @@ Pictures: the original drawings, the original Business icons and phone renders, 
 Deviations from the DS: dark labels on mint buttons for contrast; mono wordmark on gold/mint panels (DS Logo mono variant).
 Defended WARNs: fonts are the brand's (sheet text is stale); no honest footage; strip marquee reads as empty middle;
 Business phones image sits left of its text by design.
+
+# v3 restyle (2026-10-30)
+Brief: "something more minimal; keep the existing page's structure and content, make it more in order".
+Treated as the skill's restyle: before = ordero.lt (.taste-skill/before*: Kids 17 FAIL, Business 5 FAIL).
+Kept every section, its order and its copy; set in the DS tokens on one 12-col frame with one left edge.
+Changes: 2-line headlines, 2 faces / 5 sizes, no gradients/shadows/glass/outlines, plain-ink headings (the coloured
+accent words were 1.7:1 and 2:1), sync diagram rebuilt in HTML, steps as an <ol> without numbers.
+After: 0 FAIL on both; WARNs: no footage, brand fonts.

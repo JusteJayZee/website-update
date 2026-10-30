@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ordero Kids — school and kindergarten meals, sorted in minutes</title>
-<meta name="description" content="Ordero lets parents order, change and track school and kindergarten meals in one app. Schools get a clean daily headcount; caterers get the orders.">
+<title>Ordero Kids — school meals and kindergarten lunches, sorted in minutes</title>
+<meta name="description" content="Ordero lets parents order, change and track school and kindergarten meals in one place. No paper forms, no phone calls, no guessing.">
 <link rel="icon" href="assets/brand/ordero-logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,252 +15,231 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- Hero: the drawing's gold disc has grown into the whole panel -->
-<header class="hero">
-  <div class="panel">
-    <div class="panel__top">
-      <a class="panel__logo" href="index.html" aria-label="Ordero Kids, home"><img src="assets/brand/ordero-logo-mono.svg" alt="Ordero" width="121" height="36"></a>
-      <nav class="panel__nav" aria-label="Main">
-        <div class="products">
-          <button class="products__btn" type="button" aria-expanded="false" aria-controls="products-menu">Products <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
-          <div class="products__menu" id="products-menu">
-            <a href="index.html" aria-current="page"><img src="assets/illustrations/school.webp" alt="" width="1165" height="1200"><strong>Ordero Kids</strong><span>School and kindergarten meals</span></a>
-            <a href="business.html"><img src="assets/img/ordero-business-hand.webp" alt="" width="900" height="963"><strong>Ordero Business</strong><span>Lunch for offices and teams</span></a>
-          </div>
+<header class="nav">
+  <div class="wrap">
+    <a class="nav__logo" href="index.html" aria-label="Ordero Kids, home"><img src="assets/brand/ordero-logo.svg" alt="Ordero" width="121" height="36"></a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="products">
+        <button class="products__btn" type="button" aria-expanded="false" aria-controls="products-menu">Products <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+        <div class="products__menu" id="products-menu">
+          <a href="index.html" aria-current="page"><img src="assets/illustrations/school.webp" alt="" width="1165" height="1200"><strong>Ordero Kids</strong><span>School and kindergarten meals</span></a>
+          <a href="business.html"><img src="assets/img/ordero-business-hand.webp" alt="" width="900" height="963"><strong>Ordero Business</strong><span>Lunch for offices and teams</span></a>
         </div>
-        <a class="link hide-s" href="#contact">Book a demo</a>
-        <a class="link" href="https://app.ordero.lt/login">Log in</a>
-      </nav>
-    </div>
-    <div class="panel__head">
-      <h1 data-rise style="--d:0">School meals,<br> sorted</h1>
-      <p data-rise style="--d:1">Parents order, change and track school and kindergarten meals in one app. No paper forms, no phone calls, no guessing.</p>
-    </div>
-    <div class="panel__art"><img src="assets/illustrations/order-phone-large-nodisc.webp" alt="A hand tapping the green check on a phone showing a child's lunch tray" width="1170" height="1200" fetchpriority="high" data-rise style="--d:2"></div>
-    <div class="panel__foot">
-      <p class="panel__stores" data-rise style="--d:4"><a class="link" href="https://apps.apple.com/lt/app/ordero/id6749176295">App Store</a> <a class="link" href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Google Play</a></p>
-      <a class="button button--ink" href="https://app.ordero.lt/login" data-rise style="--d:3">Start ordering</a>
-      <span aria-hidden="true"></span>
-    </div>
+      </div>
+      <a class="hide-s" href="#contact">Book a demo</a>
+      <a href="https://app.ordero.lt/login">Log in</a>
+      <a class="button hide-s" href="https://app.ordero.lt/login">Get started</a>
+    </nav>
   </div>
-  <nav class="swatches" aria-label="On this page">
-    <a href="#parents" style="--c: var(--white)">What parents get</a>
-    <a href="#how" style="--c: var(--mint-tint)">How it works</a>
-    <a href="#app" style="--c: var(--mint)">The app</a>
-    <a href="#voices" style="--c: var(--coral)">In their words</a>
-    <a href="#contact" style="--c: var(--ink); --t: var(--white)">Book a demo</a>
-  </nav>
 </header>
 
 <main id="main">
 
-<!-- 1. Each capability, a drawing on its own colour -->
-<section class="chapter" id="parents" aria-labelledby="parents-title" style="--g: var(--paper)">
-  <div class="grid">
-    <div class="tiles__intro">
-      <h2 class="head" id="parents-title" data-reveal>What parents get</h2>
-      <p data-reveal style="--d:1">Everything they need and nothing they don’t. Five things Ordero does for every family, from the first order on.</p>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title" data-reveal>School meals,<br> sorted in minutes</h1>
+      <p class="lead" data-reveal style="--d:1">School meals and kindergarten lunches in one place. Ordero lets parents order, change and track meals. No paper forms, no phone calls, no guessing.</p>
+      <div class="hero__actions" data-reveal style="--d:2">
+        <a class="button" href="https://app.ordero.lt/login">Get started</a>
+        <a class="link" href="#contact">Book a demo</a>
+      </div>
     </div>
-    <ul class="tiles">
-      <li class="tile" data-reveal>
-        <figure style="--c: var(--gold)"><img src="assets/illustrations/order-phone-nodisc.webp" alt="A finger tapping the green check under a lunch on a phone" width="1170" height="1200" loading="lazy"></figure>
-        <h3>One tap to order</h3>
-        <p>No paperwork, no phone calls, no fuss.</p>
+    <figure class="hero__pic" data-reveal style="--d:1">
+      <img src="assets/img/kids-hero-app.webp" alt="The Ordero app: a week’s order with breakfast, lunch and dinner, and the day’s lunch menu" width="1200" height="1200" fetchpriority="high">
+    </figure>
+  </div>
+</section>
+
+<section class="partners" aria-labelledby="partners-title">
+  <div class="wrap">
+    <h2 id="partners-title" data-reveal>Trusted by 100+ partners</h2>
+    <ul data-reveal style="--d:1">
+      <li><a href="https://www.baltusalis.lt/apie-mus"><img src="assets/brand/p-baltu-salis.png" alt="Baltų šalis" loading="lazy" width="304" height="280"></a></li>
+      <li><a href="https://katinodieneles.lt/"><img src="assets/brand/p-katino-dieneles.png" alt="Katino dienelės" loading="lazy" width="320" height="320"></a></li>
+      <li><a href="https://mazuju-valdos.lt/"><img src="assets/brand/p-mazuju-valdos.png" alt="Mažųjų valdos" loading="lazy" width="320" height="184"></a></li>
+      <li><a href="https://www.demokratinemokykla.lt/"><img src="assets/brand/p-demokratine.png" alt="Demokratinė mokykla" loading="lazy" width="320" height="320"></a></li>
+      <li><a href="https://www.aisv.lt/"><img src="assets/brand/p-aisv.png" alt="The American International School of Vilnius" loading="lazy" width="230" height="320"></a></li>
+      <li><a href="https://kd.lt/"><img src="assets/brand/p-kd-school.png" alt="KD International School" loading="lazy" width="320" height="260"></a></li>
+      <li><a href="https://vaikystes-sodas.lt/"><img src="assets/brand/p-vaikystes-sodas.png" alt="Vaikystės sodas" loading="lazy" width="320" height="168"></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--tone" aria-labelledby="features-title">
+  <div class="wrap split">
+    <div class="section__head">
+      <h2 id="features-title" data-reveal>Everything parents need</h2>
+      <p class="lead muted" data-reveal style="--d:1">Nothing they don’t.</p>
+    </div>
+    <ul class="items">
+      <li class="item" data-reveal>
+        <img src="assets/illustrations/order-phone.webp" alt="" width="1170" height="1200" loading="lazy">
+        <div><h3>Ease of use</h3><p>Order meals for your child with a click of a button. No paperwork, no phone calls, no fuss.</p></div>
       </li>
-      <li class="tile tile--wide" data-reveal style="--d:1">
-        <figure style="--c: var(--mint)"><img src="assets/illustrations/week-auto-order-nodisc.webp" alt="A week from Monday to Sunday above a lunch tray, with arrows going round" width="1200" height="1122" loading="lazy"></figure>
-        <h3>Automatic ordering</h3>
-        <p>Set a default order for a period and Ordero repeats it every week.</p>
+      <li class="item" data-reveal>
+        <img src="assets/illustrations/menu-magnifier.webp" alt="" width="1200" height="1198" loading="lazy">
+        <div><h3>Transparency</h3><p>Get real insights into your child’s daily diet. Full menu visibility and a log of what they actually ate.</p></div>
       </li>
-      <li class="tile" data-reveal style="--d:2">
-        <figure style="--c: var(--coral)"><img src="assets/illustrations/plate-allergies-nodisc.webp" alt="A plate of food with wheat and milk crossed out above it" width="1200" height="1189" loading="lazy"></figure>
-        <h3>Made for your child</h3>
-        <p>Meal type, portion and allergies, saved once and applied always.</p>
+      <li class="item" data-reveal>
+        <img src="assets/illustrations/calendar-edit.webp" alt="" width="1200" height="1106" loading="lazy">
+        <div><h3>Control</h3><p>Place and edit orders right up until the last minute. Plans change, and Ordero moves with you.</p></div>
       </li>
-      <li class="tile" data-reveal style="--d:3">
-        <figure style="--c: var(--gold)"><img src="assets/illustrations/calendar-edit-nodisc.webp" alt="A calendar being edited with a pencil, above a lunch tray" width="1200" height="1106" loading="lazy"></figure>
-        <h3>Change until the cutoff</h3>
-        <p>Plans change. Edit or cancel right up to the last minute.</p>
+      <li class="item" data-reveal>
+        <img src="assets/illustrations/week-auto-order.webp" alt="" width="1200" height="1122" loading="lazy">
+        <div><h3>Automated ordering</h3><p>Configure default orders for a set time period and let Ordero handle the rest. Automatically, every week.</p></div>
       </li>
-      <li class="tile" data-reveal style="--d:4">
-        <figure style="--c: var(--mint-tint)"><img src="assets/illustrations/menu-magnifier.webp" alt="A magnifying glass over a menu and a lunch tray" width="1200" height="1198" loading="lazy"></figure>
-        <h3>See what they ate</h3>
-        <p>The full menu, and a log of what your child actually ate.</p>
+      <li class="item" data-reveal>
+        <img src="assets/illustrations/plate-allergies.webp" alt="" width="1200" height="1189" loading="lazy">
+        <div><h3>Personalisation</h3><p>Select meal type, set portion size, and describe allergies or dietary needs. Saved once, applied always.</p></div>
       </li>
     </ul>
   </div>
 </section>
 
-<!-- 2. The live thing: drag an order from the parent to the plate -->
-<section class="stages" id="how" aria-labelledby="stage-title" data-stages>
-  <div class="stages__clause">
-    <div class="fade" data-stage-text>
-      <h2 id="stage-title">First, add your child</h2>
-      <p data-stage-body>Sign up, add your child and their group, and set any allergies or dietary needs. Saved once, applied always.</p>
+<section class="section" aria-labelledby="sync-title">
+  <div class="wrap sync">
+    <div>
+      <div class="section__head">
+        <h2 id="sync-title" data-reveal>One platform, everyone in sync</h2>
+        <p data-reveal style="--d:1">Ordero sits at the centre, connecting parents, schools and caterers, so the right meal reaches the right child, automatically.</p>
+      </div>
+      <ul class="sync__points">
+        <li data-reveal><h3>Caterers upload the menu</h3><p>Breakfast, lunch, snacks and extras, all visible to parents in the app.</p></li>
+        <li data-reveal style="--d:1"><h3>Parents order, change, pay</h3><p>Everything through Ordero. No paper, no calls to the school.</p></li>
+        <li data-reveal style="--d:2"><h3>Schools get a clean daily report</h3><p>An accurate headcount and meal list, automatically. Nothing to chase.</p></li>
+      </ul>
     </div>
-  </div>
-  <div class="stages__art" data-stage-art style="--art: var(--coral)">
-    <img class="fade" src="assets/illustrations/plate-allergies-nodisc.webp" alt="A plate of food with wheat and milk crossed out above it" width="1200" height="1189" loading="lazy" data-stage-img>
-  </div>
-  <div class="stages__control">
-    <label class="sr-only" for="stage-range">Step of an Ordero order</label>
-    <input id="stage-range" type="range" min="0" max="3" step="1" value="0" aria-valuetext="First, add your child">
-    <div class="stages__names">
-      <button type="button" data-step="0" aria-current="step">Set up</button>
-      <button type="button" data-step="1">Pick the week</button>
-      <button type="button" data-step="2">Change a day</button>
-      <button type="button" data-step="3">Served</button>
-    </div>
-  </div>
-</section>
-
-<!-- 3. The app, real screens from the Ordero design system -->
-<section class="screens" id="app" aria-labelledby="app-title" data-screens>
-  <div class="screens__index">
-    <h2 class="sr-only" id="app-title">The Ordero app</h2>
-    <ul role="tablist" aria-label="Screens of the Ordero parents’ app" data-reveal>
-      <li><button role="tab" type="button" aria-selected="true" data-screen="week-menu" data-cap="The week’s menu, day by day, with a vegetarian option.">Week menu</button></li>
-      <li><button role="tab" type="button" aria-selected="false" data-screen="calendar" data-cap="Every school day and its three meals at a glance. Tap a day to order or change it.">Calendar</button></li>
-      <li><button role="tab" type="button" aria-selected="false" data-screen="meal-orders" data-cap="Breakfast, lunch and snacks for each period, with what’s already paid.">Meal orders</button></li>
-      <li><button role="tab" type="button" aria-selected="false" data-screen="order-history" data-cap="Every order, its lines and its total, ready to download as a PDF.">Order history</button></li>
-      <li><button role="tab" type="button" aria-selected="false" data-screen="child-allergies" data-cap="Allergies and notes for the teacher, seen by the group the moment you save.">Allergies</button></li>
-    </ul>
-    <p data-reveal style="--d:1">Screens from the Ordero parents’ app, in Lithuanian, as families use it.</p>
-  </div>
-  <div class="screens__stage" data-reveal style="--d:1">
-    <figure data-screen-fig>
-      <img src="assets/app/week-menu.webp" alt="Ordero app: the week menu for Monday and Tuesday, with breakfast, lunch and snack dishes" width="780" height="1688" loading="lazy" data-screen-img>
-      <figcaption data-screen-cap>The week’s menu, day by day, with a vegetarian option.</figcaption>
+    <figure class="flow" data-reveal style="--d:1" aria-label="Diagram: the caterer sends dish offerings to Ordero and food to the school; Ordero sends the school a daily children’s order report; parents send Ordero orders, changes, cancellations and payments.">
+      <div class="flow__top" aria-hidden="true">
+        <span>Food delivery</span>
+        <svg viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M10 20 V6 Q10 2 14 2 H86 Q90 2 90 6 V19" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"/><path d="M88.4 15.5 L90 19.5 L91.6 15.5" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>
+      </div>
+      <div class="flow__node" style="grid-column:1; grid-row:2"><img src="assets/illustrations/caterer-van.webp" alt="" width="1200" height="812" loading="lazy">Caterer</div>
+      <div class="flow__arrow" style="grid-column:2; grid-row:2" aria-hidden="true"><svg viewBox="0 0 72 16"><path d="M2 8 H68 M61 2 L68 8 L61 14" fill="none" stroke="currentColor" stroke-width="2"/></svg>dish offerings</div>
+      <div class="flow__node flow__node--ordero" style="grid-column:3; grid-row:2"><img src="assets/brand/ordero-logo.svg" alt="" width="121" height="36">Ordero</div>
+      <div class="flow__arrow" style="grid-column:4; grid-row:2" aria-hidden="true"><svg viewBox="0 0 72 16"><path d="M2 8 H68 M61 2 L68 8 L61 14" fill="none" stroke="currentColor" stroke-width="2"/></svg>daily order report</div>
+      <div class="flow__node" style="grid-column:5; grid-row:2"><img src="assets/illustrations/school.webp" alt="" width="1165" height="1200" loading="lazy">School</div>
+      <div class="flow__arrow flow__arrow--down" style="grid-column:3; grid-row:3" aria-hidden="true"><svg viewBox="0 0 16 48"><path d="M8 4 V44 M2 11 L8 4 L14 11 M2 37 L8 44 L14 37" fill="none" stroke="currentColor" stroke-width="2"/></svg>orders, changes, cancellations, payments</div>
+      <div class="flow__node" style="grid-column:3; grid-row:4"><img src="assets/illustrations/parents.webp" alt="" width="1200" height="1075" loading="lazy">Parents</div>
     </figure>
   </div>
 </section>
 
-<!-- 4. The figures, written into one sentence -->
-<section class="sentence" aria-labelledby="figures-title">
-  <div class="sentence__inner">
-    <h2 id="figures-title" data-reveal>100+&nbsp;schools,<br> 1&nbsp;minute a&nbsp;week</h2>
-    <p data-reveal style="--d:1">That’s how long a full week of meals takes to order. Paper forms are down to <b>0</b>, and real people answer <b class="m">7&nbsp;days</b> a week.</p>
+<section class="section section--tone" aria-labelledby="figures-title">
+  <div class="wrap">
+    <h2 id="figures-title" data-reveal>Ordero in numbers</h2>
+    <dl class="figures">
+      <div data-reveal><dt>0</dt><dd>Paper forms. Zero. Gone.</dd></div>
+      <div data-reveal style="--d:1"><dt>100+</dt><dd>Schools and partners already on board</dd></div>
+      <div data-reveal style="--d:2"><dt>1&nbsp;min</dt><dd>Average time to order a full week of meals</dd></div>
+      <div data-reveal style="--d:3"><dt>7&nbsp;days</dt><dd>Human support, weekends included</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- 5. Three voices, each with the drawing of their side -->
-<section class="voices" id="voices" aria-labelledby="voices-title" data-voices>
-  <div class="voices__stage">
-    <h2 id="voices-title">In their words</h2>
-    <div class="voices__art" aria-hidden="true">
-      <img class="is-on" src="assets/illustrations/parents.webp" alt="" width="1200" height="1075" loading="lazy" data-voice-img="0">
-      <img src="assets/illustrations/school.webp" alt="" width="1165" height="1200" loading="lazy" data-voice-img="1">
-      <img src="assets/illustrations/caterer-van.webp" alt="" width="1200" height="812" loading="lazy" data-voice-img="2">
+<section class="section" aria-labelledby="steps-title">
+  <div class="wrap">
+    <div class="section__head">
+      <h2 id="steps-title" data-reveal>Three steps, that’s all</h2>
+      <p class="lead muted" data-reveal style="--d:1">From signup to your first order, it takes about five minutes.</p>
     </div>
-    <figure class="voice voice--1 is-on" data-voice="0">
-      <img class="voice__pic" src="assets/illustrations/parents.webp" alt="" aria-hidden="true" loading="lazy">
-      <blockquote><p>“Great system. It’s easy to manage my child’s food orders.”</p></blockquote>
-      <footer>Edita Šakalienė, mother of two</footer>
-    </figure>
-    <figure class="voice voice--2" data-voice="1">
-      <img class="voice__pic" src="assets/illustrations/school.webp" alt="" aria-hidden="true" loading="lazy">
-      <blockquote><p>“It is very convenient to get lists with children’s food orders in the morning.”</p></blockquote>
-      <footer>Jolanta Balsytė, teacher</footer>
-    </figure>
-    <figure class="voice voice--3" data-voice="2">
-      <img class="voice__pic" src="assets/illustrations/caterer-van.webp" alt="" aria-hidden="true" loading="lazy">
-      <blockquote><p>“A truly time-saving system. There is an option to automatically generate and send a monthly report to the educational institution.”</p></blockquote>
-      <footer>Mantas Žilinskas, catering provider</footer>
-    </figure>
+    <ol class="steps">
+      <li data-reveal><i class="bar" style="--c: var(--gold)" aria-hidden="true"></i><h3>Create your account</h3><p>Sign up, add your child’s details, and set any dietary needs or allergies once.</p></li>
+      <li data-reveal style="--d:1"><i class="bar" style="--c: var(--coral)" aria-hidden="true"></i><h3>Pick meals for the week</h3><p>Browse the school’s menu and choose, or turn on auto-order and let Ordero handle it.</p></li>
+      <li data-reveal style="--d:2"><i class="bar" style="--c: var(--mint)" aria-hidden="true"></i><h3>Relax, it’s handled</h3><p>Orders go through automatically. Change or cancel anytime before the cutoff.</p></li>
+    </ol>
   </div>
-  <div class="voices__steps" aria-hidden="true"><i data-step="0"></i><i data-step="1"></i><i data-step="2"></i></div>
 </section>
 
-<!-- 6. The phone from the first screen comes back -->
-<section class="returns" aria-labelledby="returns-title">
-  <div class="returns__art" aria-hidden="true"><img src="assets/illustrations/order-phone.webp" alt="" width="1170" height="1200" loading="lazy"></div>
-  <div class="returns__text">
-    <h2 id="returns-title" data-reveal>Start this week</h2>
-    <p data-reveal style="--d:1">Create your account, add your child and pick next week’s meals.</p>
-    <p class="returns__fact" data-reveal style="--d:2">About 5 minutes to set up</p>
-    <a class="button button--ink" href="https://app.ordero.lt/login" data-reveal style="--d:3">Start ordering</a>
-    <div class="returns__stores" data-reveal style="--d:4">
-      <a class="link" href="https://apps.apple.com/lt/app/ordero/id6749176295">App Store</a>
-      <a class="link" href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Google Play</a>
+<section class="section section--tone" aria-labelledby="quotes-title">
+  <div class="wrap">
+    <h2 id="quotes-title" data-reveal>Loved by parents, schools and caterers</h2>
+    <div class="quotes">
+      <figure class="quote" data-reveal>
+        <img src="assets/illustrations/parents.webp" alt="" width="1200" height="1075" loading="lazy">
+        <blockquote><p>“Great system. It’s easy to manage my child’s food orders. It is also not at all difficult to adjust a child’s management habits by adding healthier food choices.”</p></blockquote>
+        <figcaption><b>Edita Šakalienė</b><span>Mother of 2 children</span></figcaption>
+      </figure>
+      <figure class="quote" data-reveal style="--d:1">
+        <img src="assets/illustrations/school.webp" alt="" width="1165" height="1200" loading="lazy">
+        <blockquote><p>“It is very convenient to get lists with children’s food orders in the morning. Also, when using the Order system, we avoid unpleasant situations when one or more children were not ordered food by mistake.”</p></blockquote>
+        <figcaption><b>Jolanta Balsytė</b><span>Teacher</span></figcaption>
+      </figure>
+      <figure class="quote" data-reveal style="--d:2">
+        <img src="assets/illustrations/caterer-van.webp" alt="" width="1200" height="812" loading="lazy">
+        <blockquote><p>“A truly time-saving system. There is an option to automatically generate and send a monthly report to the educational institution, as well as an option to automatically generate waybills.”</p></blockquote>
+        <figcaption><b>Mantas Žilinskas</b><span>Catering provider</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- 7. Book a demo -->
-<section class="contact" id="contact" aria-labelledby="contact-title">
-  <div class="strip-wrap">
-  <ul class="strip" aria-label="Schools and kindergartens using Ordero" data-strip>
-    <li class="r11" style="--c: var(--gold)"><img src="assets/illustrations/school.webp" alt="" loading="lazy" width="1165" height="1200"></li>
-    <li class="r32"><img src="assets/brand/p-baltu-salis.png" alt="Baltų šalis" loading="lazy" width="304" height="280"></li>
-    <li class="r34" style="--c: var(--mint)"><img src="assets/illustrations/parents.webp" alt="" loading="lazy" width="1200" height="1075"></li>
-    <li class="r11"><img src="assets/brand/p-katino-dieneles.png" alt="Katino dienelės" loading="lazy" width="320" height="320"></li>
-    <li class="r32" style="--c: var(--coral)"><img src="assets/illustrations/caterer-van.webp" alt="" loading="lazy" width="1200" height="812"></li>
-    <li class="r34"><img src="assets/brand/p-aisv.png" alt="The American International School of Vilnius" loading="lazy" width="230" height="320"></li>
-    <li class="r11" style="--c: var(--mint-tint)"><img src="assets/illustrations/menu-magnifier.webp" alt="" loading="lazy" width="1200" height="1198"></li>
-    <li class="r32"><img src="assets/brand/p-mazuju-valdos.png" alt="Mažųjų valdos" loading="lazy" width="320" height="184"></li>
-    <li class="r34" style="--c: var(--gold)"><img src="assets/illustrations/calendar-edit.webp" alt="" loading="lazy" width="1200" height="1106"></li>
-    <li class="r11"><img src="assets/brand/p-kd-school.png" alt="KD International School" loading="lazy" width="320" height="260"></li>
-    <li class="r32"><img src="assets/brand/p-demokratine.png" alt="Demokratinė mokykla" loading="lazy" width="320" height="320"></li>
-    <li class="r11"><img src="assets/brand/p-vaikystes-sodas.png" alt="Vaikystės sodas" loading="lazy" width="320" height="168"></li>
-  </ul>
+<section class="section cta" aria-labelledby="cta-title">
+  <div class="wrap">
+    <h2 id="cta-title" data-reveal>Ready to make school meals effortless?</h2>
+    <p class="lead" data-reveal style="--d:1">Join 100+ schools and kindergartens already using Ordero. Get started in minutes.</p>
+    <div class="stores" data-reveal style="--d:2">
+      <a href="https://apps.apple.com/lt/app/ordero/id6749176295"><img src="assets/brand/badge-app-store.png" alt="Download on the App Store" width="240" height="80" loading="lazy"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en"><img src="assets/brand/badge-google-play.png" alt="Get it on Google Play" width="240" height="80" loading="lazy"></a>
+    </div>
   </div>
-  <div class="contact__body">
-    <h2 id="contact-title" data-reveal>Book a demo</h2>
-    <form class="contact__bar" data-contact novalidate data-reveal style="--d:1">
-      <label class="sr-only" for="c-name">Your name and school</label>
-      <input id="c-name" name="name" type="text" placeholder="Your name and school" autocomplete="name" required>
-      <label class="sr-only" for="c-reach">Email or phone</label>
-      <input id="c-reach" name="reach" type="text" placeholder="Email or phone" autocomplete="email" required>
-      <button type="submit">Book a demo</button>
+</section>
+
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <div class="wrap contact">
+    <div>
+      <h2 id="contact-title" data-reveal>Get in touch</h2>
+      <address data-reveal style="--d:1">
+        <span>Business Centre Go9 Spaces<br>Gedimino pr. 9, Vilnius, 01103<br>Lithuania</span>
+        <span>Business Centre Raadhuspladsen<br>Rådhuspladsen 16, 1550 København<br>Denmark</span>
+        <a class="link" href="https://www.linkedin.com/company/ordero-app">Ordero on LinkedIn</a>
+      </address>
+    </div>
+    <form class="form" data-contact novalidate data-reveal style="--d:1">
+      <label>Name<input name="name" type="text" autocomplete="name"></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      <label class="full">Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+      <label class="full">Message<textarea name="message" required></textarea></label>
+      <button class="button" type="submit">Send</button>
+      <p class="form__status" role="status" data-contact-status></p>
     </form>
-    <div class="contact__notes">
-      <p>For schools, kindergartens and caterers. Already used by 100+ partners.</p>
-      <p>Go9 Spaces, Gedimino pr. 9, Vilnius · Rådhuspladsen 16, København</p>
-    </div>
-    <p class="contact__status" role="status" data-contact-status></p>
   </div>
 </section>
 
 </main>
 
 <footer class="footer">
-  <div class="footer__name"><img src="assets/brand/ordero-logo.svg" alt="Ordero" width="121" height="36" loading="lazy"></div>
-  <div class="footer__row">
-    <div class="footer__places">
-      <p><a class="link" href="https://maps.google.com/?q=Gedimino+pr.+9,+Vilnius">Vilnius</a><span>Gedimino pr. 9, Go9 Spaces</span></p>
-      <p><a class="link" href="https://maps.google.com/?q=R%C3%A5dhuspladsen+16,+K%C3%B8benhavn">København</a><span>Rådhuspladsen 16</span></p>
+  <div class="wrap">
+    <div class="footer__brand">
+      <img src="assets/brand/ordero-logo.svg" alt="Ordero" width="121" height="36" loading="lazy">
+      <p>Simple, smart meal ordering for schools and workplaces.</p>
     </div>
-    <div class="footer__cols">
-      <div>
-        <h2>Products</h2>
-        <ul class="list">
-          <li><a class="link" href="index.html">Ordero Kids</a></li>
-          <li><a class="link" href="business.html">Ordero Business</a></li>
-          <li><a class="link" href="#contact">Book a demo</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>App</h2>
-        <ul class="list">
-          <li><a class="link" href="https://app.ordero.lt/login">Log in</a></li>
-          <li><a class="link" href="https://apps.apple.com/lt/app/ordero/id6749176295">App Store</a></li>
-          <li><a class="link" href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Google Play</a></li>
-          <li><a class="link" href="https://www.linkedin.com/company/ordero-app">LinkedIn</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Legal</h2>
-        <ul class="list">
-          <li><a class="link" href="https://www.ordero.lt/en/terms-and-conditions">Terms and conditions</a></li>
-          <li><a class="link" href="https://www.ordero.lt/en/privacy-policy">Privacy policy</a></li>
-          <li><a class="link" href="https://www.ordero.lt/en/business-privacy-policy">Business privacy policy</a></li>
-        </ul>
-      </div>
+    <div>
+      <h2>Products</h2>
+      <ul>
+        <li><a href="index.html">Ordero Kids</a></li>
+        <li><a href="business.html">Ordero Business</a></li>
+        <li><a href="#contact">Book a demo</a></li>
+      </ul>
     </div>
-  </div>
-  <div class="footer__legal">
-    <p>© 2026 Ordero. Simple, smart meal ordering for schools and workplaces.</p>
-    <a class="link" href="#main">Back to top</a>
+    <div>
+      <h2>App</h2>
+      <ul>
+        <li><a href="https://app.ordero.lt/login">Log in</a></li>
+        <li><a href="https://apps.apple.com/lt/app/ordero/id6749176295">App Store</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.orderoApp&amp;hl=en">Google Play</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Legal</h2>
+      <ul>
+        <li><a href="https://www.ordero.lt/en/terms-and-conditions">Terms and conditions</a></li>
+        <li><a href="https://www.ordero.lt/en/privacy-policy">Privacy policy</a></li>
+        <li><a href="https://www.ordero.lt/en/business-privacy-policy">Business privacy policy</a></li>
+      </ul>
+    </div>
+    <p class="footer__legal"><span>© 2026 Ordero</span><a class="link" href="#main">Back to top</a></p>
   </div>
 </footer>
 
