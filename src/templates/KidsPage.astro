@@ -10,7 +10,8 @@ import Cta from '../components/Cta.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import { t as tr, links, kidsPartners, type Lang } from '../i18n/content';
-import { lunchPhoto } from '../i18n/credits';
+import Marquee from '../components/Marquee.astro';
+import { T as theme } from '../themes/config';
 
 interface Props { lang: Lang }
 const t = tr(Astro.props.lang);
@@ -21,20 +22,21 @@ const k = t.kids;
     t={t} page="home" h1={k.hero.h1} lead={k.hero.lead}
     cta={{ label: k.hero.cta, href: links.login }}
     field="yellow"
+    stickers={theme.heroKids}
     slides={[
       { src: '/images/hero-app.webp', alt: 'Ordero', w: 1400, h: 1400, pos: '30% 50%' },
       { src: '/images/app-phones.webp', alt: '', w: 1100, h: 1681, fit: 'contain' },
-      { src: '/images/school-lunch.webp', alt: '', w: 1600, h: 1083, pos: '30% 60%' },
     ]}
   />
   <main id="main">
+    {theme.marquee && <Marquee items={Object.values(k.features.items).map((x) => x[0])} />}
     <Partners label={k.partners} partners={kidsPartners} />
     <Features t={t} />
     <Platform t={t} />
     <Steps id="steps" h2={k.steps.h2} lead={k.steps.lead} items={k.steps.items} ills={['personal', 'ease', 'caterer']} label={t.ui.stepsLabel} field="mint" />
     <Testimonials h2={k.testimonials.h2} items={k.testimonials.items} />
-    <Cta h2={k.cta.h2} lines={k.cta.lines} field="yellow" image={{ src: '/images/app-phones.webp', alt: 'Ordero', w: 1100, h: 1681 }} />
+    <Cta h2={k.cta.h2} lines={k.cta.lines} field="yellow" stickers={theme.ctaKids} image={{ src: '/images/app-phones.webp', alt: 'Ordero', w: 1100, h: 1681 }} />
     <Contact t={t} field="coral" />
   </main>
-  <Footer t={t} page="home" photo={{ ...lunchPhoto, pos: '28% 70%' }} />
+  <Footer t={t} page="home" />
 </Base>

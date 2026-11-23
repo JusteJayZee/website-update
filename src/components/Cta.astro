@@ -1,10 +1,19 @@
 ---
 import Stores from './Stores.astro';
-interface Props { h2: string; lines: string[]; image: { src: string; alt: string; w: number; h: number }; field: 'yellow' | 'mint' }
-const { h2, lines, image, field } = Astro.props;
+interface Props { h2: string; lines: string[]; image: { src: string; alt: string; w: number; h: number }; field: 'yellow' | 'mint'; stickers?: string[] }
+const { h2, lines, image, field, stickers = [] } = Astro.props;
+const spots = [
+  { tilt: '-12deg', style: 'left:6%;top:9%', delay: '-1s', w: 'clamp(96px, 11vw, 176px)' },
+  { tilt: '10deg', style: 'left:30%;top:16%', delay: '-4s', w: 'clamp(80px, 8vw, 132px)' },
+];
 ---
 <section class={`cta field-${field}`} aria-labelledby="cta-title">
   <div class="inner">
+    {stickers.map((ill, i) => (
+      <span class="spot float" style={`${spots[i].style};width:${spots[i].w};--delay:${spots[i].delay}`} aria-hidden="true">
+        <img class="sticker" src={`/images/${ill}`} alt="" width="560" height="560" loading="lazy" style={`--tilt:${spots[i].tilt}`} />
+      </span>
+    ))}
     <div class="words">
       <h2 id="cta-title" data-reveal data-fit data-fit-min="28">{h2}</h2>
       <div class="lines" data-reveal style="--i:1">
@@ -43,7 +52,10 @@ const { h2, lines, image, field } = Astro.props;
   .inner {
     display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter);
     min-height: min(84svh, 820px); border-radius: var(--radius); overflow: hidden;
+    position: relative;
   }
+  .spot { position: absolute; z-index: 1; }
+  .spot img { width: 100%; }
   .field-yellow .inner { background: var(--yellow); }
   .field-mint .inner { background: var(--mint); }
   .words {
@@ -51,7 +63,7 @@ const { h2, lines, image, field } = Astro.props;
     padding: 40px clamp(24px, 3.5vw, 56px) clamp(40px, 4vw, 64px);
   }
   h2 { font-size: var(--s-display); line-height: 0.92; letter-spacing: -0.03em; }
-  .lines { display: grid; gap: 4px; max-width: 46ch; }
+  .lines { display: grid; gap: 4px; max-width: 46ch; font-weight: 600; font-size: var(--s-body); }
   .pic { grid-column: 8 / 13; position: relative; display: grid; place-items: end center; padding-top: 48px; }
   .pic img { width: min(92%, 560px); height: auto; transform-origin: 50% 100%; will-change: transform; margin-bottom: -6%; }
 
@@ -60,5 +72,6 @@ const { h2, lines, image, field } = Astro.props;
     .words { grid-column: 1; grid-row: 1; align-self: start; padding: 40px 20px 24px; }
     .pic { grid-column: 1; grid-row: 2; padding-top: 0; }
     .pic img { width: 76%; }
+    .spot { display: none; }
   }
 </style>

@@ -441,6 +441,8 @@ const business = {
 const ui = {
   lt: {
     child: 'Emilija · 2B klasė',
+    childName: 'Emilija', childGroup: '2B klasė', range: '11-30 – 12-04',
+    reviewOrder: 'Peržiūrėti užsakymą', changeForms: ['pakeitimas', 'pakeitimai', 'pakeitimų'], regular: 'Įprastas',
     week: '49 savaitė',
     days: ['Pr', 'An', 'Tr', 'Kt', 'Pn'],
     dates: ['11-30', '12-01', '12-02', '12-03', '12-04'],
@@ -476,6 +478,8 @@ const ui = {
   },
   en: {
     child: 'Emilija · Class 2B',
+    childName: 'Emilija', childGroup: 'Class 2B', range: '30 Nov – 4 Dec',
+    reviewOrder: 'Review order', changeForms: ['change', 'changes', 'changes'], regular: 'Regular',
     week: 'Week 49',
     days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
     dates: ['30 Nov', '1 Dec', '2 Dec', '3 Dec', '4 Dec'],
@@ -511,6 +515,8 @@ const ui = {
   },
   pl: {
     child: 'Emilija · Klasa 2B',
+    childName: 'Emilija', childGroup: 'Klasa 2B', range: '30.11 – 4.12',
+    reviewOrder: 'Przejrzyj zamówienie', changeForms: ['zmiana', 'zmiany', 'zmian'], regular: 'Zwykły',
     week: 'Tydzień 49',
     days: ['Pon', 'Wt', 'Śr', 'Czw', 'Pt'],
     dates: ['30.11', '1.12', '2.12', '3.12', '4.12'],

@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { t as tr, type Lang } from '../i18n/content';
-import { lunchPhoto } from '../i18n/credits';
 import ltTerms from '../content/legal/lt-terms.html?raw';
 import enTerms from '../content/legal/en-terms.html?raw';
 import privacy from '../content/legal/en-privacy.html?raw';
@@ -34,7 +33,7 @@ const title = { terms: t.footer.terms, privacy: t.footer.privacy, businessPrivac
     </aside>
     <article class="doc" set:html={html} />
   </main>
-  <Footer t={t} page={doc} photo={{ ...lunchPhoto, pos: '28% 70%' }} />
+  <Footer t={t} page={doc} />
 </Base>
 
 <style>

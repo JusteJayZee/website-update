@@ -13,9 +13,10 @@ function lineCount(el: HTMLElement) {
 function fit(el: HTMLElement) {
   el.style.fontSize = '';
   const min = Number(el.dataset.fitMin || 26);
+  const maxLines = Number(el.dataset.fitLines || MAX_LINES);
   let size = parseFloat(getComputedStyle(el).fontSize);
   let guard = 40;
-  while (guard-- > 0 && size > min && (lineCount(el) > MAX_LINES || el.scrollWidth > el.clientWidth + 1)) {
+  while (guard-- > 0 && size > min && (lineCount(el) > maxLines || el.scrollWidth > el.clientWidth + size * 0.2)) {
     size = Math.max(min, size * 0.94);
     el.style.fontSize = `${size}px`;
   }

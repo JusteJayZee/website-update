@@ -1,0 +1,27 @@
+---
+// A ticker band of the page's own feature names, used by some style concepts.
+interface Props { items: string[] }
+const { items } = Astro.props;
+const icons = ['egg', 'taco', 'sandwich', 'side'];
+const run = items.flatMap((it, i) => [{ t: it, icon: icons[i % icons.length] }]);
+---
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    {[0, 1].map(() => (
+      <p>
+        {run.map((r) => (<><span>{r.t}</span><img src={`/images/ds/${r.icon}.svg`} alt="" width="40" height="40" /></>))}
+      </p>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee { overflow: hidden; margin-top: 8px; }
+  .track { display: flex; width: max-content; animation: marquee 32s linear infinite; }
+  .track p { display: flex; align-items: center; gap: 28px; padding-right: 28px; margin: 0; white-space: nowrap; }
+  .track span { font-family: var(--display); font-weight: 800; font-size: clamp(1.75rem, 1rem + 2.4vw, 3rem); letter-spacing: -0.02em; }
+  .track img { width: 44px; height: 44px; }
+  .marquee:hover .track { animation-play-state: paused; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .track { animation: none; } }
+</style>

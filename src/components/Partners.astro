@@ -30,9 +30,9 @@ const tall = new Set(['katino-dieneles', 'aisv', 'kd-school', 'baltu-salis', 'or
   }
   img { height: 34px; width: auto; max-width: 168px; object-fit: contain; }
   .tall img { height: 64px; }
-  a { display: block; transition: opacity 180ms, transform 220ms var(--ease-out); }
-  ul:hover a { opacity: 0.45; }
-  ul a:hover, ul a:focus-visible { opacity: 1; transform: translateY(-3px); }
+  a { display: block; transition: transform 380ms var(--spring); }
+  ul a:hover, ul a:focus-visible { transform: rotate(-6deg) scale(1.12); }
+  .label { font-weight: 700; }
 
   @media (max-width: 860px) {
     .partners { display: block; padding-block: 72px; }

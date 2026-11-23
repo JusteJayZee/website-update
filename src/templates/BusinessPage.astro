@@ -8,6 +8,8 @@ import Cta from '../components/Cta.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import { t as tr, links, businessPartners, type Lang } from '../i18n/content';
+import Marquee from '../components/Marquee.astro';
+import { T as theme } from '../themes/config';
 
 interface Props { lang: Lang }
 const t = tr(Astro.props.lang);
@@ -18,16 +20,18 @@ const b = t.business;
     t={t} page="business" h1={b.hero.h1} lead={b.hero.lead}
     cta={{ label: b.hero.cta, href: links.businessLogin }}
     field="mint"
+    stickers={theme.heroBiz}
     slides={[
       { src: '/images/hand-phone.webp', alt: 'Ordero Business', w: 1400, h: 1599, fit: 'contain' },
       { src: '/images/app-phones.webp', alt: '', w: 1100, h: 1681, fit: 'contain' },
     ]}
   />
   <main id="main">
+    {theme.marquee && <Marquee items={b.why.items.map((x) => x[0])} />}
     <Partners label={b.partners} partners={businessPartners} />
     <Steps id="steps" h2={b.steps.h2} lead={b.steps.lead} items={b.steps.items} ills={['download', 'select', 'pickup']} label={t.ui.stepsLabel} field="yellow" />
     <Why h2={b.why.h2} items={b.why.items} ills={['hours', 'seconds', 'delivery']} stats={b.stats} />
-    <Cta h2={b.cta.h2} lines={b.cta.lines} field="yellow" image={{ src: '/images/app-phones.webp', alt: 'Ordero', w: 1100, h: 1681 }} />
+    <Cta h2={b.cta.h2} lines={b.cta.lines} field="yellow" stickers={theme.ctaBiz} image={{ src: '/images/app-phones.webp', alt: 'Ordero', w: 1100, h: 1681 }} />
     <Contact t={t} field="mint" />
   </main>
   <Footer t={t} page="business" photo={{ src: '/images/hand-phone.webp', alt: '', w: 1400, h: 1599, pos: '40% 30%' }} />

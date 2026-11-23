@@ -1,0 +1,5 @@
+/* 1 · Sticker Book — the components' own styles are this concept; this adds the die-cut edge. */
+html[data-theme='sticker'] .sticker {
+  filter: drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff)
+    drop-shadow(0 6px 10px rgb(35 33 32 / 0.18));
+}

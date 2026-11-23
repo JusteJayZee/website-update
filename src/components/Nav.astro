@@ -11,7 +11,7 @@ const langName = { lt: 'Lietuvių', en: 'English', pl: 'Polski' } as const;
     <li><a href={t.routes.business} aria-current={page === 'business' ? 'page' : undefined}>{t.nav.business}</a></li>
   </ul>
   <a class="wordmark" href={t.routes.home}>
-    <img src="/images/logo.webp" alt="Ordero" width="900" height="269" />
+    <img src="/images/logo.svg" alt="Ordero" width="121" height="36" />
   </a>
   <ul class="nav-actions" role="list">
     <li><a href={`${t.routes[page === 'business' ? 'business' : 'home']}#contact`}>{t.nav.demo}</a></li>
@@ -47,21 +47,22 @@ const langName = { lt: 'Lietuvių', en: 'English', pl: 'Polski' } as const;
     align-items: center;
     gap: 16px;
     min-height: 72px;
-    font-size: 0.9375rem;
+    font-size: 1rem; font-weight: 600;
   }
   .nav ul { display: flex; gap: 22px; align-items: center; margin: 0; padding: 0; list-style: none; }
   .nav-actions { justify-content: flex-end; }
   .nav a { text-decoration: none; transition: color 160ms; }
   .nav-products a, .nav-actions > li > a:not(.login) { position: relative; padding-block: 6px; }
   .nav-products a::after, .nav-actions > li > a:not(.login)::after {
-    content: ''; position: absolute; left: 0; right: 0; bottom: 2px; height: 2px;
-    background: currentColor; transform: scaleX(0); transform-origin: left;
-    transition: transform 240ms var(--ease-out);
+    content: ''; position: absolute; left: -2px; right: -2px; bottom: 0; height: 5px; border-radius: 5px;
+    background: var(--coral); transform: scaleX(0) rotate(-2deg); transform-origin: left;
+    transition: transform 320ms var(--spring); z-index: -1;
   }
   .nav-products a:hover::after, .nav-actions > li > a:not(.login):hover::after,
-  .nav-products a[aria-current='page']::after { transform: scaleX(1); }
+  .nav-products a[aria-current='page']::after { transform: scaleX(1) rotate(-2deg); }
   .wordmark { display: block; width: clamp(128px, 11vw, 168px); transition: transform 240ms var(--ease-out); }
-  .wordmark:hover { transform: rotate(-2deg); }
+  .wordmark { transition: transform 420ms var(--spring); }
+  .wordmark:hover { transform: rotate(-4deg) scale(1.05); }
   .wordmark img { width: 100%; height: auto; }
   .login {
     display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px;

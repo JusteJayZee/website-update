@@ -10,51 +10,52 @@ const parts = ui.lunchDish.split(', ');
 const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
 ---
 <section class="features" id="features" aria-labelledby="features-title">
-  <h2 id="features-title" data-reveal data-fit>{f.h2[0]} <span class="h2-second">{f.h2[1]}</span></h2>
+  <h2 id="features-title" data-reveal data-fit>{f.h2[0]} <span class="h2-second"><span class="pop">{f.h2[1]}</span></span></h2>
   <div class="f-stage">
     <div class="field">
-      <div class="app" data-ui data-app aria-live="polite">
-        <div class="app-head">
-          <div>
-            <p class="app-child">{ui.child}</p>
-            <p class="app-week">{ui.week}</p>
-          </div>
-          <p class="app-cutoff">{ui.cutoff}</p>
+      <div class="app ds-screen" data-ui data-app aria-live="polite">
+        <div class="ds-top">
+          <span class="ds-child"><span class="ds-avatar" aria-hidden="true">E</span><span><b>{ui.childName}</b><small>{ui.childGroup}</small></span><svg class="ds-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></span>
+          <span class="ds-date"><svg class="ds-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>{ui.range}</span>
         </div>
+        <p class="ds-callout"><svg class="ds-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>{ui.cutoff}</p>
         <p class="app-profile">
-          <span class="chip chip-soft">{ui.portion}: <b data-portion>{ui.portions[1]}</b></span>
+          <span class="ds-chip">{ui.portion}: <b data-portion>{ui.portions[1]}</b></span>
           <span data-allergy-tags></span>
         </p>
-        <ol class="days" role="list">
+        <ol class="days ds-card" role="list">
           {ui.days.map((d, i) => (
-            <li class="day" data-day={i} data-state={initial[i]}>
-              <div class="d"><b>{d}</b><span>{ui.dates[i]}</span></div>
+            <li class="day ds-row" data-day={i} data-state={initial[i]}>
+              <img class="ds-meal" src="/images/ds/taco.svg" alt="" width="32" height="32" />
               <div class="meal">
-                <span class="mt">{ui.lunch}<span class="auto-badge" hidden>{ui.auto}</span></span>
-                <span class="dish">{ui.lunchDish}</span>
+                <span class="ds-row-title">{d} · {ui.dates[i]} <span class="auto-badge ds-pill ds-pill-positive" hidden>{ui.auto}</span></span>
+                <span class="ds-row-sub dish">{ui.lunch} · {ui.lunchDish}</span>
                 {i === 0 && (
                   <span class="log" data-log hidden>
-                    <span class="ok"><svg class="ico" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">{ui.eaten}:</span> {parts[0]}</span>
-                    <span class="ok"><svg class="ico" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">{ui.eaten}:</span> {parts[1]}</span>
-                    {parts[2] && <span class="no"><svg class="ico" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span class="sr-only">{ui.notEaten}:</span> {parts[2]}</span>}
+                    <span class="ok"><svg class="ds-ico" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">{ui.eaten}:</span> {parts[0]}</span>
+                    <span class="ok"><svg class="ds-ico" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">{ui.eaten}:</span> {parts[1]}</span>
+                    {parts[2] && <span class="no"><svg class="ds-ico" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span class="sr-only">{ui.notEaten}:</span> {parts[2]}</span>}
                   </span>
                 )}
               </div>
-              <div class="st">
-                <span class="status" data-status>{initial[i] === 'ordered' ? ui.ordered : ui.notOrdered}</span>
-                <span class="price">{ui.perDay}</span>
+              <div class="ds-row-end">
+                <span class="status ds-pill" data-status>{initial[i] === 'ordered' ? ui.ordered : ui.notOrdered}</span>
+                <span class="ds-price">{ui.perDay}</span>
               </div>
             </li>
           ))}
         </ol>
-        <p class="app-total"><span>{ui.total}</span><b data-total>10,00 €</b></p>
+        <div class="ds-cart">
+          <div><b data-total>10,00 €</b><small data-changes>0 {ui.changeForms[2]}</small></div>
+          <span class="ds-btn">{ui.reviewOrder}</span>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="f-read">
     <div class="block" data-reveal>
-      <h3>{f.items.ease[0]}</h3>
+      <div class="title"><img class="sticker" src="/images/ill/ease.webp" alt="" width="560" height="560" loading="lazy" /><h3>{f.items.ease[0]}</h3></div>
       <p>{f.items.ease[1]}</p>
       <button type="button" class="ctl ctl-primary" data-act="order">
         <span>{ui.order}</span><span class="ctl-day" data-next-day>· {ui.days[2]}</span>
@@ -62,7 +63,7 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
     </div>
 
     <div class="block" data-reveal>
-      <h3>{f.items.transparency[0]}</h3>
+      <div class="title"><img class="sticker" src="/images/ill/transparency.webp" alt="" width="560" height="560" loading="lazy" /><h3>{f.items.transparency[0]}</h3></div>
       <p>{f.items.transparency[1]}</p>
       <button type="button" class="switch" role="switch" aria-checked="false" data-act="log">
         <span class="knob" aria-hidden="true"></span><span>{ui.logToggle}</span>
@@ -70,7 +71,7 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
     </div>
 
     <div class="block" data-reveal>
-      <h3>{f.items.control[0]}</h3>
+      <div class="title"><img class="sticker" src="/images/ill/control.webp" alt="" width="560" height="560" loading="lazy" /><h3>{f.items.control[0]}</h3></div>
       <p>{f.items.control[1]}</p>
       <fieldset class="seg" data-act="tue">
         <legend>{ui.days[1]} · {ui.cutoff}</legend>
@@ -80,7 +81,7 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
     </div>
 
     <div class="block" data-reveal>
-      <h3>{f.items.auto[0]}</h3>
+      <div class="title"><img class="sticker" src="/images/ill/auto.webp" alt="" width="560" height="560" loading="lazy" /><h3>{f.items.auto[0]}</h3></div>
       <p>{f.items.auto[1]}</p>
       <button type="button" class="switch" role="switch" aria-checked="false" data-act="auto">
         <span class="knob" aria-hidden="true"></span><span>{ui.autoToggle}</span>
@@ -88,7 +89,7 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
     </div>
 
     <div class="block" data-reveal>
-      <h3>{f.items.personal[0]}</h3>
+      <div class="title"><img class="sticker" src="/images/ill/personal.webp" alt="" width="560" height="560" loading="lazy" /><h3>{f.items.personal[0]}</h3></div>
       <p>{f.items.personal[1]}</p>
       <fieldset class="seg" data-act="portion">
         <legend>{ui.portion}</legend>
@@ -106,7 +107,7 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
   </div>
 </section>
 
-<script define:vars={{ labels: { ordered: ui.ordered, none: ui.notOrdered, cancelled: ui.cancelled, days: ui.days } }}>
+<script define:vars={{ labels: { ordered: ui.ordered, none: ui.notOrdered, cancelled: ui.cancelled, days: ui.days, forms: ui.changeForms, lang: t.lang } }}>
   const root = document.querySelector('[data-app]');
   const section = root && root.closest('section');
   if (root && section) {
@@ -117,11 +118,21 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
     const flash = (el) => { el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash'); };
     const nextBtn = section.querySelector('[data-act="order"]');
     const nextDay = section.querySelector('[data-next-day]');
+    let changes = 0;
+    const plural = (n) => {
+      const [one, few, many] = labels.forms;
+      if (labels.lang === 'en') return n === 1 ? one : few;
+      if (labels.lang === 'lt') return n % 10 === 1 && n % 100 !== 11 ? one : n % 10 >= 2 && (n % 100 < 10 || n % 100 >= 20) ? few : many;
+      return n === 1 ? one : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? few : many;
+    };
+    const bump = () => { changes++; const c = root.querySelector('[data-changes]'); c.textContent = changes + ' ' + plural(changes); flash(root.querySelector('.ds-cart')); };
 
     function render(changed) {
       rows.forEach((row, i) => {
         row.dataset.state = state[i];
-        row.querySelector('[data-status]').textContent = labels[state[i]];
+        const pill = row.querySelector('[data-status]');
+        pill.textContent = labels[state[i]];
+        pill.className = 'status ds-pill' + (state[i] === 'ordered' ? ' ds-pill-positive' : state[i] === 'cancelled' ? ' ds-pill-negative' : '');
         row.querySelector('.auto-badge').hidden = !(auto && i > 1 && state[i] === 'ordered');
       });
       const total = state.filter((s) => s === 'ordered').length * 5;
@@ -137,6 +148,7 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
       if (i === -1) return;
       state[i] = 'ordered';
       render(i);
+      bump();
     });
 
     section.querySelector('[data-act="log"]').addEventListener('click', (e) => {
@@ -148,7 +160,7 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
     });
 
     section.querySelectorAll('input[name="tue"]').forEach((input) =>
-      input.addEventListener('change', () => { state[1] = input.value; render(1); }),
+      input.addEventListener('change', () => { state[1] = input.value; render(1); bump(); }),
     );
 
     section.querySelector('[data-act="auto"]').addEventListener('click', (e) => {
@@ -158,12 +170,14 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
       for (let i = 2; i < state.length; i++) if (auto && state[i] === 'none') state[i] = 'ordered';
       render();
       rows.slice(2).forEach(flash);
+      bump();
     });
 
     section.querySelectorAll('input[name="portion"]').forEach((input) =>
       input.addEventListener('change', () => {
         root.querySelector('[data-portion]').textContent = input.value;
         flash(root.querySelector('.app-profile'));
+        bump();
       }),
     );
 
@@ -174,11 +188,12 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
         tags.innerHTML = '';
         on.forEach((a) => {
           const s = document.createElement('span');
-          s.className = 'chip chip-alert';
+          s.className = 'ds-chip ds-chip-alert';
           s.textContent = a;
           tags.append(s);
         });
         flash(root.querySelector('.app-profile'));
+        bump();
       }),
     );
 
@@ -204,29 +219,36 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
     display: grid; place-items: center;
     overflow: hidden;
   }
+  .field .app { transform: rotate(-2.5deg); transition: transform 500ms var(--spring); }
+  .field:hover .app { transform: rotate(0deg) scale(1.02); }
   .f-read { grid-column: 7 / 13; grid-row: 2; }
   h2 { grid-column: 7 / 13; grid-row: 1; font-size: var(--s-head); padding: 72px 0 16vh; }
-  .h2-second { display: block; }
-  .block { min-height: 52vh; max-width: 44ch; display: grid; align-content: start; gap: 16px; }
+  .h2-second { display: block; --pop: var(--yellow); }
+  .h2-second .pop { display: inline-block; transform: rotate(-1.5deg); }
+  .block { min-height: 52vh; max-width: 46ch; display: grid; align-content: start; gap: 16px; }
   .block:last-child { min-height: 0; }
-  h3 { font-family: var(--display); font-weight: 400; font-size: var(--s-lead); letter-spacing: -0.01em; line-height: 1.05; }
+  .block > p { font-weight: 500; }
+  .title { display: flex; align-items: center; gap: 18px; }
+  .title img { width: 84px; flex: 0 0 auto; }
+  .block:nth-child(even) .title img { --tilt: 7deg; }
+  h3 { font-size: var(--s-lead); line-height: 1.02; }
 
   /* Controls at interface size */
   .ctl {
     justify-self: start; display: inline-flex; gap: 6px; align-items: center;
     min-height: 48px; padding: 0 22px; border: 0; border-radius: var(--pill);
-    background: var(--ink); color: #fff; font-weight: 500;
-    transition: transform 160ms var(--ease-out), opacity 160ms;
+    background: var(--coral); color: var(--ink); font-weight: 700; font-size: 1.0625rem;
+    transition: transform 260ms var(--spring), opacity 160ms;
   }
-  .ctl:hover { transform: translateY(-2px); }
+  .ctl:hover { transform: translateY(-3px) rotate(-2deg) scale(1.04); }
   .ctl:active { transform: scale(0.97); }
   .ctl:disabled { opacity: 0.45; cursor: default; transform: none; }
   .switch {
     justify-self: start; display: inline-flex; align-items: center; gap: 12px;
     min-height: 48px; padding: 0 18px 0 8px; border: 0; border-radius: var(--pill);
-    background: var(--paper); font-weight: 500; transition: background-color 160ms;
+    background: var(--paper); font-weight: 700; transition: background-color 160ms, transform 260ms var(--spring);
   }
-  .switch:hover { background: var(--paper-deep); }
+  .switch:hover { background: var(--paper-deep); transform: rotate(-1.5deg); }
   .knob {
     width: 48px; height: 30px; border-radius: var(--pill); background: #cfccc6; position: relative;
     transition: background-color 200ms;
@@ -235,7 +257,8 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
     content: ''; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%;
     background: #fff; transition: transform 220ms var(--ease-out);
   }
-  .switch[aria-checked='true'] .knob { background: var(--ink); }
+  .switch[aria-checked='true'] .knob { background: var(--mint); }
+  .switch[aria-checked='true'] { background: #dcf6ec; }
   .switch[aria-checked='true'] .knob::after { transform: translateX(18px); }
 
   fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
@@ -246,61 +269,31 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
   .seg input, .chips input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
   .seg span, .chips span {
     display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px;
-    border-radius: var(--pill); background: var(--paper); font-weight: 500;
-    transition: background-color 160ms, color 160ms, transform 160ms var(--ease-out);
+    border-radius: var(--pill); background: var(--paper); font-weight: 700;
+    transition: background-color 160ms, color 160ms, transform 260ms var(--spring);
   }
+  .seg label:hover span, .chips label:hover span { transform: rotate(-3deg) scale(1.05); }
   .seg label:hover span, .chips label:hover span { background: var(--paper-deep); }
-  .seg input:checked + span { background: var(--ink); color: #fff; }
+  .seg input:checked + span { background: var(--yellow); color: var(--ink); }
   .chips input:checked + span { background: var(--coral); color: var(--ink); }
   .seg input:focus-visible + span, .chips input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: 2px; }
 
-  /* The Ordero app screen, at true size */
-  .app {
-    width: min(392px, calc(100% - 40px));
-    background: #fff; border-radius: 28px;
-    padding: 22px 18px 18px;
-    font-size: 15px; line-height: 1.35;
-    color: #2b2b2b;
-  }
-  .app p { margin: 0; }
-  .app-head { display: flex; justify-content: space-between; align-items: start; gap: 12px; padding: 0 4px 14px; }
-  .app-child { font-weight: 600; font-size: 17px; }
-  .app-week { color: #555; font-size: 14px; }
-  .app-cutoff { font-size: 13px; background: #fff4cc; color: #6a4f00; padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
-  .app-profile { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 2px 12px; border-radius: 12px; }
-  .app :global(.chip) { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 999px; font-size: 13px; }
-  .chip-soft { background: #f2f2f2; }
-  .app :global(.chip-alert) { background: #ffe3e6; color: #a1121f; }
+  /* The Ordero app screen (design-system components from ds.css) */
+  .app { width: min(400px, calc(100% - 40px)); }
+  .app-profile { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
   [data-allergy-tags] { display: contents; }
-  .days { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
-  .day {
-    display: grid; grid-template-columns: 46px 1fr auto; gap: 10px; align-items: center;
-    padding: 10px 12px; border-radius: 16px; background: #f6f7f5;
-    border: 1.5px dashed #c9dcbf;
-    transition: background-color 260ms, border-color 260ms;
-  }
-  .day[data-state='ordered'] { background: var(--app-green-soft); border-style: solid; border-color: var(--app-green); }
-  .day[data-state='cancelled'] { background: #fafafa; border-color: #e2e2e2; }
-  .day[data-state='cancelled'] .dish { text-decoration: line-through; color: #9a9a9a; }
-  .d { display: grid; text-align: center; }
-  .d b { font-size: 15px; }
-  .d span { font-size: 12.5px; color: #555; }
-  .meal { display: grid; gap: 2px; min-width: 0; }
-  .mt { font-weight: 600; font-size: 14px; display: flex; gap: 6px; align-items: center; }
-  .auto-badge { font-size: 11.5px; font-weight: 600; background: var(--ink); color: #fff; padding: 1px 7px; border-radius: 999px; }
-  .dish { font-size: 13px; color: #555; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .log { display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 12.5px; margin-top: 4px; }
+  .days { margin: 0; padding: 0; list-style: none; overflow: hidden; }
+  .day { transition: background-color 260ms; }
+  .day[data-state='ordered'] { background: #f3fcf9; }
+  .day[data-state='cancelled'] .dish { text-decoration: line-through; }
+  .meal { display: grid; gap: 1px; min-width: 0; }
+  .auto-badge { margin-left: 4px; font-size: 11px; padding: 2px 7px; }
+  .auto-badge[hidden] { display: none; }
+  .log { display: flex; flex-wrap: wrap; gap: 2px 10px; font-size: 12.5px; margin-top: 4px; }
   .log[hidden] { display: none; }
   .log > span { display: inline-flex; align-items: center; gap: 4px; }
-  .ok { color: #2f6e1c; }
-  .no { color: #a1121f; }
-  .st { display: grid; justify-items: end; gap: 2px; }
-  .status { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #ececec; color: #555; white-space: nowrap; }
-  .day[data-state='ordered'] .status { background: var(--app-green); color: #1d3b12; }
-  .day[data-state='cancelled'] .status { background: #ffe3e6; color: #a1121f; }
-  .price { font-size: 12.5px; color: #555; }
-  .app-total { display: flex; justify-content: space-between; padding: 14px 6px 0; font-size: 16px; }
-  .app-total b { font-weight: 600; }
+  .ok { color: #12634b; }
+  .no { color: #b3192a; }
   .app :global(.flash) { animation: flash 700ms var(--ease-out); }
   @keyframes flash { 0% { transform: scale(0.97); } 60% { transform: scale(1.015); } 100% { transform: none; } }
 
@@ -309,7 +302,9 @@ const order = ['ease', 'transparency', 'control', 'auto', 'personal'] as const;
     /* The app stays in view while the controls below it are used. */
     .f-stage { position: sticky; top: 0; z-index: 2; height: 50svh; margin-inline: calc(-1 * var(--gutter)); padding: 8px var(--gutter) 12px; background: var(--bg); }
     .field { position: relative; top: 0; height: 100%; min-height: 0; place-items: start center; padding-top: 14px; }
-    .app { transform: scale(0.78); transform-origin: top center; }
+    .field .app { transform: scale(0.78) rotate(-1.5deg); transform-origin: top center; }
+    .field:hover .app { transform: scale(0.78); }
+    .title img { width: 64px; }
     .f-read { padding-block: 32px 24px; }
     h2 { padding: 0 0 32px; }
     .h2-second { display: inline; }

@@ -1,16 +1,32 @@
 ---
 import Stores from './Stores.astro';
 import { links, type T } from '../i18n/content';
-interface Props { t: T; page: keyof T['routes']; photo: { src: string; alt: string; w: number; h: number; pos?: string; credit?: string; creditHref?: string } }
+interface Props { t: T; page: keyof T['routes']; photo?: { src: string; alt: string; w: number; h: number; pos?: string } }
 const { t, page, photo } = Astro.props;
+// Without a photo, the picture half is a colour block with the three parties' illustrations.
+const art = [
+  { src: '/images/ill/parents.webp', style: 'left:8%;top:12%;width:46%', tilt: '-6deg', delay: '0s' },
+  { src: '/images/ill/school.webp', style: 'right:8%;top:30%;width:36%', tilt: '7deg', delay: '-2s' },
+  { src: '/images/ill/caterer.webp', style: 'left:16%;bottom:8%;width:52%', tilt: '-3deg', delay: '-4s' },
+];
 const demoHref = `${t.routes[page === 'business' ? 'business' : 'home']}#contact`;
 ---
 <footer class="footer">
-  <div class="photo">
-    <img src={photo.src} alt={photo.alt} width={photo.w} height={photo.h} loading="lazy" style={photo.pos ? `object-position:${photo.pos}` : undefined} />
-  </div>
+  {photo ? (
+    <div class="photo">
+      <img src={photo.src} alt={photo.alt} width={photo.w} height={photo.h} loading="lazy" style={photo.pos ? `object-position:${photo.pos}` : undefined} />
+    </div>
+  ) : (
+    <div class="photo art" aria-hidden="true">
+      {art.map((a) => (
+        <span class="float" style={`position:absolute;${a.style};--delay:${a.delay}`}>
+          <img class="sticker" src={a.src} alt="" width="630" height="600" loading="lazy" style={`--tilt:${a.tilt}`} />
+        </span>
+      ))}
+    </div>
+  )}
   <div class="side">
-    <a class="wordmark" href={t.routes.home}><img src="/images/logo.webp" alt="Ordero" width="900" height="269" loading="lazy" /></a>
+    <a class="wordmark" href={t.routes.home}><img src="/images/logo.svg" alt="Ordero" width="121" height="36" loading="lazy" /></a>
     <nav aria-label={t.nav.products}>
       <ul class="menu" role="list">
         <li><a href={t.routes.home}>{t.nav.kids}</a></li>
@@ -36,7 +52,6 @@ const demoHref = `${t.routes[page === 'business' ? 'business' : 'home']}#contact
     </div>
     <p class="fine">
       <span>{t.footer.copyright}</span>
-      {photo.credit && <span>{t.footer.photo}: {photo.creditHref ? <a class="link" href={photo.creditHref}>{photo.credit}</a> : photo.credit}</span>}
     </p>
   </div>
 </footer>
@@ -48,8 +63,12 @@ const demoHref = `${t.routes[page === 'business' ? 'business' : 'home']}#contact
     min-height: min(100svh, 960px);
   }
   .photo { border-radius: var(--radius); overflow: hidden; background: var(--paper); }
-  .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
-  .footer:hover .photo img { transform: scale(1.03); }
+  .photo:not(.art) img { width: 100%; height: 100%; transition: transform 1.2s var(--ease-out); }
+  .footer:hover .photo:not(.art) img { transform: scale(1.03); }
+  .art { position: relative; background: var(--yellow); }
+  .art img { width: 100%; height: auto; object-fit: contain; }
+  .photo:not(.art) { background: var(--mint); }
+  .photo:not(.art) img { object-fit: contain; object-position: 50% 100% !important; }
   .side {
     background: var(--paper); border-radius: var(--radius);
     padding: clamp(28px, 4vw, 64px);
@@ -59,16 +78,16 @@ const demoHref = `${t.routes[page === 'business' ? 'business' : 'home']}#contact
   .menu { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
   .menu a {
     display: inline-block; font-family: var(--display); font-size: var(--s-head);
-    line-height: 1.02; letter-spacing: -0.02em; text-decoration: none;
-    transition: transform 240ms var(--ease-out), color 200ms;
+    font-weight: 800; line-height: 1.02; letter-spacing: -0.035em; text-decoration: none;
+    border-radius: 0.2em; padding: 0 0.12em; margin-left: -0.12em;
+    transition: transform 320ms var(--spring), background-color 160ms;
   }
-  .menu:hover a { color: var(--muted); }
-  .menu a:hover, .menu a:focus-visible { color: var(--ink); transform: translateX(12px); }
+  .menu a:hover, .menu a:focus-visible { background: var(--yellow); transform: translateX(12px) rotate(-2deg); }
   .blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-content: end; font-size: 0.9375rem; }
   .blocks ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
   .tagline { margin-bottom: 18px; max-width: 30ch; }
   .legal-title { font-family: var(--text); font-weight: 600; font-size: 0.9375rem; letter-spacing: 0; margin-bottom: 12px; }
-  .fine { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: var(--s-small); color: var(--muted); }
+  .fine { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: var(--s-small); color: var(--ink); }
 
   @media (max-width: 860px) {
     .footer { grid-template-columns: 1fr; min-height: 0; }

@@ -1,0 +1,125 @@
+/* 3 · Lunchbox Pop — neo-brutal lunchbox compartments.
+   Pilcrow Rounded, lowercase headings, 3px ink outlines, hard offset shadows,
+   flat saturated brand colours, a ticker band, buttons that press down. */
+@font-face { font-family: 'Pilcrow Rounded'; src: url('/fonts/PilcrowRounded-700.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Pilcrow Rounded'; src: url('/fonts/PilcrowRounded-400.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+
+html[data-theme='lunchbox'] {
+  --bg: #fffdf8;
+  --paper: #ffffff;
+  --ink: #1b1918;
+  --display: 'Pilcrow Rounded', system-ui, sans-serif;
+  --text: 'Pilcrow Rounded', system-ui, sans-serif;
+  --radius: 22px;
+  --bw: 3px;
+  --hard: 6px 6px 0 var(--ink);
+  --s-body: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --s-head: clamp(2.5rem, 1.4rem + 3.6vw, 5rem);
+  --s-display: clamp(3rem, 1.6rem + 5vw, 6.5rem);
+
+  & body { background: var(--bg); }
+  & h1, & h2, & .display { font-weight: 700; letter-spacing: -0.045em; line-height: 0.9; text-transform: lowercase; font-variation-settings: normal; }
+  & h3 { font-weight: 700; letter-spacing: -0.02em; text-transform: lowercase; }
+  & .pop { background: var(--ink); color: var(--yellow); padding: 0 0.18em 0.06em; border-radius: 0.18em; }
+  & .box, & .hero .sheet, & .hero .stage, & .features .field, & .platform .stage, & .steps .split, & .cta .inner, & .contact .coupon, & .footer .photo, & .footer .side, & .partners {
+    border: var(--bw) solid var(--ink); box-shadow: var(--hard);
+  }
+
+  /* Buttons press down into their shadow */
+  & .btn, & .features .ctl, & .contact .send, & .nav .login, & .nav .menu summary {
+    background: var(--coral); color: var(--ink); border: var(--bw) solid var(--ink); box-shadow: 4px 4px 0 var(--ink);
+    border-radius: 16px; font-weight: 700; text-transform: lowercase;
+    transition: transform 120ms ease, box-shadow 120ms ease;
+  }
+  & .btn:hover, & .features .ctl:hover, & .contact .send:hover, & .nav .login:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); background: var(--coral); }
+  & .btn:active, & .features .ctl:active, & .contact .send:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+  & .nav .login { background: var(--yellow); min-height: 44px; }
+  & .nav-products a::after, & .nav-actions > li > a:not(.login)::after { background: var(--yellow); height: 10px; bottom: 4px; border-radius: 2px; }
+
+  /* Hero */
+  & .hero .sheet, & .hero .intro { background: var(--mint) !important; }
+  & .hero.field-mint .sheet, & .hero.field-mint .intro { background: var(--yellow) !important; }
+  & .hero h1 .pop { transform: rotate(-2deg); }
+  & .hero .lead { font-weight: 400; }
+  & .hero .bar { background: var(--paper); border-top: var(--bw) solid var(--ink); }
+  & .hero .spot { width: clamp(90px, 9vw, 140px); background: var(--paper); border: var(--bw) solid var(--ink); border-radius: 50%; padding: 18px; box-shadow: 4px 4px 0 var(--ink); }
+  & .hero .spot img { filter: none; }
+  & .float { animation-duration: 3.2s; }
+
+  /* Ticker */
+  & .marquee { background: var(--coral); border-block: var(--bw) solid var(--ink); padding: 14px 0; margin-top: 28px; transform: rotate(-1.2deg); }
+  & .marquee span { text-transform: lowercase; }
+
+  & .partners { margin: 64px var(--gutter) 0; padding: 32px 40px; border-radius: var(--radius); background: var(--paper); }
+  & .partners .label { text-transform: lowercase; }
+
+  /* Features: compartments */
+  & .features .field { background: var(--yellow); }
+  & .features .field .app { transform: rotate(-2deg); border: var(--bw) solid var(--ink); box-shadow: 8px 8px 0 var(--ink); }
+  & .features .field:hover .app { transform: rotate(0deg); }
+  & .features .block { border: var(--bw) solid var(--ink); border-radius: var(--radius); padding: 28px; background: var(--paper); box-shadow: var(--hard); min-height: 0; margin-bottom: 30vh; }
+  & .features .block:last-child { margin-bottom: 0; }
+  & .features .block:nth-child(2) { background: #ffe6e8; }
+  & .features .block:nth-child(3) { background: #d6f5ec; }
+  & .features .block:nth-child(4) { background: #fff1bf; }
+  & .features .block:nth-child(5) { background: #ece1ff; }
+  & .features .block > p { font-weight: 400; }
+  & .features .title img { width: 72px; height: 72px; object-fit: contain; background: var(--paper); border: var(--bw) solid var(--ink); border-radius: 50%; padding: 8px; filter: none; }
+  & .features .switch { background: var(--paper); border: var(--bw) solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
+  & .features .switch .knob { border: 2px solid var(--ink); }
+  & .features .seg span, & .features .chips span { background: var(--paper); border: var(--bw) solid var(--ink); }
+  & .features .seg input:checked + span { background: var(--ink); color: var(--yellow); }
+  & .features .chips input:checked + span { background: var(--coral); }
+
+  /* Platform */
+  & .platform [role='tab'] { border: var(--bw) solid transparent; }
+  & .platform [role='tab'][aria-selected='true'] { background: var(--yellow); border-color: var(--ink); box-shadow: var(--hard); transform: rotate(-1deg); }
+  & .platform [role='tab']:hover { border-color: var(--ink); }
+  & .platform .name { text-transform: lowercase; font-weight: 700; }
+  & .platform .stage { background: var(--coral); }
+  & .platform .sheet { border: var(--bw) solid var(--ink); border-bottom: 0; }
+  & .platform .figures, & .why .figures { background: var(--bg); color: var(--ink); padding-block: 0; }
+  & .platform dl, & .why dl { gap: 20px; }
+  & .platform dl div, & .why dl div { border: var(--bw) solid var(--ink); border-radius: var(--radius); padding: 28px; box-shadow: var(--hard); background: var(--yellow); transform: rotate(-1deg); }
+  & .platform dl div:nth-child(2), & .why dl div:nth-child(2) { background: var(--mint); transform: rotate(1deg); }
+  & .platform dl div:nth-child(3), & .why dl div:nth-child(3) { background: var(--coral); }
+  & .platform dl div:nth-child(4), & .why dl div:nth-child(4) { background: #ece1ff; transform: rotate(1.5deg); }
+  & .platform dt, & .why dt { color: var(--ink) !important; transform: none !important; font-weight: 700; }
+  & .platform dd, & .why dd { font-weight: 400; }
+
+  /* Steps */
+  & .steps .split { border-radius: var(--radius); overflow: hidden; }
+  & .steps .clause { border-right: var(--bw) solid var(--ink); }
+  & .steps .track { border-top: var(--bw) solid var(--ink); background: var(--paper); }
+  & .steps .rail::before { background: var(--paper); border: 2px solid var(--ink); height: 12px; top: 14px; }
+  & .steps .rail::after { background: var(--ink); height: 12px; top: 14px; }
+  & .steps input[type='range']::-webkit-slider-thumb { background: var(--yellow); border: var(--bw) solid var(--ink); box-shadow: 3px 3px 0 var(--ink); border-radius: 10px; }
+  & .steps .names button[aria-current] { background: var(--ink); color: var(--yellow); }
+  & .steps .stage-text p { font-weight: 400; }
+
+  /* Quotes */
+  & .quotes .bubble { border: var(--bw) solid var(--ink); box-shadow: var(--hard); }
+  & .quotes .bubble::after { display: none; }
+  & .quotes .disc { background: var(--yellow); color: var(--ink); border: var(--bw) solid var(--ink); }
+
+  /* CTA, contact, footer */
+  & .cta .inner { background: var(--mint) !important; }
+  & .cta .spot { background: var(--paper); border: var(--bw) solid var(--ink); border-radius: 50%; padding: 22px; box-shadow: 4px 4px 0 var(--ink); }
+  & .cta .spot img { filter: none; }
+  & .contact .coupon { background: var(--yellow) !important; }
+  & .contact .coupon::before, & .contact .coupon::after { border: var(--bw) solid var(--ink); }
+  & .contact .stub::after { border-right-color: var(--ink); border-bottom-color: var(--ink); }
+  & .contact input, & .contact textarea { background: var(--paper); border: var(--bw) solid var(--ink); border-radius: 14px; }
+  & .contact .send { background: var(--ink); color: var(--yellow); }
+  & .footer .side { background: #ece1ff; }
+  & .footer .menu a { text-transform: lowercase; font-weight: 700; }
+  & .footer .menu a:hover { background: var(--yellow); }
+  & .why .row img { background: var(--paper); border: var(--bw) solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+  & .why .row p { font-weight: 400; }
+
+  @media (max-width: 860px) {
+    & .features .block { margin-bottom: 28px; }
+    & .marquee { transform: none; }
+  }
+}
+html[data-theme='lunchbox'] .footer .art { background: var(--mint); }

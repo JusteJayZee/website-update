@@ -1,5 +1,12 @@
 ---
 import '../styles/global.css';
+import '../styles/ds.css';
+import '../themes/sticker.css';
+import '../themes/app.css';
+import '../themes/lunchbox.css';
+import '../themes/notebook.css';
+import '../themes/candy.css';
+import { theme } from '../themes/config';
 import { langs, routes, type Lang } from '../i18n/content';
 
 interface Props {
@@ -14,7 +21,7 @@ const canonical = site + routes[lang][page];
 const hreflang: Record<Lang, string> = { lt: 'lt-lt', en: 'en-us', pl: 'pl-pl' };
 ---
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} data-theme={theme}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,8 +37,7 @@ const hreflang: Record<Lang, string> = { lt: 'lt-lt', en: 'en-us', pl: 'pl-pl' }
     <meta property="og:image" content={site + '/images/og.png'} />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="/favicon.png" type="image/png" />
-    <link rel="preload" href="/fonts/Gambarino-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/GeneralSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Bricolage-latin.woff2" as="font" type="font/woff2" crossorigin />
     <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>
