@@ -18,8 +18,8 @@ const { t, page, h1, lead, cta, field, slides, stickers = [] } = Astro.props;
 // Bricolage 800 runs about 0.5em per character.
 const fitEm = (Math.max(...h1.map((l) => l.length)) * 0.5 + 0.4).toFixed(2);
 const spots = [
-  { tilt: '-10deg', style: 'left:4%;top:7%', delay: '0s' },
-  { tilt: '8deg', style: 'right:5%;bottom:6%', delay: '-3s' },
+  { tilt: '-10deg', style: 'left:3.5%;top:4%', delay: '0s' },
+  { tilt: '8deg', style: 'right:4%;bottom:5%', delay: '-3s' },
 ];
 const street = t.contact.addresses[0].split(',').slice(1, 3).join(',').trim();
 ---
@@ -61,6 +61,24 @@ const street = t.contact.addresses[0].split(',').slice(1, 3).join(',').trim();
 </header>
 
 <script>
+  // Stickers never sit on text: hide any that would overlap the headline, lead or button.
+  const guard = () => document.querySelectorAll<HTMLElement>('.hero').forEach((hero) => {
+    const rects = [...hero.querySelectorAll('h1 .line, .lead, .btn')].flatMap((el) => {
+      const r = document.createRange(); r.selectNodeContents(el); return [...r.getClientRects()];
+    });
+    hero.querySelectorAll<HTMLElement>('.spot').forEach((spot) => {
+      spot.style.visibility = '';
+      const s = spot.getBoundingClientRect();
+      const m = 16; // room for the gentle float
+      const hit = rects.some((h) => !(s.right + m < h.left || s.left - m > h.right || s.bottom + m < h.top || s.top - m > h.bottom));
+      if (hit) spot.style.visibility = 'hidden';
+    });
+  });
+  guard();
+  document.fonts?.ready.then(() => setTimeout(guard, 150));
+  setTimeout(guard, 1300); // after the entrance has settled
+  window.addEventListener('resize', () => setTimeout(guard, 200));
+
   // Signature move: the stage's pictures crossfade slowly, like light shifting.
   const stages = document.querySelectorAll<HTMLElement>('[data-crossfade]');
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -103,7 +121,9 @@ const street = t.contact.addresses[0].split(',').slice(1, 3).join(',').trim();
   .field-mint .sheet, .field-mint .intro { background: var(--yellow); }
   .field-yellow { --pop: var(--yellow); }
   .field-mint { --pop: var(--coral); }
-  .spot { position: absolute; width: clamp(84px, 9vw, 148px); z-index: 1; }
+  .spot { position: absolute; width: clamp(72px, 7.5vw, 136px); z-index: 1; }
+  .sheet:has(.spot) .intro { padding-top: clamp(136px, 17vh, 184px); padding-bottom: clamp(120px, 15vh, 176px); }
+  @media (max-width: 1100px) { .spot { display: none; } .sheet:has(.spot) .intro { padding-block: 64px; } }
   .spot img { width: 100%; }
   .intro {
     container-type: inline-size;
@@ -113,7 +133,7 @@ const street = t.contact.addresses[0].split(',').slice(1, 3).join(',').trim();
     padding-block: clamp(48px, 8vh, 112px) clamp(56px, 12vh, 160px);
   }
   h1 {
-    font-size: clamp(2.75rem, calc(100cqi / var(--fit-em, 19) * 1.5), 6rem);
+    font-size: clamp(2.75rem, calc(100cqi / var(--fit-em, 19) * 1.5), 5rem);
     line-height: 1.02;
     max-width: 100%;
   }

@@ -69,11 +69,30 @@ Kept deliberately small. Review before launch:
 
 **Sample content inside the app mockups.** The interactive app screen on the Kids page, the menu, order and daily-report sheets, and their labels are illustrative. The child's name, class, dishes, dates, headcounts and prices are invented, and the Lithuanian and Polish labels were translated for this build. The dish names in the English menu come from a real Ordero app screenshot. Replace any of it in the `ui` block of `src/i18n/content.ts`.
 
+## Style concepts
+
+One structure, five looks. Pick one at build time:
+
+```bash
+PUBLIC_THEME=sticker npm run build    # 1 Sticker Book (default)
+PUBLIC_THEME=app npm run build        # 2 App Native
+PUBLIC_THEME=lunchbox npm run build   # 3 Lunchbox Pop
+PUBLIC_THEME=notebook npm run build   # 4 School Notebook
+PUBLIC_THEME=candy npm run build      # 5 Candy Cloud
+```
+
+Each concept is one stylesheet in `src/themes/`, plus a few choices in `src/themes/config.ts` (which stickers appear, whether the ticker band shows). Once a direction is chosen, the other four can be deleted.
+
+The app screens shown on the site (the interactive order screen and the caterer, parent and school views) use components from the Ordero design system garden: child switcher, date chip, callout, status pills, meal icons, order lines, stat cards and the cart bar. They live in `src/styles/ds.css` and look the same in every concept.
+
 ## Images
 
-- Product mockups, illustrations, partner logos and store badges are Ordero's own, downloaded from the current Wix site and converted to WebP. Partner logos were recoloured to one ink colour.
-- School lunch photo: ["School lunch in Ylästö school"](https://commons.wikimedia.org/wiki/File:School_lunch_in_yl%C3%A4st%C3%B6_school.jpg) by Jukajuha, CC0, via Wikimedia Commons. It is credited in the footer. It is a Finnish school lunch, not an Ordero customer.
-- Typefaces: Gambarino and General Sans from Fontshare (ITF Free Font License), self-hosted in `public/fonts/`.
+- The spot illustrations (ease of use, transparency, control, automated ordering, personalisation, parents, school, caterer), the meal icons and the logo come from the Ordero design system garden.
+- Product mockups, partner logos, store badges and the Business line icons come from the current Wix site. Partner logos were recoloured to one ink colour.
+- There is no food photography.
+- Typefaces are self-hosted in `public/fonts/`, all checked for Lithuanian and Polish letters:
+  - Bricolage Grotesque, Poppins, Nunito, Nunito Sans and Caveat (Google Fonts, SIL Open Font License).
+  - Pilcrow Rounded and Chillax (Fontshare, ITF Free Font License).
 
 ## Design skill
 
