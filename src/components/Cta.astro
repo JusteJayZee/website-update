@@ -1,0 +1,64 @@
+---
+import Stores from './Stores.astro';
+interface Props { h2: string; lines: string[]; image: { src: string; alt: string; w: number; h: number }; field: 'yellow' | 'mint' }
+const { h2, lines, image, field } = Astro.props;
+---
+<section class={`cta field-${field}`} aria-labelledby="cta-title">
+  <div class="inner">
+    <div class="words">
+      <h2 id="cta-title" data-reveal data-fit data-fit-min="28">{h2}</h2>
+      <div class="lines" data-reveal style="--i:1">
+        {lines.map((l) => <p>{l}</p>)}
+      </div>
+      <div data-reveal style="--i:2"><Stores /></div>
+    </div>
+    <div class="pic" data-reveal style="--i:1">
+      <img src={image.src} alt={image.alt} width={image.w} height={image.h} loading="eager" decoding="async" data-drift />
+    </div>
+  </div>
+</section>
+
+<script>
+  // One moving picture: the product drifts slowly against the scroll.
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const imgs = [...document.querySelectorAll<HTMLElement>('[data-drift]')];
+  if (!reduce && imgs.length) {
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      for (const img of imgs) {
+        const r = img.parentElement!.getBoundingClientRect();
+        const p = (window.innerHeight - r.top) / (window.innerHeight + r.height);
+        if (p < -0.1 || p > 1.1) continue;
+        img.style.transform = `translate3d(0, ${(0.5 - p) * 80}px, 0) rotate(${(0.5 - p) * 4}deg)`;
+      }
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+  }
+</script>
+
+<style>
+  .cta { margin-top: var(--section); padding: 0 var(--gutter); }
+  .inner {
+    display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter);
+    min-height: min(84svh, 820px); border-radius: var(--radius); overflow: hidden;
+  }
+  .field-yellow .inner { background: var(--yellow); }
+  .field-mint .inner { background: var(--mint); }
+  .words {
+    grid-column: 1 / 8; align-self: end; display: grid; gap: 28px;
+    padding: 40px clamp(24px, 3.5vw, 56px) clamp(40px, 4vw, 64px);
+  }
+  h2 { font-size: var(--s-display); line-height: 0.92; letter-spacing: -0.03em; }
+  .lines { display: grid; gap: 4px; max-width: 46ch; }
+  .pic { grid-column: 8 / 13; position: relative; display: grid; place-items: end center; padding-top: 48px; }
+  .pic img { width: min(92%, 560px); height: auto; transform-origin: 50% 100%; will-change: transform; margin-bottom: -6%; }
+
+  @media (max-width: 860px) {
+    .inner { grid-template-columns: 1fr; min-height: 84svh; }
+    .words { grid-column: 1; grid-row: 1; align-self: start; padding: 40px 20px 24px; }
+    .pic { grid-column: 1; grid-row: 2; padding-top: 0; }
+    .pic img { width: 76%; }
+  }
+</style>

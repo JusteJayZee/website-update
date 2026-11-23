@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import { langs, routes, type Lang } from '../i18n/content';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description?: string;
+  page: keyof (typeof routes)['lt'];
+}
+const { lang, title, description, page } = Astro.props;
+const site = 'https://www.ordero.lt';
+const canonical = site + routes[lang][page];
+const hreflang: Record<Lang, string> = { lt: 'lt-lt', en: 'en-us', pl: 'pl-pl' };
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    {langs.map((l) => <link rel="alternate" hreflang={hreflang[l]} href={site + routes[l][page]} />)}
+    <link rel="alternate" hreflang="x-default" href={site + routes.lt[page]} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={site + '/images/og.png'} />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="preload" href="/fonts/Gambarino-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/GeneralSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <slot />
+    <script>
+      import '../scripts/reveal.ts';
+      import '../scripts/fit.ts';
+    </script>
+  </body>
+</html>

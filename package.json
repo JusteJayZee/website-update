@@ -1,0 +1,16 @@
+{
+  "name": "ordero-website",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@wix/auto_sdk_forms_submissions": "^1.0.180",
+    "@wix/sdk": "^1.21.19",
+    "astro": "^7.4.13"
+  }
+}

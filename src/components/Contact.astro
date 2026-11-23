@@ -1,0 +1,154 @@
+---
+import { links, type T } from '../i18n/content';
+interface Props { t: T; field: 'coral' | 'yellow' | 'mint' }
+const { t, field } = Astro.props;
+const f = t.form;
+---
+<section class="contact wrap" id="contact" aria-labelledby="contact-title">
+  <div class={`coupon field-${field}`} data-reveal>
+    <div class="stub">
+      <h2 id="contact-title" data-fit>{t.contact.title}</h2>
+      <div class="where">
+        <address>
+          {t.contact.addresses.map((a) => <p>{a}</p>)}
+        </address>
+        <a class="linkedin" href={links.linkedin} aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5ZM3 9.75h4V21H3V9.75Zm7 0h3.83v1.54h.06c.53-1.01 1.84-2.08 3.79-2.08 4.05 0 4.8 2.67 4.8 6.13V21h-4v-5.07c0-1.21-.02-2.77-1.69-2.77-1.69 0-1.95 1.32-1.95 2.68V21h-4V9.75Z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+    <form class="form" data-wix-form novalidate>
+      <label>
+        <span class="sr-only">{f.name}</span>
+        <input name="name" type="text" autocomplete="name" placeholder={f.name} maxlength="200" />
+      </label>
+      <label>
+        <span class="sr-only">{f.email} *</span>
+        <input name="email" type="email" autocomplete="email" placeholder={`${f.email}*`} required maxlength="250" />
+      </label>
+      <label>
+        <span class="sr-only">{f.phone} *</span>
+        <input name="phone" type="tel" autocomplete="tel" placeholder={`${f.phone}*`} required maxlength="40" pattern="[\d\s\-\+\(\)]{6,}" />
+      </label>
+      <label>
+        <span class="sr-only">{f.message} *</span>
+        <textarea name="message" rows="4" placeholder={`${f.message}*`} required maxlength="5000"></textarea>
+      </label>
+      <button class="send" type="submit" data-label={f.send} data-sending={f.sending}>{f.send}</button>
+      <p class="status" role="status" aria-live="polite" data-thanks={f.thanks} data-error={f.error}></p>
+    </form>
+  </div>
+</section>
+
+<script>
+  import { submitContact } from '../scripts/wix-form';
+
+  document.querySelectorAll<HTMLFormElement>('[data-wix-form]').forEach((form) => {
+    const status = form.querySelector<HTMLElement>('.status')!;
+    const button = form.querySelector<HTMLButtonElement>('.send')!;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = '';
+      form.classList.add('checked');
+      if (!form.checkValidity()) {
+        form.querySelector<HTMLElement>(':invalid')?.focus();
+        return;
+      }
+      const data = new FormData(form);
+      button.disabled = true;
+      button.textContent = button.dataset.sending!;
+      try {
+        await submitContact({
+          name: String(data.get('name') || '').trim(),
+          email: String(data.get('email') || '').trim(),
+          phone: String(data.get('phone') || '').trim(),
+          message: String(data.get('message') || '').trim(),
+        });
+        form.reset();
+        form.classList.remove('checked');
+        status.textContent = status.dataset.thanks!;
+        status.dataset.state = 'ok';
+      } catch (err) {
+        console.error(err);
+        status.textContent = status.dataset.error!;
+        status.dataset.state = 'error';
+      } finally {
+        button.disabled = false;
+        button.textContent = button.dataset.label!;
+      }
+    });
+  });
+</script>
+
+<style>
+  .contact { padding-block: var(--section) clamp(80px, 8vw, 128px); }
+  .coupon {
+    --notch: 28px;
+    position: relative;
+    display: grid; grid-template-columns: 46fr 54fr;
+    max-width: 1240px; margin-inline: auto;
+    border-radius: var(--radius);
+  }
+  .coupon::before, .coupon::after {
+    content: ''; position: absolute; z-index: 1; width: var(--notch); height: var(--notch);
+    border-radius: 50%; background: var(--bg); left: calc(46% - var(--notch) / 2);
+  }
+  .coupon::before { top: calc(var(--notch) / -2); }
+  .coupon::after { bottom: calc(var(--notch) / -2); }
+  .field-coral { background: var(--coral); }
+  .field-yellow { background: var(--yellow); }
+  .field-mint { background: var(--mint); }
+  .stub {
+    position: relative;
+    display: grid; grid-template-rows: auto 1fr; gap: 40px;
+    padding: clamp(32px, 4vw, 56px);
+  }
+  .stub::after {
+    content: ''; position: absolute; right: -2.5px; top: 44px; bottom: 44px;
+    border-right: 5px dotted var(--bg);
+  }
+  h2 { font-size: var(--s-head); max-width: 10ch; }
+  .where { align-self: end; display: grid; gap: 20px; }
+  address { font-style: normal; display: grid; gap: 14px; max-width: 34ch; }
+  .linkedin { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 500; justify-self: start; transition: transform 180ms var(--ease-out); }
+  .linkedin:hover { transform: translateY(-2px); }
+
+  .form { display: grid; gap: 10px; align-content: center; padding: clamp(32px, 4vw, 56px); }
+  input, textarea {
+    width: 100%; border: 0; border-radius: 14px;
+    background: rgb(255 255 255 / 0.62);
+    padding: 0 18px; min-height: 54px; font-size: 1rem; color: var(--ink);
+    transition: background-color 160ms, outline-color 160ms;
+    outline: 2px solid transparent; outline-offset: -2px;
+  }
+  textarea { padding-top: 15px; padding-bottom: 15px; min-height: 132px; resize: vertical; }
+  input::placeholder, textarea::placeholder { color: #3d3936; opacity: 1; }
+  input:hover, textarea:hover { background: rgb(255 255 255 / 0.78); }
+  input:focus, textarea:focus { background: #fff; outline-color: var(--ink); }
+  .checked :invalid { outline-color: #8a0010; background: #fff; }
+  .send {
+    min-height: 56px; border: 0; border-radius: var(--pill); background: var(--ink); color: #fff;
+    font-weight: 500; font-size: 1rem; margin-top: 6px;
+    transition: transform 160ms var(--ease-out), opacity 160ms;
+  }
+  .send:hover { transform: translateY(-2px); }
+  .send:active { transform: scale(0.99); }
+  .send:disabled { opacity: 0.6; }
+  .status { min-height: 1.5em; font-weight: 500; }
+
+  @media (max-width: 860px) {
+    .coupon { grid-template-columns: 1fr; }
+    .coupon::before, .coupon::after { display: none; }
+    .form { position: relative; }
+    .form::before, .form::after {
+      content: ''; position: absolute; top: calc(var(--notch) / -2); width: var(--notch); height: var(--notch);
+      border-radius: 50%; background: var(--bg);
+    }
+    .form::before { left: calc(var(--notch) / -2); }
+    .form::after { right: calc(var(--notch) / -2); }
+    .stub { padding: 32px 24px 40px; }
+    .stub::after { right: 28px; left: 28px; top: auto; bottom: -2.5px; border-right: 0; border-bottom: 5px dotted var(--bg); }
+    .form { padding: 28px 20px 32px; }
+  }
+</style>

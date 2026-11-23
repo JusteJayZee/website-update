@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t as tr, type Lang } from '../i18n/content';
+import { lunchPhoto } from '../i18n/credits';
+import ltTerms from '../content/legal/lt-terms.html?raw';
+import enTerms from '../content/legal/en-terms.html?raw';
+import privacy from '../content/legal/en-privacy.html?raw';
+import businessPrivacy from '../content/legal/en-bizprivacy.html?raw';
+
+type Doc = 'terms' | 'privacy' | 'businessPrivacy';
+interface Props { lang: Lang; doc: Doc }
+const { lang, doc } = Astro.props;
+const t = tr(lang);
+// Only the Lithuanian Terms exist in translation on the live site; the other
+// documents are published in English on every language version.
+const html = { terms: lang === 'lt' ? ltTerms : enTerms, privacy, businessPrivacy }[doc];
+const title = { terms: t.footer.terms, privacy: t.footer.privacy, businessPrivacy: t.footer.businessPrivacy }[doc];
+---
+<Base lang={lang} title={`${title} | Ordero`} page={doc}>
+  <a class="skip" href="#main">{t.skip}</a>
+  <div class="top wrap"><Nav t={t} page={doc} /></div>
+  <main id="main" class="legal wrap">
+    <aside class="side">
+      <nav aria-label={t.footer.legal}>
+        <p class="side-title">{t.footer.legal}</p>
+        <ul role="list">
+          {(['terms', 'privacy', 'businessPrivacy'] as Doc[]).map((d) => (
+            <li><a href={t.routes[d]} aria-current={d === doc ? 'page' : undefined}>{t.footer[d]}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+    <article class="doc" set:html={html} />
+  </main>
+  <Footer t={t} page={doc} photo={{ ...lunchPhoto, pos: '28% 70%' }} />
+</Base>
+
+<style>
+  .top { position: relative; z-index: 5; }
+  .legal {
+    display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter);
+    padding-top: clamp(32px, 5vw, 80px); padding-bottom: var(--section);
+  }
+  .side { grid-column: 1 / 4; }
+  .side nav { position: sticky; top: var(--gutter); background: var(--paper); border-radius: var(--radius); padding: 24px; }
+  .side-title { font-weight: 600; margin-bottom: 12px; }
+  .side ul { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+  .side a { display: block; padding: 8px 12px; margin-inline: -12px; border-radius: 12px; text-decoration: none; transition: background-color 160ms; }
+  .side a:hover { background: var(--paper-deep); }
+  .side a[aria-current='page'] { background: var(--ink); color: #fff; }
+  .doc { grid-column: 5 / 12; max-width: 72ch; font-size: 1.0625rem; line-height: 1.6; counter-reset: l1; }
+  .doc :global(h1) { font-size: var(--s-head); margin-bottom: 40px; }
+  .doc :global(h2), .doc :global(h3), .doc :global(h4) { font-family: var(--text); font-weight: 600; font-size: 1.25rem; letter-spacing: 0; line-height: 1.3; margin: 40px 0 12px; }
+  .doc :global(p) { margin: 0 0 14px; }
+  .doc :global(a) { text-decoration: underline; text-underline-offset: 0.2em; word-break: break-word; }
+  .doc :global(ol) { list-style: none; padding-left: 0; margin: 0 0 14px; counter-reset: item; }
+  .doc :global(ol > li) { counter-increment: item; position: relative; padding-left: 3em; margin-bottom: 10px; }
+  .doc :global(ol > li)::before { content: counters(item, '.') '.'; position: absolute; left: 0; font-variant-numeric: tabular-nums; font-weight: 500; }
+  .doc :global(ol ol) { margin-top: 10px; }
+  .doc :global(ol ol > li) { padding-left: 3.4em; }
+  .doc :global(ul) { padding-left: 1.4em; margin: 0 0 14px; }
+  .doc :global(li > p:first-child) { margin-bottom: 6px; }
+  .doc :global(> ol > li > p:first-child) { font-weight: 600; }
+  .doc :global(table) { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 0.9375rem; }
+  .doc :global(td), .doc :global(th) { border: 1px solid var(--paper-deep); padding: 8px 10px; vertical-align: top; text-align: left; }
+
+  @media (max-width: 960px) {
+    .side, .doc { grid-column: 1 / -1; }
+    .side { margin-bottom: 40px; }
+    .side nav { position: static; }
+    .doc :global(ol > li) { padding-left: 2.6em; }
+  }
+</style>

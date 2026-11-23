@@ -1,0 +1,14 @@
+---
+import { links } from '../i18n/content';
+interface Props { size?: 'small' | 'large' }
+const { size = 'large' } = Astro.props;
+---
+<p class={`stores stores-${size}`}>
+  <a href={links.appStore}><img src="/images/app-store.png" alt="App Store" width="240" height="80" loading="lazy" /></a>
+  <a href={links.googlePlay}><img src="/images/google-play.png" alt="Google Play" width="240" height="80" loading="lazy" /></a>
+</p>
+
+<style>
+  .stores-small img { height: 40px; }
+  .stores-small { gap: 8px; }
+</style>

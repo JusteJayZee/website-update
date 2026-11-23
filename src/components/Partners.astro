@@ -1,0 +1,44 @@
+---
+interface Partner { file: string; name: string; href?: string }
+interface Props { label: string; partners: Partner[] }
+const { label, partners } = Astro.props;
+// Compact marks (crests, stacked logos) sit taller than long wordmarks.
+const tall = new Set(['katino-dieneles', 'aisv', 'kd-school', 'baltu-salis', 'oras', 'mazuju-valdos']);
+---
+<section class="partners wrap" aria-label={label}>
+  <p class="label" data-reveal>{label}</p>
+  <ul role="list">
+    {partners.map((p, i) => (
+      <li data-reveal style={`--i:${i + 1}`} class={tall.has(p.file) ? 'tall' : ''}>
+        {p.href
+          ? <a href={p.href} rel="noopener"><img src={`/images/partners/${p.file}.webp`} alt={p.name} loading="lazy" /></a>
+          : <img src={`/images/partners/${p.file}.webp`} alt={p.name} loading="lazy" />}
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .partners {
+    display: flex; align-items: center; gap: clamp(24px, 3vw, 56px);
+    padding-block: clamp(80px, 9vw, 140px);
+  }
+  .label { flex: 0 0 auto; max-width: 14ch; font-weight: 500; }
+  ul {
+    flex: 1; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    margin: 0; padding: 0; list-style: none;
+  }
+  img { height: 34px; width: auto; max-width: 168px; object-fit: contain; }
+  .tall img { height: 64px; }
+  a { display: block; transition: opacity 180ms, transform 220ms var(--ease-out); }
+  ul:hover a { opacity: 0.45; }
+  ul a:hover, ul a:focus-visible { opacity: 1; transform: translateY(-3px); }
+
+  @media (max-width: 860px) {
+    .partners { display: block; padding-block: 72px; }
+    .label { max-width: none; margin-bottom: 28px; }
+    ul { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 24px; justify-items: start; }
+    img { height: 28px; max-width: 140px; }
+    .tall img { height: 52px; }
+  }
+</style>

@@ -1,0 +1,148 @@
+---
+interface Props {
+  id: string;
+  h2: string;
+  lead: string;
+  items: string[][];
+  ills: string[];
+  label: string;
+  field: 'yellow' | 'mint';
+}
+const { id, h2, lead, items, ills, label, field } = Astro.props;
+---
+<section class={`steps field-${field}`} id={id} aria-labelledby={`${id}-title`} data-steps>
+  <div class="head wrap">
+    <h2 id={`${id}-title`} data-reveal data-fit>{h2}</h2>
+    <p data-reveal style="--i:1">{lead}</p>
+  </div>
+
+  <div class="split wrap" data-reveal style="--i:2">
+    <div class="clause">
+      {items.map((it, i) => (
+        <div class="stage-text" data-stage={i} hidden={i !== 0} aria-hidden={i !== 0 ? 'true' : undefined}>
+          <h3 data-fit>{it[0]}</h3>
+          <p>{it[1]}</p>
+        </div>
+      ))}
+    </div>
+    <div class="picture">
+      {ills.map((ill, i) => (
+        <img src={`/images/ill/${ill}.webp`} alt="" width="560" height="560" loading="lazy" data-stage={i} data-on={i === 0 ? '' : undefined} />
+      ))}
+    </div>
+    <div class="track">
+      <div class="rail" style="--p:0">
+        <input
+          type="range" min="1" max={items.length} step="1" value="1"
+          aria-label={label} aria-valuetext={`${label} 1: ${items[0][0]}`}
+        />
+      </div>
+      <ol class="names" role="list">
+        {items.map((it, i) => (
+          <li><button type="button" data-go={i} aria-current={i === 0 ? 'step' : undefined}>{it[0]}</button></li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-steps]').forEach((section) => {
+    const range = section.querySelector<HTMLInputElement>('input[type="range"]')!;
+    const texts = [...section.querySelectorAll<HTMLElement>('.stage-text')];
+    const pics = [...section.querySelectorAll<HTMLElement>('.picture img')];
+    const names = [...section.querySelectorAll<HTMLButtonElement>('[data-go]')];
+    const label = range.getAttribute('aria-label');
+    const show = (i: number) => {
+      texts.forEach((t, j) => { t.hidden = j !== i; t.setAttribute('aria-hidden', String(j !== i)); });
+      pics.forEach((p, j) => (j === i ? p.setAttribute('data-on', '') : p.removeAttribute('data-on')));
+      names.forEach((n, j) => (j === i ? n.setAttribute('aria-current', 'step') : n.removeAttribute('aria-current')));
+      range.value = String(i + 1);
+      range.parentElement!.style.setProperty('--p', String(i / (texts.length - 1)));
+      range.setAttribute('aria-valuetext', `${label} ${i + 1}: ${names[i].textContent}`);
+    };
+    range.addEventListener('input', () => show(Number(range.value) - 1));
+    names.forEach((n, i) => n.addEventListener('click', () => show(i)));
+  });
+</script>
+
+<style>
+  .steps { padding-top: var(--section); }
+  .head {
+    display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter);
+    align-items: end; row-gap: 16px; margin-bottom: clamp(40px, 5vw, 72px);
+  }
+  .head h2 { grid-column: 1 / 8; font-size: var(--s-head); }
+  .head p { grid-column: 8 / -1; max-width: 46ch; }
+
+  .split {
+    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr auto;
+    min-height: min(80svh, 760px);
+  }
+  .clause, .picture { grid-row: 1; padding: clamp(28px, 4vw, 64px); }
+  .clause { background: var(--paper); border-radius: var(--radius) 0 0 0; display: grid; align-content: start; }
+  .picture { position: relative; border-radius: 0 var(--radius) 0 0; }
+  .field-yellow .picture { background: var(--yellow); }
+  .field-mint .picture { background: var(--mint); }
+  .stage-text { display: grid; gap: 24px; animation: rise 420ms var(--ease-out); }
+  .stage-text[hidden] { display: none; }
+  h3 {
+    font-family: var(--display); font-weight: 400; letter-spacing: -0.02em; line-height: 0.98;
+    font-size: var(--s-head); max-width: 14ch; text-wrap: balance;
+  }
+  .stage-text p { max-width: 38ch; }
+  .picture img {
+    position: absolute; inset: 0; margin: auto; width: min(60%, 400px); height: auto; max-height: 78%; object-fit: contain;
+    opacity: 0; transform: translateY(20px) rotate(-3deg) scale(0.96);
+    transition: opacity 360ms ease, transform 520ms var(--ease-out);
+  }
+  .picture img[data-on] { opacity: 1; transform: none; }
+  @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+  .track {
+    grid-column: 1 / -1; grid-row: 2;
+    background: var(--paper-deep); border-radius: 0 0 var(--radius) var(--radius);
+    padding: 28px 28px 20px;
+  }
+  .rail { position: relative; height: 40px; }
+  .rail::before, .rail::after {
+    content: ''; position: absolute; left: 16px; top: 16px; height: 8px; border-radius: 8px; pointer-events: none;
+  }
+  .rail::before { right: 16px; background: #cfccc6; }
+  .rail::after { width: calc((100% - 32px) * var(--p)); background: var(--ink); transition: width 260ms var(--ease-out); }
+  input[type='range'] {
+    -webkit-appearance: none; appearance: none; position: relative; z-index: 1;
+    width: 100%; height: 40px; background: transparent; margin: 0; cursor: pointer;
+  }
+  input[type='range']::-webkit-slider-runnable-track { height: 40px; background: transparent; }
+  input[type='range']::-moz-range-track { height: 40px; background: transparent; }
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none; width: 32px; height: 32px; margin-top: 4px;
+    border-radius: 50%; background: var(--ink); border: 4px solid #fff;
+    transition: transform 160ms var(--ease-out);
+  }
+  input[type='range']::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--ink); border: 4px solid #fff; }
+  input[type='range']:hover::-webkit-slider-thumb { transform: scale(1.12); }
+  input[type='range']:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; border-radius: 8px; }
+  .names { display: grid; grid-template-columns: repeat(var(--n, 3), 1fr); margin: 10px 0 0; padding: 0; list-style: none; }
+  .names li:nth-child(2) { text-align: center; }
+  .names li:last-child { text-align: right; }
+  .names button {
+    border: 0; background: none; padding: 8px 0; font-size: 1rem; color: var(--muted); text-align: inherit;
+    transition: color 160ms;
+  }
+  .names button:hover { color: var(--ink); }
+  .names button[aria-current] { color: var(--ink); font-weight: 600; }
+
+  @media (max-width: 860px) {
+    .head h2, .head p { grid-column: 1 / -1; }
+    .split { grid-template-columns: 1fr; grid-template-rows: auto auto auto; min-height: 0; }
+    .picture { grid-row: 1; height: 44svh; min-height: 280px; border-radius: var(--radius) var(--radius) 0 0; }
+    .track { grid-row: 2; border-radius: 0; padding: 16px 16px 8px; }
+    .clause { grid-row: 3; border-radius: 0 0 var(--radius) var(--radius); padding: 28px 20px 36px; }
+    .names { grid-template-columns: 1fr; }
+    .names li, .names li:nth-child(2), .names li:last-child { text-align: left; }
+    .names button { font-size: 0.9375rem; padding: 6px 0; }
+    input[type='range']::-webkit-slider-thumb { width: 36px; height: 36px; margin-top: 2px; }
+  }
+</style>
