@@ -10,3 +10,6 @@ dist/
 .taste-skill/scenes/
 .DS_Store
 dist-themes/
+
+# Raw research notes and screenshots (the finished report goes in reports/)
+research_notes/
