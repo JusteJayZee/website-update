@@ -1,0 +1,50 @@
+/* 2 · Menu Board — warm editorial. Fraunces (soft) for display at 420, Figtree for text;
+   warm off-white ground, white paper sheets, gold for the action and 'today'. */
+@font-face { font-family: 'Fraunces'; src: url('/fonts/Fraunces-latin.woff2') format('woff2'); font-weight: 100 900; font-display: swap;  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fraunces'; src: url('/fonts/Fraunces-latin-ext.woff2') format('woff2'); font-weight: 100 900; font-display: swap;  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Figtree'; src: url('/fonts/Figtree-latin.woff2') format('woff2'); font-weight: 300 900; font-display: swap;  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Figtree'; src: url('/fonts/Figtree-latin-ext.woff2') format('woff2'); font-weight: 300 900; font-display: swap;  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+html[data-theme='menu']:not(#_) {
+  --bg: #f6f5f1;
+  --ink: #1c1a17;
+  --muted: #57534c;
+  --tint: #ffffff;
+  --tint-2: #eeece6;
+  --line: #e7e3da;
+  --accent: #ffbe00;
+  --accent-hover: #f5b400;
+  --accent-ink: #1c1a17;
+  --display: 'Fraunces', Georgia, serif;
+  --text: 'Figtree', system-ui, sans-serif;
+  --dw: 420; --h2w: 420; --h3w: 450; --stat-w: 400; --quote-w: 400;
+  --dtrack: -0.02em;
+  --btn-radius: 3px;
+  --radius: 6px;
+  --h1-size: clamp(2.75rem, 1.2rem + 4vw, 4.75rem);
+  --section: clamp(112px, 12vw, 200px);
+
+  & h1, & h2, & h3, & .display, & .platform .name, & .footer .menu a, & .platform dt, & .why dt, & .quotes .big .bubble p { font-variation-settings: 'SOFT' 100, 'WONK' 0; }
+  & h1 { line-height: 0.98; }
+  & .nav .login, & .nav .menu summary { border-radius: 3px; }
+  & .features .field { background: #ece9e1; }
+  & .features .ctl, & .contact .send { border-radius: 3px; }
+  & .features .seg span, & .features .chips span { border-radius: 3px; }
+  & .platform .stage { background: #ece9e1; border-radius: 8px; }
+  & .platform [role='tab'] { border-radius: 8px; }
+  & .platform [role='tab'][aria-selected='true'] { background: #fff; }
+  & .platform dt, & .why dt { font-size: clamp(3rem, 2rem + 3vw, 5rem); }
+  & .steps .split, & .cta .inner, & .contact .coupon, & .footer .side { border-radius: 8px; }
+  & .steps .clause { background: #fff !important; }
+  & .steps .picture { background: #ece9e1 !important; }
+  & .steps .track { background: #fff !important; }
+  & .steps input[type='range']::-webkit-slider-thumb { background: var(--accent); border-color: var(--ink); }
+  & .quotes .bubble { background: #fff !important; border-radius: 8px; }
+  & .quotes .big .bubble { background: transparent !important; padding-left: 0; }
+  & .quotes .big .bubble p { font-size: clamp(1.75rem, 1.2rem + 1.3vw, 2.25rem); line-height: 1.18; }
+  & .cta .inner { background: #fff !important; }
+  & .contact .coupon { background: #fff !important; }
+  & .contact input, & .contact textarea { background: #f6f5f1; border-radius: 3px; }
+  & .footer .side { background: #ece9e1; }
+  & .why .row img { background: #fff; border-radius: 8px; }
+}

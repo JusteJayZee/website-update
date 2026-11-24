@@ -1,0 +1,35 @@
+---
+// One frontal phone with the parent's order screen (design-system parts, no bezel).
+import type { T } from '../../i18n/content';
+interface Props { t: T }
+const { t } = Astro.props;
+const ui = t.ui;
+const states = ['ordered', 'ordered', 'cancelled', 'ordered', 'none'];
+---
+<div class="po" data-ui>
+  <div class="po-screen">
+    <div class="po-status"><span>9:41</span><span class="po-dots"></span></div>
+    <div class="ds-top"><span class="ds-child"><span class="ds-avatar" aria-hidden="true">E</span><span><b>{ui.childName}</b><small>{ui.childGroup}</small></span></span></div>
+    <p class="ds-callout">{ui.cutoff}</p>
+    <ol class="ds-card" role="list">
+      {ui.days.map((d, i) => (
+        <li class="ds-row">
+          <img class="ds-meal" src="/images/ds/taco.svg" alt="" width="32" height="32" />
+          <span><span class="ds-row-title">{d} · {ui.dates[i]}</span><span class="ds-row-sub">{ui.lunch}</span></span>
+          <span class={'ds-pill' + (states[i] === 'ordered' ? ' ds-pill-positive' : states[i] === 'cancelled' ? ' ds-pill-negative' : '')}>{states[i] === 'ordered' ? ui.ordered : states[i] === 'cancelled' ? ui.cancelled : ui.notOrdered}</span>
+        </li>
+      ))}
+    </ol>
+    <div class="ds-cart"><div><b>15,00 €</b><small>2 {ui.changeForms[1]}</small></div><span class="ds-btn">{ui.reviewOrder}</span></div>
+  </div>
+</div>
+
+<style>
+  .po { width: 340px; max-width: 100%; }
+  .po-screen { background: var(--ds-bg); border-radius: 44px; padding: 14px 14px 18px; outline: 8px solid #18181b; outline-offset: 0; }
+  .po-status { display: flex; justify-content: space-between; align-items: center; padding: 2px 12px 12px; font-size: 13px; font-weight: 700; }
+  .po-dots { width: 70px; height: 22px; border-radius: 999px; background: #18181b; }
+  .po ol { margin: 0; padding: 0; list-style: none; }
+  .po .ds-row { grid-template-columns: 30px 1fr auto; padding: 9px 12px; }
+  .po .ds-callout { margin-bottom: 10px; }
+</style>

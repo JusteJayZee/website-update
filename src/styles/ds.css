@@ -92,6 +92,8 @@
 .ds-row-title { font-weight: 700; font-size: 14.5px; }
 .ds-row-sub { display: block; font-size: 12.5px; color: var(--ds-text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ds-row-end { display: grid; justify-items: end; gap: 3px; }
+.ds-row > span:nth-child(2) { min-width: 0; }
+.ds-price { white-space: nowrap; }
 .ds-price { font-size: 12.5px; color: var(--ds-text-2); font-variant-numeric: tabular-nums; }
 .ds-cart {
   display: flex; align-items: center; justify-content: space-between; gap: 10px;

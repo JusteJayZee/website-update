@@ -1,0 +1,104 @@
+---
+// Three panes in a row, the loop Ordero runs: caterer → parents → school
+// (or, for Ordero Business: caterer → employee → office kitchen).
+// A meal icon travels along the connectors once when the relay comes into view.
+import type { T } from '../../i18n/content';
+interface Props { t: T; mode: 'kids' | 'business' }
+const { t, mode } = Astro.props;
+const ui = t.ui;
+const d = t.kids.platform.diagram;
+const b = ui.biz;
+const totals = ui.reportRows.reduce((a, r) => [a[0] + (r[1] as number), a[1] + (r[2] as number)], [0, 0]);
+const panes = mode === 'kids'
+  ? [{ ill: 'caterer', name: d.caterer }, { ill: 'parents', name: d.parents }, { ill: 'school', name: d.school }]
+  : [{ ill: 'caterer', name: d.caterer }, { ill: 'select', name: b.employee }, { ill: 'pickup', name: b.kitchen }];
+const links = mode === 'kids' ? [d.offerings, d.report] : ['', ''];
+---
+<div class="relay" data-relay>
+  {panes.map((p, i) => (
+    <>
+      <div class="pane ds-screen" data-ui>
+        <p class="pane-label"><img src={`/images/ill/${p.ill}.webp`} alt="" width="40" height="40" /><b>{p.name}</b></p>
+        {i === 0 && (
+          <div class="ds-card">
+            <div class="ds-row"><img class="ds-meal" src="/images/ds/egg.svg" alt="" width="32" height="32" /><span><span class="ds-row-title">{ui.breakfast}</span><span class="ds-row-sub">{ui.menu[1][1]}</span></span><span class="ds-price">2,00 €</span></div>
+            <div class="ds-row"><img class="ds-meal" src="/images/ds/taco.svg" alt="" width="32" height="32" /><span><span class="ds-row-title">{ui.lunch}</span><span class="ds-row-sub">{ui.menu[1][2]}</span></span><span class="ds-price">5,00 €</span></div>
+          </div>
+        )}
+        {i === 1 && mode === 'kids' && (
+          <div class="ds-card">
+            <div class="ds-row"><img class="ds-meal" src="/images/ds/taco.svg" alt="" width="32" height="32" /><span><span class="ds-row-title">{ui.days[1]} · {ui.lunch}</span><span class="ds-row-sub">{ui.childName}, 2B</span></span><span class="ds-pill ds-pill-positive" data-relay-pill>{ui.ordered}</span></div>
+            <div class="ds-row"><img class="ds-meal" src="/images/ds/taco.svg" alt="" width="32" height="32" /><span><span class="ds-row-title">{ui.days[2]} · {ui.lunch}</span><span class="ds-row-sub">{ui.childName}, 2B</span></span><span class="ds-pill ds-pill-negative">{ui.cancelled}</span></div>
+          </div>
+        )}
+        {i === 1 && mode === 'business' && (
+          <div class="ds-card">
+            <div class="ds-row"><img class="ds-meal" src="/images/ds/taco.svg" alt="" width="32" height="32" /><span><span class="ds-row-title">{b.options[0][0]}</span><span class="ds-row-sub">{b.pickup}</span></span><span class="ds-pill ds-pill-positive">{ui.paid}</span></div>
+          </div>
+        )}
+        {i === 2 && mode === 'kids' && (
+          <div class="stats">
+            <div class="ds-card ds-stat"><span class="ds-stat-icon" style="background:#f8d388"><img src="/images/ds/egg.svg" alt="" width="26" height="26" /></span><b>{ui.breakfast}</b><span class="big">{totals[0]}</span></div>
+            <div class="ds-card ds-stat"><span class="ds-stat-icon" style="background:#aef9c0"><img src="/images/ds/taco.svg" alt="" width="26" height="26" /></span><b>{ui.lunch}</b><span class="big" data-relay-count>{totals[1] - 1}</span></div>
+          </div>
+        )}
+        {i === 2 && mode === 'business' && (
+          <div class="ds-card">
+            {b.people.map((n, j) => (
+              <div class="ds-row"><span class="ds-avatar" aria-hidden="true">{n[0]}</span><span class="ds-row-title">{n}</span><span class={'ds-pill' + (j < 3 ? ' ds-pill-positive' : '')}>{j < 3 ? b.ready : '12:30'}</span></div>
+            ))}
+          </div>
+        )}
+      </div>
+      {i < 2 && (
+        <div class="link" aria-hidden="true">
+          <span class="line"></span>
+          <img class="packet" src={`/images/ds/${i === 0 ? 'egg' : 'taco'}.svg`} alt="" width="34" height="34" style={`--delay:${i * 1.1}s`} />
+          {links[i] && <span class="link-label">{links[i]}</span>}
+        </div>
+      )}
+    </>
+  ))}
+</div>
+
+<script define:vars={{ final: totals[1] }}>
+  (() => {
+    const relay = document.querySelector('[data-relay]');
+    if (!relay) return;
+    const go = () => {
+      relay.classList.add('go');
+      setTimeout(() => { const c = relay.querySelector('[data-relay-count]'); if (c) c.textContent = String(final); }, 2400);
+    };
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { const c = relay.querySelector('[data-relay-count]'); if (c) c.textContent = String(final); return; }
+    const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { go(); io.disconnect(); } }, { threshold: 0.4 });
+    io.observe(relay);
+  })();
+</script>
+
+<style>
+  .relay { display: grid; grid-template-columns: 1fr 96px 1fr 96px 1fr; align-items: center; }
+  .pane { padding: 16px; border-radius: 24px; box-shadow: none; min-width: 0; }
+  .pane-label { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 14px; }
+  .pane-label img { width: 40px; height: 40px; object-fit: contain; }
+  .pane .ds-row { grid-template-columns: 32px 1fr auto; }
+  .pane .ds-row .ds-avatar { width: 30px; height: 30px; font-size: 12px; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .stats .ds-stat { padding: 12px; grid-template-columns: 34px 1fr; }
+  .stats .ds-stat-icon { width: 34px; height: 34px; }
+  .stats .big { font-size: 22px; }
+  .link { position: relative; height: 60px; display: grid; place-items: center; }
+  .line { position: absolute; left: 6px; right: 6px; top: 50%; height: 2px; border-radius: 2px; background: var(--relay-line, #3ecfa3); opacity: 0.6; }
+  .packet { position: relative; width: 34px; height: 34px; opacity: 0; transform: translateX(-40px) scale(0.6); }
+  .go .packet { animation: travel 1.6s cubic-bezier(.45,0,.2,1) forwards; animation-delay: var(--delay); }
+  @keyframes travel { 0% { opacity: 0; transform: translateX(-46px) scale(0.6); } 20% { opacity: 1; } 80% { opacity: 1; transform: translateX(30px) scale(1); } 100% { opacity: 1; transform: translateX(0) scale(1); } }
+  .link-label { position: absolute; top: calc(50% + 18px); left: 0; right: 0; text-align: center; font-size: 12px; line-height: 1.2; color: var(--relay-label, #9b9ba3); }
+  @media (prefers-reduced-motion: reduce) { .packet { opacity: 1; transform: none; } .go .packet { animation: none; } }
+  @media (max-width: 960px) {
+    .relay { grid-template-columns: 1fr; gap: 8px; }
+    .link { height: 56px; }
+    .line { left: 50%; right: auto; top: 6px; bottom: 6px; width: 2px; height: auto; }
+    .link-label { top: 50%; left: calc(50% + 28px); text-align: left; transform: translateY(-50%); }
+    .go .packet { animation: none; opacity: 1; transform: none; }
+    .packet { opacity: 1; transform: none; }
+  }
+</style>

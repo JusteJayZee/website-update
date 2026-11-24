@@ -69,30 +69,29 @@ Kept deliberately small. Review before launch:
 
 **Sample content inside the app mockups.** The interactive app screen on the Kids page, the menu, order and daily-report sheets, and their labels are illustrative. The child's name, class, dishes, dates, headcounts and prices are invented, and the Lithuanian and Polish labels were translated for this build. The dish names in the English menu come from a real Ordero app screenshot. Replace any of it in the `ui` block of `src/i18n/content.ts`.
 
-## Style concepts
+## Style directions
 
-One structure, five looks. Pick one at build time:
+One structure, five light directions, chosen from the research in `reports/Modern product site positioning.md`. Pick one at build time:
 
 ```bash
-PUBLIC_THEME=sticker npm run build    # 1 Sticker Book (default)
-PUBLIC_THEME=app npm run build        # 2 App Native
-PUBLIC_THEME=lunchbox npm run build   # 3 Lunchbox Pop
-PUBLIC_THEME=notebook npm run build   # 4 School Notebook
-PUBLIC_THEME=candy npm run build      # 5 Candy Cloud
+PUBLIC_THEME=month npm run build   # A Live Month (default): the parent's month of meals is the hero
+PUBLIC_THEME=menu npm run build    # B Menu Board: soft serif, a typeset weekly menu, gold for today
+PUBLIC_THEME=rooms npm run build   # C Mint Rooms: white page with a few big, soft mint rooms
+PUBLIC_THEME=cast npm run build    # D Small Cast: quiet white page, the illustrations carry the play
+PUBLIC_THEME=relay npm run build   # E Relay: the caterer → parent → school loop on an ink stage
 ```
 
-Each concept is one stylesheet in `src/themes/`, plus a few choices in `src/themes/config.ts` (which stickers appear, whether the ticker band shows). Once a direction is chosen, the other four can be deleted.
-
-The app screens shown on the site (the interactive order screen and the caterer, parent and school views) use components from the Ordero design system garden: child switcher, date chip, callout, status pills, meal icons, order lines, stat cards and the cart bar. They live in `src/styles/ds.css` and look the same in every concept.
+- `src/themes/base-light.css` takes the weight out of the shared components.
+- Each direction is one stylesheet in `src/themes/` (its fonts, tokens and a few touches) plus its hero in `src/components/HeroV2.astro`.
+- The app screens shown on the page are built from the Ordero design system's components (`src/styles/ds.css`, `src/components/fragments/`), not screenshots. They look the same in every direction.
+- Once a direction is chosen, the other four can be deleted.
 
 ## Images
 
 - The spot illustrations (ease of use, transparency, control, automated ordering, personalisation, parents, school, caterer), the meal icons and the logo come from the Ordero design system garden.
 - Product mockups, partner logos, store badges and the Business line icons come from the current Wix site. Partner logos were recoloured to one ink colour.
 - There is no food photography.
-- Typefaces are self-hosted in `public/fonts/`, all checked for Lithuanian and Polish letters:
-  - Bricolage Grotesque, Poppins, Nunito, Nunito Sans and Caveat (Google Fonts, SIL Open Font License).
-  - Pilcrow Rounded and Chillax (Fontshare, ITF Free Font License).
+- Typefaces are self-hosted in `public/fonts/` and all checked for Lithuanian and Polish letters: Instrument Sans, Fraunces, Figtree, Gabarito, Onest, Google Sans Flex, Funnel Display, Hanken Grotesk and Nunito Sans (Google Fonts, SIL Open Font License).
 
 ## Design skill
 

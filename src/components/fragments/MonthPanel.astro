@@ -1,0 +1,104 @@
+---
+// The parent's month of meals, built from design-system parts. Plays one small
+// moment on load: Thursday gets ordered and the total updates.
+import type { T } from '../../i18n/content';
+interface Props { t: T }
+const { t } = Astro.props;
+const ui = t.ui;
+// December 2026 starts on a Tuesday; the grid starts on Monday 30 November.
+const cells: { n: number; muted?: boolean; state?: string; weekend?: boolean; today?: boolean }[] = [];
+cells.push({ n: 30, muted: true, state: 'ordered' });
+for (let d = 1; d <= 31; d++) {
+  const dow = d % 7; // 0 = Monday (1 Dec 2026 is a Tuesday)
+  const weekend = dow >= 5;
+  let state = '';
+  if (d === 1) state = 'ordered';
+  if (d === 2) state = 'cancelled';
+  if (d >= 7 && d <= 11) state = 'auto';
+  cells.push({ n: d, weekend, state, today: d === 1 });
+}
+for (let d = 1; d <= 3; d++) cells.push({ n: d, muted: true, weekend: true });
+const rows = [
+  { i: 0, state: 'ordered' }, { i: 1, state: 'ordered' }, { i: 2, state: 'cancelled' }, { i: 3, state: 'none' }, { i: 4, state: 'none' },
+];
+const label = (s: string) => (s === 'ordered' ? ui.ordered : s === 'cancelled' ? ui.cancelled : ui.notOrdered);
+const pill = (s: string) => 'ds-pill' + (s === 'ordered' ? ' ds-pill-positive' : s === 'cancelled' ? ' ds-pill-negative' : '');
+---
+<div class="mp ds-screen" data-ui data-month aria-label={ui.orderTitle}>
+  <div class="ds-top">
+    <span class="ds-child"><span class="ds-avatar" aria-hidden="true">E</span><span><b>{ui.childName}</b><small>{ui.childGroup}</small></span></span>
+    <span class="ds-date"><svg class="ds-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>{ui.range}</span>
+  </div>
+  <div class="mp-body">
+    <div class="ds-card mp-cal">
+      <p class="mp-month">{ui.monthName}</p>
+      <div class="mp-grid">
+        {ui.weekdayShort.map((w) => <span class="mp-wd">{w}</span>)}
+        {cells.map((c) => (
+          <span class:list={['mp-day', c.muted && 'muted', c.weekend && 'weekend', c.state, c.today && 'today']} data-n={!c.muted ? c.n : undefined}>{c.n}</span>
+        ))}
+      </div>
+    </div>
+    <div class="mp-side">
+      <p class="ds-callout"><svg class="ds-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>{ui.cutoff}</p>
+      <ol class="ds-card mp-rows" role="list">
+        {rows.map((r) => (
+          <li class="ds-row" data-row={r.i}>
+            <img class="ds-meal" src="/images/ds/taco.svg" alt="" width="32" height="32" />
+            <span><span class="ds-row-title">{ui.days[r.i]} · {ui.dates[r.i]}</span><span class="ds-row-sub">{ui.lunch} · {ui.lunchDish}</span></span>
+            <span class="ds-row-end"><span class={pill(r.state)} data-pill>{label(r.state)}</span><span class="ds-price">{ui.perDay}</span></span>
+          </li>
+        ))}
+      </ol>
+      <div class="ds-cart">
+        <div><b data-total>10,00 €</b><small data-changes>0 {ui.changeForms[2]}</small></div>
+        <span class="ds-btn">{ui.reviewOrder}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ ordered: ui.ordered, one: ui.changeForms[0] }}>
+  (() => {
+    const panel = document.querySelector('[data-month]');
+    if (!panel || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    setTimeout(() => {
+      panel.querySelector('.mp-day[data-n="3"]')?.classList.add('ordered', 'pop-in');
+      const row = panel.querySelector('[data-row="3"]');
+      const pill = row?.querySelector('[data-pill]');
+      if (pill) { pill.textContent = ordered; pill.className = 'ds-pill ds-pill-positive pop-in'; }
+      row?.classList.add('flash-row');
+      const total = panel.querySelector('[data-total]');
+      if (total) total.textContent = '15,00 €';
+      const ch = panel.querySelector('[data-changes]');
+      if (ch) ch.textContent = '1 ' + one;
+    }, 1600);
+  })();
+</script>
+
+<style>
+  .mp { width: 100%; max-width: 980px; padding: 18px; border-radius: 28px; box-shadow: none; }
+  .mp-body { display: grid; grid-template-columns: 1fr 1.25fr; gap: 14px; align-items: start; }
+  .mp-cal { padding: 16px 16px 12px; }
+  .mp-month { font-weight: 800; font-size: 15px; margin-bottom: 10px; text-align: center; }
+  .mp-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
+  .mp-wd { font-size: 12px; color: var(--ds-text-2); padding-bottom: 4px; }
+  .mp-day { display: grid; place-items: center; height: 34px; border-radius: 10px; font-size: 13.5px; font-weight: 600; font-variant-numeric: tabular-nums; transition: background-color 300ms, color 300ms; }
+  .mp-day.weekend, .mp-day.muted { color: #b4b4bb; }
+  .mp-day.ordered { background: var(--ds-mint); color: #0b3d2e; }
+  .mp-day.auto { background: var(--ds-mint-subtle); color: var(--ds-mint-ink); }
+  .mp-day.cancelled { background: var(--ds-coral-subtle); color: var(--ds-coral-ink); text-decoration: line-through; }
+  .mp-day.today { box-shadow: inset 0 0 0 2px var(--ds-text); }
+  .mp-side { display: grid; gap: 10px; }
+  .mp-side .ds-callout { margin: 0; }
+  .mp-rows { margin: 0; padding: 0; list-style: none; overflow: hidden; }
+  .mp-rows .ds-row { transition: background-color 400ms; }
+  .mp-rows :global(.flash-row) { background: #f3fcf9; }
+  .mp :global(.pop-in) { animation: popin 520ms cubic-bezier(.34,1.56,.64,1); }
+  @keyframes popin { from { transform: scale(0.7); } to { transform: none; } }
+  .mp .ds-cart { margin: 0; }
+  @media (max-width: 860px) {
+    .mp-body { grid-template-columns: 1fr; }
+    .mp-cal { display: none; }
+  }
+</style>

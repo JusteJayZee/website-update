@@ -1,0 +1,41 @@
+/* 4 · Small Cast — a white page where the illustrations are the only play.
+   Google Sans Flex: display at ROND 100 (soft), text at ROND 0. Coral for the one action. */
+@font-face { font-family: 'Google Sans Flex'; src: url('/fonts/GoogleSansFlex-latin.woff2') format('woff2'); font-weight: 1 1000; font-display: swap;  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Google Sans Flex'; src: url('/fonts/GoogleSansFlex-latin-ext.woff2') format('woff2'); font-weight: 1 1000; font-display: swap;  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+html[data-theme='cast']:not(#_) {
+  --bg: #ffffff;
+  --ink: #1b1b1f;
+  --muted: #56565f;
+  --tint: #f7f7f8;
+  --tint-2: #ffffff;
+  --accent: #ff4d5e;
+  --accent-hover: #ff3a4d;
+  --accent-ink: #1b1b1f;
+  --display: 'Google Sans Flex', system-ui, sans-serif;
+  --text: 'Google Sans Flex', system-ui, sans-serif;
+  --dw: 600; --h2w: 600; --h3w: 600; --stat-w: 600; --quote-w: 500;
+  --dtrack: -0.02em;
+  --h1-size: clamp(2.25rem, 1.2rem + 2.6vw, 3.5rem);
+  --s-head: clamp(1.875rem, 1.3rem + 1.6vw, 2.75rem);
+
+  & body { font-variation-settings: 'ROND' 0; }
+  & h1, & h2, & h3, & .platform .name, & .footer .menu a, & .platform dt, & .why dt, & .quotes .big .bubble p, & .btn { font-variation-settings: 'ROND' 100; }
+  & .hv-cast h1 { max-width: 20ch; margin-inline: auto; }
+  & .hv-cast .lead { margin-inline: auto; }
+  /* Illustrations carry the colour: shown large, untilted */
+  & .features .title { flex-direction: column; align-items: start; }
+  & .features .title img { display: block; width: 132px; height: 132px; object-fit: contain; background: none; border: 0; padding: 0; box-shadow: none; }
+  & .features .field { background: #f7f7f8; }
+  & .platform [role='tab'] img { width: 72px; height: 72px; }
+  & .steps .picture { background: #fff !important; }
+  & .steps .picture img { width: min(70%, 420px); }
+  & .steps .clause, & .steps .track { background: #f7f7f8 !important; }
+  & .quotes .bubble { background: transparent !important; padding-left: 0; padding-right: 0; }
+  & .cta .inner { background: #fff !important; }
+  & .footer { grid-template-columns: 1fr 1fr; }
+  & .footer .photo.art { display: block; background: #f7f7f8; }
+  & .footer .side { background: #f7f7f8; grid-template-columns: 1fr; }
+  & .footer .blocks, & .footer .side nav:first-of-type { grid-column: 1; }
+  @media (max-width: 860px) { & .footer { grid-template-columns: 1fr; } }
+}

@@ -1,0 +1,35 @@
+---
+// The caterer's week menu as a typeset sheet; today's row carries a gold marker.
+import type { T } from '../../i18n/content';
+interface Props { t: T; title?: string }
+const { t, title } = Astro.props;
+const ui = t.ui;
+---
+<div class="wm" data-ui>
+  <div class="wm-head"><p class="wm-title">{title ?? ui.menuTitle}</p><span class="ds-pill">{ui.range}</span></div>
+  <ol class="wm-days" role="list">
+    {ui.menu.map((row, i) => (
+      <li class:list={['wm-day', i === 1 && 'today']}>
+        <p class="wm-name">{row[0]}{i === 1 && <span class="wm-today">{ui.today}</span>}</p>
+        <p class="wm-line"><img src="/images/ds/egg.svg" alt="" width="22" height="22" /><span><b>{ui.breakfast}</b> {row[1]}</span></p>
+        <p class="wm-line"><img src="/images/ds/taco.svg" alt="" width="22" height="22" /><span><b>{ui.lunch}</b> {row[2]}</span></p>
+      </li>
+    ))}
+  </ol>
+</div>
+
+<style>
+  .wm { background: #fff; border-radius: 18px; padding: 22px 24px 12px; border: 1px solid var(--ds-border); }
+  .wm-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .wm-title { font-weight: 800; font-size: 17px; }
+  .wm-days { margin: 0; padding: 0; list-style: none; }
+  .wm-day { display: grid; grid-template-columns: 74px 1fr; column-gap: 12px; row-gap: 4px; padding: 12px 10px; border-radius: 12px; }
+  .wm-day + .wm-day { border-top: 1px solid var(--ds-border); }
+  .wm-day.today { background: #fff6d6; border-top-color: transparent; }
+  .wm-day.today + .wm-day { border-top-color: transparent; }
+  .wm-name { grid-row: 1 / span 2; font-weight: 800; font-size: 14px; display: grid; align-content: start; gap: 6px; }
+  .wm-today { justify-self: start; font-size: 11.5px; font-weight: 800; background: var(--ds-gold); color: #3d2c00; padding: 2px 8px; border-radius: 999px; }
+  .wm-line { display: flex; gap: 8px; align-items: start; font-size: 13.5px; color: var(--ds-text-2); }
+  .wm-line b { color: var(--ds-text); font-weight: 700; margin-right: 4px; }
+  .wm-line img { flex: 0 0 auto; margin-top: -1px; }
+</style>

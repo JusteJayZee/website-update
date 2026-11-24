@@ -1,0 +1,38 @@
+/* 3 · Mint Rooms — a white page with a few big, soft mint rooms. Gabarito 600 for display,
+   Onest for text. Full mint in the hero room only; pale mint for two more rooms. */
+@font-face { font-family: 'Gabarito'; src: url('/fonts/Gabarito-latin.woff2') format('woff2'); font-weight: 400 900; font-display: swap;  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Gabarito'; src: url('/fonts/Gabarito-latin-ext.woff2') format('woff2'); font-weight: 400 900; font-display: swap;  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Onest'; src: url('/fonts/Onest-latin.woff2') format('woff2'); font-weight: 100 900; font-display: swap;  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Onest'; src: url('/fonts/Onest-latin-ext.woff2') format('woff2'); font-weight: 100 900; font-display: swap;  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+html[data-theme='rooms']:not(#_) {
+  --bg: #ffffff;
+  --ink: #15201c;
+  --muted: #4b5652;
+  --tint: #f4f7f6;
+  --tint-2: #e8f8f1;
+  --room: #3ecfa3;
+  --pale: #e8f8f1;
+  --accent: #15201c;
+  --accent-hover: #000;
+  --accent-ink: #ffffff;
+  --display: 'Gabarito', system-ui, sans-serif;
+  --text: 'Onest', system-ui, sans-serif;
+  --dw: 600; --h2w: 600; --h3w: 600; --stat-w: 600; --quote-w: 500;
+  --dtrack: -0.03em;
+  --radius: 32px;
+  --h1-size: clamp(2.5rem, 1.2rem + 3.3vw, 4rem);
+
+  & .hv-business { --room: #ffbe00; }
+  & .hv-rooms .lead { color: #15201c; }
+  & .features .field { background: var(--tint); border-radius: 32px; }
+  & .platform .stage { background: var(--pale); border-radius: 32px; }
+  & .platform [role='tab'][aria-selected='true'] { background: var(--pale); }
+  & .steps .split { border-radius: 32px; }
+  & .steps .picture { background: var(--pale) !important; }
+  & .steps .clause, & .steps .track { background: var(--tint) !important; }
+  & .quotes .bubble { border-radius: 28px; }
+  & .cta .inner { background: var(--pale) !important; border-radius: 32px; }
+  & .contact .coupon, & .footer .side { border-radius: 32px; }
+  & .features .switch[aria-checked='true'] .knob { background: #3ecfa3; }
+}

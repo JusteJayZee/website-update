@@ -1,11 +1,12 @@
 ---
 import '../styles/global.css';
 import '../styles/ds.css';
-import '../themes/sticker.css';
-import '../themes/app.css';
-import '../themes/lunchbox.css';
-import '../themes/notebook.css';
-import '../themes/candy.css';
+import '../themes/base-light.css';
+import '../themes/month.css';
+import '../themes/menu.css';
+import '../themes/rooms.css';
+import '../themes/cast.css';
+import '../themes/relay.css';
 import { theme } from '../themes/config';
 import { langs, routes, type Lang } from '../i18n/content';
 
@@ -37,7 +38,6 @@ const hreflang: Record<Lang, string> = { lt: 'lt-lt', en: 'en-us', pl: 'pl-pl' }
     <meta property="og:image" content={site + '/images/og.png'} />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="/favicon.png" type="image/png" />
-    <link rel="preload" href="/fonts/Bricolage-latin.woff2" as="font" type="font/woff2" crossorigin />
     <script is:inline>document.documentElement.classList.add('js');</script>
   </head>
   <body>

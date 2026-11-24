@@ -1,19 +1,13 @@
 ---
 import Stores from './Stores.astro';
-interface Props { h2: string; lines: string[]; image: { src: string; alt: string; w: number; h: number }; field: 'yellow' | 'mint'; stickers?: string[] }
-const { h2, lines, image, field, stickers = [] } = Astro.props;
-const spots = [
-  { tilt: '-12deg', style: 'left:6%;top:9%', delay: '-1s', w: 'clamp(96px, 11vw, 176px)' },
-  { tilt: '10deg', style: 'left:30%;top:16%', delay: '-4s', w: 'clamp(80px, 8vw, 132px)' },
-];
+import PhoneOrder from './fragments/PhoneOrder.astro';
+import LunchOrder from './fragments/LunchOrder.astro';
+import type { T } from '../i18n/content';
+interface Props { t: T; mode: 'kids' | 'business'; h2: string; lines: string[]; field: 'yellow' | 'mint' }
+const { t, mode, h2, lines, field } = Astro.props;
 ---
 <section class={`cta field-${field}`} aria-labelledby="cta-title">
   <div class="inner">
-    {stickers.map((ill, i) => (
-      <span class="spot float" style={`${spots[i].style};width:${spots[i].w};--delay:${spots[i].delay}`} aria-hidden="true">
-        <img class="sticker" src={`/images/${ill}`} alt="" width="560" height="560" loading="lazy" style={`--tilt:${spots[i].tilt}`} />
-      </span>
-    ))}
     <div class="words">
       <h2 id="cta-title" data-reveal data-fit data-fit-min="28">{h2}</h2>
       <div class="lines" data-reveal style="--i:1">
@@ -22,7 +16,7 @@ const spots = [
       <div data-reveal style="--i:2"><Stores /></div>
     </div>
     <div class="pic" data-reveal style="--i:1">
-      <img src={image.src} alt={image.alt} width={image.w} height={image.h} loading="eager" decoding="async" data-drift />
+      <div data-drift>{mode === 'kids' ? <PhoneOrder t={t} /> : <LunchOrder t={t} phone />}</div>
     </div>
   </div>
 </section>
@@ -65,13 +59,13 @@ const spots = [
   h2 { font-size: var(--s-display); line-height: 0.92; letter-spacing: -0.03em; }
   .lines { display: grid; gap: 4px; max-width: 46ch; font-weight: 600; font-size: var(--s-body); }
   .pic { grid-column: 8 / 13; position: relative; display: grid; place-items: end center; padding-top: 48px; }
-  .pic img { width: min(92%, 560px); height: auto; transform-origin: 50% 100%; will-change: transform; margin-bottom: -6%; }
+  .pic [data-drift] { will-change: transform; margin-bottom: -40px; transform-origin: 50% 100%; }
 
   @media (max-width: 860px) {
     .inner { grid-template-columns: 1fr; min-height: 84svh; }
     .words { grid-column: 1; grid-row: 1; align-self: start; padding: 40px 20px 24px; }
     .pic { grid-column: 1; grid-row: 2; padding-top: 0; }
-    .pic img { width: 76%; }
+    .pic [data-drift] { will-change: transform; margin-bottom: -40px; transform-origin: 50% 100%; }
     .spot { display: none; }
   }
 </style>

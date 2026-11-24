@@ -1,0 +1,115 @@
+---
+// One hero per direction. Same copy everywhere; the composition changes.
+import Nav from './Nav.astro';
+import MonthPanel from './fragments/MonthPanel.astro';
+import WeekMenu from './fragments/WeekMenu.astro';
+import PhoneOrder from './fragments/PhoneOrder.astro';
+import RelayPanes from './fragments/RelayPanes.astro';
+import LunchOrder from './fragments/LunchOrder.astro';
+import { theme } from '../themes/config';
+import type { T } from '../i18n/content';
+
+interface Props {
+  t: T;
+  page: 'home' | 'business';
+  h1: string[];
+  lead: string;
+  cta: { label: string; href: string };
+}
+const { t, page, h1, lead, cta } = Astro.props;
+const mode = page === 'home' ? 'kids' : 'business';
+const demo = `${t.routes[page]}#contact`;
+const castKids = ['caterer', 'parents', 'school'];
+const castBiz = ['select', 'caterer', 'pickup'];
+---
+<header class={`hv hv-${theme} hv-${mode}`}>
+  <a class="skip" href="#main">{t.skip}</a>
+  <div class="hv-nav wrap"><Nav t={t} page={page} /></div>
+
+  {theme === 'cast' && (
+    <div class="cast-scene" aria-hidden="true">
+      {(mode === 'kids' ? castKids : castBiz).map((ill, i) => (
+        <img class={`cast-${i}`} src={`/images/ill/${ill}.webp`} alt="" width="630" height="600" />
+      ))}
+    </div>
+  )}
+
+  <div class="hv-inner wrap">
+    <div class="hv-text">
+      <h1 data-reveal style="--i:0" data-fit data-fit-min="30" data-fit-lines="3">
+        {h1.map((line) => <span class="line">{line} </span>)}
+      </h1>
+      <p class="lead" data-reveal style="--i:1">{lead}</p>
+      <p class="actions" data-reveal style="--i:2">
+        <a class="btn" href={cta.href}>{cta.label}<span class="arrow" aria-hidden="true">→</span></a>
+        <a class="quiet" href={demo}>{t.nav.demo}</a>
+      </p>
+    </div>
+
+    {theme !== 'cast' && (
+      <div class="hv-visual" data-reveal style="--i:3">
+        {theme === 'month' && (mode === 'kids' ? <MonthPanel t={t} /> : <LunchOrder t={t} />)}
+        {theme === 'menu' && <WeekMenu t={t} title={mode === 'business' ? `${t.ui.biz.kitchen} · ${t.ui.week}` : undefined} />}
+        {theme === 'rooms' && (mode === 'kids'
+          ? <PhoneOrder t={t} />
+          : <LunchOrder t={t} phone />)}
+        {theme === 'relay' && <RelayPanes t={t} mode={mode} />}
+      </div>
+    )}
+  </div>
+</header>
+
+<style>
+  .hv { position: relative; }
+  .hv-text, .hv-visual { min-width: 0; }
+  .hv-text h1 { overflow-wrap: break-word; }
+  .hv-nav { position: relative; z-index: 3; }
+  h1 { font-size: var(--h1-size, clamp(2.5rem, 1.2rem + 3.4vw, 4rem)); max-width: 100%; }
+  h1 .line { display: block; }
+  .lead { font-size: var(--s-lead-text, 1.1875rem); max-width: 46ch; color: var(--muted-ink, var(--ink)); }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+  .quiet { font-weight: 500; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 0.25em; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); transition: text-decoration-color 160ms; }
+  .quiet:hover { text-decoration-color: currentColor; }
+
+  /* 1 Live Month: headline stacked over the live month, bleeding off the fold */
+  .hv-month .hv-inner { display: grid; gap: 56px; padding-top: clamp(48px, 9vh, 104px); }
+  .hv-month .hv-text { display: grid; gap: 24px; max-width: 980px; }
+  .hv-month .hv-visual { background: var(--tint); border-radius: 28px 28px 0 0; padding: clamp(20px, 3vw, 40px) clamp(20px, 3vw, 40px) 0; display: grid; justify-items: center; }
+  .hv-month.hv-business .hv-visual { padding-bottom: 40px; border-radius: 28px; }
+
+  /* 2 Menu Board: serif headline across, menu sheet pinned below right */
+  .hv-menu .hv-inner { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: 40px; padding-top: clamp(56px, 10vh, 120px); padding-bottom: 32px; }
+  .hv-menu .hv-text { grid-column: 1 / 7; display: grid; gap: 28px; align-content: start; }
+  .hv-menu .hv-visual { grid-column: 7 / 13; }
+
+  /* 3 Mint Rooms: one inset mint room, phone crossing its bottom edge */
+  .hv-rooms .hv-inner { margin: 8px var(--gutter) 0; padding: clamp(48px, 7vw, 96px) clamp(24px, 4vw, 72px) 0; background: var(--room); border-radius: 32px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 40px; align-items: start; }
+  .hv-rooms .hv-text { display: grid; gap: 28px; padding-bottom: clamp(48px, 7vw, 96px); }
+  .hv-rooms .hv-visual { display: grid; justify-items: center; align-self: end; margin-bottom: -88px; position: relative; z-index: 2; }
+  .hv-rooms .hand { width: min(100%, 440px); height: auto; margin-bottom: 88px; }
+  .hv-rooms { padding-bottom: 88px; }
+
+  /* 4 Small Cast: the illustrations as one scene, centred text beneath */
+  .cast-scene { position: relative; height: clamp(220px, 30vh, 340px); max-width: 880px; margin: clamp(24px, 4vh, 48px) auto 0; }
+  .cast-scene img { position: absolute; height: auto; }
+  .cast-0 { width: 30%; left: 2%; bottom: 0; }
+  .cast-1 { width: 32%; left: 34%; bottom: 6%; }
+  .cast-2 { width: 26%; right: 4%; bottom: 0; }
+  .hv-cast .hv-inner { text-align: center; padding-top: 32px; }
+  .hv-cast .hv-text { display: grid; gap: 24px; justify-items: center; }
+  .hv-cast .actions { justify-content: center; }
+
+  /* 5 Relay: ink stage, the loop in three panes */
+  .hv-relay { background: var(--stage); color: #fff; }
+  .hv-relay .hv-inner { display: grid; gap: 64px; padding-top: clamp(48px, 9vh, 104px); padding-bottom: clamp(56px, 8vh, 96px); }
+  .hv-relay .hv-text { display: grid; gap: 24px; max-width: 980px; }
+  .hv-relay .lead { color: rgb(255 255 255 / 0.74); }
+
+  @media (max-width: 960px) {
+    .hv-menu .hv-text, .hv-menu .hv-visual { grid-column: 1 / -1; }
+    .hv-rooms .hv-inner { grid-template-columns: 1fr; }
+    .hv-rooms .hv-visual { margin-bottom: -64px; }
+    .hv-rooms { padding-bottom: 64px; }
+    h1 .line { display: inline; }
+  }
+</style>

@@ -442,6 +442,13 @@ const ui = {
   lt: {
     child: 'Emilija · 2B klasė',
     childName: 'Emilija', childGroup: '2B klasė', range: '11-30 – 12-04',
+    monthName: 'Gruodis 2026', weekdayShort: ['Pr', 'An', 'Tr', 'Kt', 'Pn', 'Št', 'Sk'], today: 'Šiandien',
+    biz: {
+      employee: 'Darbuotojas', kitchen: 'Biuro virtuvė', todayLunch: 'Šiandienos pietūs',
+      pickup: 'Atsiėmimas 12:30 · biuro virtuvė', orderPay: 'Užsakyti ir apmokėti', ready: 'Paruošta',
+      options: [['Sriuba + pagrindinis', '6,90 €', 'Pomidorų sriuba · vištiena su ryžiais'], ['Pagrindinis', '5,50 €', 'Vištiena su ryžiais, salotos']],
+      orders: 'Užsakymai šiandien', people: ['Austėja', 'Mantas', 'Rūta', 'Tomas'],
+    },
     reviewOrder: 'Peržiūrėti užsakymą', changeForms: ['pakeitimas', 'pakeitimai', 'pakeitimų'], regular: 'Įprastas',
     week: '49 savaitė',
     days: ['Pr', 'An', 'Tr', 'Kt', 'Pn'],
@@ -479,6 +486,13 @@ const ui = {
   en: {
     child: 'Emilija · Class 2B',
     childName: 'Emilija', childGroup: 'Class 2B', range: '30 Nov – 4 Dec',
+    monthName: 'December 2026', weekdayShort: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'], today: 'Today',
+    biz: {
+      employee: 'Employee', kitchen: 'Office kitchen', todayLunch: 'Today’s lunch',
+      pickup: 'Pickup 12:30 · office kitchen', orderPay: 'Order & pay', ready: 'Ready',
+      options: [['Soup + main', '6,90 €', 'Tomato soup · chicken with rice'], ['Main', '5,50 €', 'Chicken with rice, salad']],
+      orders: 'Orders today', people: ['Austėja', 'Mantas', 'Rūta', 'Tomas'],
+    },
     reviewOrder: 'Review order', changeForms: ['change', 'changes', 'changes'], regular: 'Regular',
     week: 'Week 49',
     days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
@@ -516,6 +530,13 @@ const ui = {
   pl: {
     child: 'Emilija · Klasa 2B',
     childName: 'Emilija', childGroup: 'Klasa 2B', range: '30.11 – 4.12',
+    monthName: 'Grudzień 2026', weekdayShort: ['Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So', 'Nd'], today: 'Dziś',
+    biz: {
+      employee: 'Pracownik', kitchen: 'Kuchnia biurowa', todayLunch: 'Dzisiejszy lunch',
+      pickup: 'Odbiór 12:30 · kuchnia biurowa', orderPay: 'Zamów i zapłać', ready: 'Gotowe',
+      options: [['Zupa + danie główne', '6,90 €', 'Zupa pomidorowa · kurczak z ryżem'], ['Danie główne', '5,50 €', 'Kurczak z ryżem, sałatka']],
+      orders: 'Zamówienia dziś', people: ['Austėja', 'Mantas', 'Rūta', 'Tomas'],
+    },
     reviewOrder: 'Przejrzyj zamówienie', changeForms: ['zmiana', 'zmiany', 'zmian'], regular: 'Zwykły',
     week: 'Tydzień 49',
     days: ['Pon', 'Wt', 'Śr', 'Czw', 'Pt'],
